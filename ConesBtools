@@ -1,0 +1,1247 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ConesBtools = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local ImageLabel = Instance.new("ImageLabel")
+local UICorner_2 = Instance.new("UICorner")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
+local ToolTipgotopos = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local ToolTip = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+local ToolTipStayPos = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
+local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+local Executor = Instance.new("Frame")
+local Explorer = Instance.new("Frame")
+local TopBar = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
+local TextLabel_2 = Instance.new("TextLabel")
+local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
+local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
+local UICorner_7 = Instance.new("UICorner")
+local Frame_3 = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local InstanceExample = Instance.new("TextButton")
+local ImageLabel_3 = Instance.new("ImageLabel")
+local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
+local UICorner_8 = Instance.new("UICorner")
+local UITextSizeConstraint_6 = Instance.new("UITextSizeConstraint")
+local GoBack = Instance.new("TextButton")
+local ImageLabel_4 = Instance.new("ImageLabel")
+local UIAspectRatioConstraint_10 = Instance.new("UIAspectRatioConstraint")
+local UICorner_9 = Instance.new("UICorner")
+local UITextSizeConstraint_7 = Instance.new("UITextSizeConstraint")
+local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_12 = Instance.new("UIAspectRatioConstraint")
+local Opening = Instance.new("Frame")
+local UICorner_10 = Instance.new("UICorner")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local TextLabel_5 = Instance.new("TextLabel")
+local RCMPS = Instance.new("Frame")
+local UICorner_11 = Instance.new("UICorner")
+local RCMPS_2 = Instance.new("Frame")
+local D = Instance.new("TextButton")
+local UICorner_12 = Instance.new("UICorner")
+local AM = Instance.new("TextButton")
+local UICorner_13 = Instance.new("UICorner")
+local TA = Instance.new("TextButton")
+local UICorner_14 = Instance.new("UICorner")
+local TL = Instance.new("TextButton")
+local UICorner_15 = Instance.new("UICorner")
+local G = Instance.new("TextButton")
+local UICorner_16 = Instance.new("UICorner")
+local UIListLayout_2 = Instance.new("UIListLayout")
+
+--Properties:
+
+ConesBtools.Name = "ConesBtools"
+ConesBtools.Parent = game.CoreGui
+ConesBtools.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ConesBtools.DisplayOrder = 10
+
+Frame.Parent = ConesBtools
+Frame.AnchorPoint = Vector2.new(1, 1)
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.970000029, 0, 0.953000009, 0)
+Frame.Size = UDim2.new(0.138095245, 0, 0.0641509444, 0)
+Frame.Visible = false
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+TextLabel.BackgroundTransparency = 0.600
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.310344815, 0, 0.156862751, 0)
+TextLabel.Size = UDim2.new(0.693486571, 0, 0.686274529, 0)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.Text = "Nothing"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 23.000
+TextLabel.TextWrapped = true
+
+UICorner.CornerRadius = UDim.new(0.150000006, 0)
+UICorner.Parent = TextLabel
+
+UIAspectRatioConstraint.Parent = TextLabel
+UIAspectRatioConstraint.AspectRatio = 5.171
+
+UITextSizeConstraint.Parent = TextLabel
+UITextSizeConstraint.MaxTextSize = 23
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+ImageLabel.BackgroundTransparency = 0.600
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.ClipsDescendants = true
+ImageLabel.Position = UDim2.new(0.0766283497, 0, -0.0392156877, 0)
+ImageLabel.Size = UDim2.new(0.210727975, 0, 1.07843137, 0)
+ImageLabel.Image = "rbxassetid://0"
+
+UICorner_2.CornerRadius = UDim.new(0.150000006, 0)
+UICorner_2.Parent = ImageLabel
+
+ImageLabel_2.Parent = ImageLabel
+ImageLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BackgroundTransparency = 1.000
+ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_2.BorderSizePixel = 0
+ImageLabel_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+ImageLabel_2.Size = UDim2.new(0.800000012, 0, 0.800000012, 0)
+ImageLabel_2.Image = "http://www.roblox.com/asset/?id=0"
+
+UIAspectRatioConstraint_2.Parent = ImageLabel_2
+
+UIAspectRatioConstraint_3.Parent = ImageLabel
+
+UIAspectRatioConstraint_4.Parent = Frame
+UIAspectRatioConstraint_4.AspectRatio = 5.118
+
+ToolTipgotopos.Name = "ToolTipgotopos"
+ToolTipgotopos.Parent = Frame
+ToolTipgotopos.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+ToolTipgotopos.BackgroundTransparency = 0.600
+ToolTipgotopos.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToolTipgotopos.BorderSizePixel = 0
+ToolTipgotopos.Position = UDim2.new(-0.100000001, 0, -0.960784316, 0)
+ToolTipgotopos.Size = UDim2.new(1.09770131, 0, 0.686274529, 0)
+ToolTipgotopos.Visible = false
+ToolTipgotopos.Font = Enum.Font.SourceSansBold
+ToolTipgotopos.Text = "No tooltip here..."
+ToolTipgotopos.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToolTipgotopos.TextScaled = true
+ToolTipgotopos.TextSize = 23.000
+ToolTipgotopos.TextWrapped = true
+
+UICorner_3.CornerRadius = UDim.new(0.150000006, 0)
+UICorner_3.Parent = ToolTipgotopos
+
+UITextSizeConstraint_2.Parent = ToolTipgotopos
+UITextSizeConstraint_2.MaxTextSize = 23
+
+ToolTip.Name = "ToolTip"
+ToolTip.Parent = Frame
+ToolTip.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+ToolTip.BackgroundTransparency = 1.000
+ToolTip.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToolTip.BorderSizePixel = 0
+ToolTip.Position = UDim2.new(-0.100000001, 0, 1.19607842, 0)
+ToolTip.Size = UDim2.new(1.09770131, 0, 0.686274529, 0)
+ToolTip.Font = Enum.Font.SourceSansBold
+ToolTip.Text = "No tooltip here..."
+ToolTip.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToolTip.TextScaled = true
+ToolTip.TextSize = 23.000
+ToolTip.TextTransparency = 1.000
+ToolTip.TextWrapped = true
+
+UICorner_4.CornerRadius = UDim.new(0.150000006, 0)
+UICorner_4.Parent = ToolTip
+
+UITextSizeConstraint_3.Parent = ToolTip
+UITextSizeConstraint_3.MaxTextSize = 23
+
+ToolTipStayPos.Name = "ToolTipStayPos"
+ToolTipStayPos.Parent = Frame
+ToolTipStayPos.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+ToolTipStayPos.BackgroundTransparency = 1.000
+ToolTipStayPos.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToolTipStayPos.BorderSizePixel = 0
+ToolTipStayPos.Position = UDim2.new(-0.100000001, 0, 1.19607842, 0)
+ToolTipStayPos.Size = UDim2.new(1.09770131, 0, 0.686274529, 0)
+ToolTipStayPos.Visible = false
+ToolTipStayPos.Font = Enum.Font.SourceSansBold
+ToolTipStayPos.Text = "No tooltip here..."
+ToolTipStayPos.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToolTipStayPos.TextScaled = true
+ToolTipStayPos.TextSize = 23.000
+ToolTipStayPos.TextTransparency = 1.000
+ToolTipStayPos.TextWrapped = true
+
+UICorner_5.CornerRadius = UDim.new(0.150000006, 0)
+UICorner_5.Parent = ToolTipStayPos
+
+UITextSizeConstraint_4.Parent = ToolTipStayPos
+UITextSizeConstraint_4.MaxTextSize = 23
+
+UIAspectRatioConstraint_5.Parent = ConesBtools
+UIAspectRatioConstraint_5.AspectRatio = 2.377
+
+Executor.Name = "Executor"
+Executor.Parent = ConesBtools
+Executor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Executor.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Executor.BorderSizePixel = 0
+Executor.Position = UDim2.new(0.0216931216, 0, 0.67295599, 0)
+Executor.Size = UDim2.new(0, 473, 0, 219)
+Executor.Visible = false
+
+Explorer.Name = "Explorer"
+Explorer.Parent = ConesBtools
+Explorer.AnchorPoint = Vector2.new(0, 1)
+Explorer.BackgroundColor3 = Color3.fromRGB(43, 10, 10)
+Explorer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Explorer.BorderSizePixel = 0
+Explorer.Position = UDim2.new(0.0100529101, 0, 0.976100624, 0)
+Explorer.Size = UDim2.new(0.250264555, 0, 0.275471687, 0)
+Explorer.Visible = false
+
+TopBar.Name = "TopBar"
+TopBar.Parent = Explorer
+TopBar.BackgroundColor3 = Color3.fromRGB(74, 17, 17)
+TopBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TopBar.BorderSizePixel = 0
+TopBar.Size = UDim2.new(1, 0, 0.141552523, 0)
+
+UICorner_6.CornerRadius = UDim.new(0, 4)
+UICorner_6.Parent = TopBar
+
+Frame_2.Parent = TopBar
+Frame_2.BackgroundColor3 = Color3.fromRGB(74, 17, 17)
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0, 0, 0.774193525, 0)
+Frame_2.Size = UDim2.new(1, 0, 0.225806445, 0)
+
+UIAspectRatioConstraint_6.Parent = Frame_2
+UIAspectRatioConstraint_6.AspectRatio = 67.571
+
+TextLabel_2.Parent = TopBar
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0739956424, 0, 0, 0)
+TextLabel_2.Size = UDim2.new(0.835095167, 0, 1, 0)
+TextLabel_2.Font = Enum.Font.SourceSansSemibold
+TextLabel_2.Text = "Explorer"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 21.000
+TextLabel_2.TextWrapped = true
+
+UITextSizeConstraint_5.Parent = TextLabel_2
+UITextSizeConstraint_5.MaxTextSize = 21
+
+UIAspectRatioConstraint_7.Parent = TextLabel_2
+UIAspectRatioConstraint_7.AspectRatio = 12.742
+
+UIAspectRatioConstraint_8.Parent = TopBar
+UIAspectRatioConstraint_8.AspectRatio = 15.258
+
+UICorner_7.CornerRadius = UDim.new(0, 6)
+UICorner_7.Parent = Explorer
+
+Frame_3.Name = "Frame"
+Frame_3.Parent = Explorer
+Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_3.BackgroundTransparency = 1.000
+Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_3.BorderSizePixel = 0
+Frame_3.Position = UDim2.new(0.0126849897, 0, 0.168949768, 0)
+Frame_3.Selectable = false
+Frame_3.Size = UDim2.new(0.974629998, 0, 0.808219194, 0)
+Frame_3.CanvasSize = UDim2.new(0, 0, 0, 0)
+Frame_3.ScrollBarThickness = 0
+
+UIListLayout.Parent = Frame_3
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 8)
+
+InstanceExample.Name = "InstanceExample"
+InstanceExample.Parent = Frame_3
+InstanceExample.BackgroundColor3 = Color3.fromRGB(130, 30, 30)
+InstanceExample.BorderColor3 = Color3.fromRGB(0, 0, 0)
+InstanceExample.BorderSizePixel = 0
+InstanceExample.LayoutOrder = 1
+InstanceExample.Position = UDim2.new(0.0629065931, 0, 0, 0)
+InstanceExample.Size = UDim2.new(0.937093437, 0, 0, 25)
+InstanceExample.Visible = false
+InstanceExample.Font = Enum.Font.SourceSansSemibold
+InstanceExample.Text = "nil"
+InstanceExample.TextColor3 = Color3.fromRGB(255, 255, 255)
+InstanceExample.TextScaled = true
+InstanceExample.TextSize = 20.000
+InstanceExample.TextWrapped = true
+
+ImageLabel_3.Parent = InstanceExample
+ImageLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_3.BackgroundTransparency = 1.000
+ImageLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_3.BorderSizePixel = 0
+ImageLabel_3.Position = UDim2.new(1.00999999, 0, 0, 0)
+ImageLabel_3.Size = UDim2.new(0.057870362, 0, 1, 0)
+ImageLabel_3.Image = "http://www.roblox.com/asset/?id=86666555037412"
+
+UIAspectRatioConstraint_9.Parent = ImageLabel_3
+
+UICorner_8.CornerRadius = UDim.new(0.200000003, 0)
+UICorner_8.Parent = InstanceExample
+
+UITextSizeConstraint_6.Parent = InstanceExample
+UITextSizeConstraint_6.MaxTextSize = 20
+
+GoBack.Name = "GoBack"
+GoBack.Parent = Frame_3
+GoBack.BackgroundColor3 = Color3.fromRGB(130, 30, 30)
+GoBack.BorderColor3 = Color3.fromRGB(0, 0, 0)
+GoBack.BorderSizePixel = 0
+GoBack.Position = UDim2.new(0.0629065931, 0, 0, 0)
+GoBack.Size = UDim2.new(0.937093437, 0, 0, 25)
+GoBack.Visible = false
+GoBack.Font = Enum.Font.SourceSansSemibold
+GoBack.Text = "Back to parent"
+GoBack.TextColor3 = Color3.fromRGB(255, 255, 255)
+GoBack.TextScaled = true
+GoBack.TextSize = 20.000
+GoBack.TextWrapped = true
+
+ImageLabel_4.Parent = GoBack
+ImageLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_4.BackgroundTransparency = 1.000
+ImageLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_4.BorderSizePixel = 0
+ImageLabel_4.Position = UDim2.new(1.00999999, 0, 0, 0)
+ImageLabel_4.Size = UDim2.new(0.057870362, 0, 1, 0)
+ImageLabel_4.Image = "http://www.roblox.com/asset/?id=126707391392809"
+
+UIAspectRatioConstraint_10.Parent = ImageLabel_4
+
+UICorner_9.CornerRadius = UDim.new(0.200000003, 0)
+UICorner_9.Parent = GoBack
+
+UITextSizeConstraint_7.Parent = GoBack
+UITextSizeConstraint_7.MaxTextSize = 20
+
+UIAspectRatioConstraint_11.Parent = Frame_3
+UIAspectRatioConstraint_11.AspectRatio = 2.605
+
+UIAspectRatioConstraint_12.Parent = Explorer
+UIAspectRatioConstraint_12.AspectRatio = 2.160
+
+Opening.Name = "Opening"
+Opening.Parent = ConesBtools
+Opening.AnchorPoint = Vector2.new(0.5, 0.5)
+Opening.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+Opening.BackgroundTransparency = 0.600
+Opening.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Opening.BorderSizePixel = 0
+Opening.ClipsDescendants = true
+Opening.Position = UDim2.new(0.5, 0, 0.499371082, 0)
+Opening.Size = UDim2.new(0, 392, 0, 196)
+Opening.Visible = false
+
+UICorner_10.Parent = Opening
+
+TextLabel_3.Parent = Opening
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0, 0, 0.10204082, 0)
+TextLabel_3.Size = UDim2.new(0, 392, 0, 50)
+TextLabel_3.Font = Enum.Font.SourceSansBold
+TextLabel_3.Text = "Cones Custom Btools"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 30.000
+
+TextLabel_4.Parent = Opening
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0, 0, 0.423469394, 0)
+TextLabel_4.Size = UDim2.new(0, 392, 0, 41)
+TextLabel_4.Font = Enum.Font.SourceSans
+TextLabel_4.Text = "A nice custom skin for btools."
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextSize = 24.000
+
+TextLabel_5.Parent = Opening
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.Position = UDim2.new(0, 0, 0.704081655, 0)
+TextLabel_5.Size = UDim2.new(0, 392, 0, 41)
+TextLabel_5.Font = Enum.Font.SourceSansSemibold
+TextLabel_5.Text = "Loading..."
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextSize = 24.000
+
+RCMPS.Name = "RCMPS"
+RCMPS.Parent = ConesBtools
+RCMPS.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+RCMPS.BackgroundTransparency = 0.600
+RCMPS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RCMPS.BorderSizePixel = 0
+RCMPS.Position = UDim2.new(0.187301591, 0, 0.435220122, 0)
+RCMPS.Size = UDim2.new(0, 159, 0, 281)
+RCMPS.Visible = false
+
+UICorner_11.CornerRadius = UDim.new(0.0500000007, 0)
+UICorner_11.Parent = RCMPS
+
+RCMPS_2.Name = "RCMPS"
+RCMPS_2.Parent = RCMPS
+RCMPS_2.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+RCMPS_2.BackgroundTransparency = 1.000
+RCMPS_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RCMPS_2.BorderSizePixel = 0
+RCMPS_2.Size = UDim2.new(1, 0, 1, 0)
+
+D.Name = "D"
+D.Parent = RCMPS_2
+D.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+D.BackgroundTransparency = 0.800
+D.BorderColor3 = Color3.fromRGB(0, 0, 0)
+D.BorderSizePixel = 0
+D.Position = UDim2.new(0.0094339624, 0, 0, 0)
+D.Size = UDim2.new(0, 156, 0, 34)
+D.Font = Enum.Font.SourceSansBold
+D.Text = "Delete"
+D.TextColor3 = Color3.fromRGB(255, 255, 255)
+D.TextSize = 20.000
+D.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+UICorner_12.CornerRadius = UDim.new(0.0500000007, 0)
+UICorner_12.Parent = D
+
+AM.Name = "AM"
+AM.Parent = RCMPS_2
+AM.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+AM.BackgroundTransparency = 0.800
+AM.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AM.BorderSizePixel = 0
+AM.Position = UDim2.new(0.0094339624, 0, 0, 0)
+AM.Size = UDim2.new(0, 156, 0, 34)
+AM.Font = Enum.Font.SourceSansBold
+AM.Text = "Add Meshes"
+AM.TextColor3 = Color3.fromRGB(255, 255, 255)
+AM.TextSize = 20.000
+AM.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+UICorner_13.CornerRadius = UDim.new(0.0500000007, 0)
+UICorner_13.Parent = AM
+
+TA.Name = "TA"
+TA.Parent = RCMPS_2
+TA.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+TA.BackgroundTransparency = 0.800
+TA.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TA.BorderSizePixel = 0
+TA.Position = UDim2.new(0.0094339624, 0, 0, 0)
+TA.Size = UDim2.new(0, 156, 0, 34)
+TA.Font = Enum.Font.SourceSansBold
+TA.Text = "Toggle Anchor"
+TA.TextColor3 = Color3.fromRGB(255, 255, 255)
+TA.TextSize = 20.000
+TA.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+UICorner_14.CornerRadius = UDim.new(0.0500000007, 0)
+UICorner_14.Parent = TA
+
+TL.Name = "TL"
+TL.Parent = RCMPS_2
+TL.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+TL.BackgroundTransparency = 0.800
+TL.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TL.BorderSizePixel = 0
+TL.Position = UDim2.new(0.0094339624, 0, 0, 0)
+TL.Size = UDim2.new(0, 156, 0, 34)
+TL.Font = Enum.Font.SourceSansBold
+TL.Text = "Toggle Lock"
+TL.TextColor3 = Color3.fromRGB(255, 255, 255)
+TL.TextSize = 20.000
+TL.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+UICorner_15.CornerRadius = UDim.new(0.0500000007, 0)
+UICorner_15.Parent = TL
+
+G.Name = "G"
+G.Parent = RCMPS_2
+G.BackgroundColor3 = Color3.fromRGB(13, 13, 13)
+G.BackgroundTransparency = 0.800
+G.BorderColor3 = Color3.fromRGB(0, 0, 0)
+G.BorderSizePixel = 0
+G.Position = UDim2.new(0.0094339624, 0, 0, 0)
+G.Size = UDim2.new(0, 156, 0, 34)
+G.Font = Enum.Font.SourceSansBold
+G.Text = "Group"
+G.TextColor3 = Color3.fromRGB(255, 255, 255)
+G.TextSize = 20.000
+G.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+UICorner_16.CornerRadius = UDim.new(0.0500000007, 0)
+UICorner_16.Parent = G
+
+UIListLayout_2.Parent = RCMPS_2
+UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_2.Padding = UDim.new(0, 8)
+
+-- Scripts:
+Opening.Visible = true
+for i = 1,15 do wait() end
+Frame.Visible = true
+local function FJZY_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	local Tweninfo = TweenInfo.new(0.25,Enum.EasingStyle.Exponential,Enum.EasingDirection.In,0,false,0)
+	local Tweninfo1 = TweenInfo.new(0.25,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0)
+	local Tweninfo2 = TweenInfo.new(0.4,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0)
+	local Tweninfo3 = TweenInfo.new(0.4,Enum.EasingStyle.Exponential,Enum.EasingDirection.In,0,false,0)
+	local TweenService = game:GetService("TweenService")
+	local AllowSwitch = true
+	
+	local function CallAPI(argsxsxs) --Will Yield
+		if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
+			game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+		else
+			game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+		end
+	end
+	local CLP = {}
+	local function NewChildLockedPart(bp : BasePart)
+		table.insert(CLP,bp)
+		local drd = false
+		local Continue = true	
+		task.spawn(function()
+			while task.wait() do
+				if table.find(CLP,bp) == nil then
+					Continue = false
+					break
+				end
+			end
+		end)
+		local function re(ins)
+			if ins == bp and not drd then
+				drd = true
+				CallAPI({"CreateGroup","Model",bp.Parent,{bp}})
+				CallAPI({"Ungroup",{bp.Parent}})
+				wait()
+				if bp == nil or bp.Parent == nil or bp.Parent.Parent == nil then
+					drd = false
+					re()
+					warn("Failed to refit, Retrying")
+				end
+				drd = false
+			end
+		end
+		game.Workspace.DescendantRemoving:Connect(re)
+	end
+	
+	local function RemoveChildLockedPart(bp)
+		local s,e = pcall(function()
+			table.remove(CLP,table.find(CLP,bp))
+		end)
+		if s then else
+			warn("Error with removing child locked part, "..e)
+		end
+	end
+	
+	local function SwapoutWithNewImageId(imageid : string,backwards : boolean)
+		task.spawn(function()
+			AllowSwitch = false
+			if backwards then
+				local clone = script.Parent.ImageLabel.ImageLabel:Clone()
+				local og = script.Parent.ImageLabel.ImageLabel
+				clone.ImageTransparency = 1
+				clone.Image = imageid
+				clone.Position = UDim2.new(0,0,0.5,0)
+				clone.Parent = script.Parent.ImageLabel
+				TweenService:Create(og,Tweninfo,{Position = UDim2.new(1,0,0.5,0)}):Play()
+				TweenService:Create(og,Tweninfo, {ImageTransparency = 1}):Play()
+				task.wait(0.17)
+				local Sound = Instance.new("Sound",game:GetService("SoundService"))
+				Sound.SoundId = "rbxassetid://6324790483"
+				Sound.Volume = 0.5
+				Sound.PlayOnRemove = true
+				Sound:Destroy()
+				TweenService:Create(clone,Tweninfo1,{Position = UDim2.new(0.5,0,0.5,0)}):Play()
+				TweenService:Create(clone,Tweninfo1,{ImageTransparency = 0}):Play()
+				task.wait(0.1)
+				AllowSwitch = true
+				og:Destroy()
+			else
+				local clone = script.Parent.ImageLabel.ImageLabel:Clone()
+				local og = script.Parent.ImageLabel.ImageLabel
+				clone.ImageTransparency = 1
+				clone.Image = imageid
+				clone.Position = UDim2.new(1,0,0.5,0)
+				clone.Parent = script.Parent.ImageLabel
+				TweenService:Create(og,Tweninfo,{Position = UDim2.new(0,0,0.5,0)}):Play()
+				TweenService:Create(og,Tweninfo, {ImageTransparency = 1}):Play()
+				task.wait(0.17)
+				local Sound = Instance.new("Sound",game:GetService("SoundService"))
+				Sound.SoundId = "rbxassetid://6324790483"
+				Sound.Volume = 0.5
+				Sound.PlayOnRemove = true
+				Sound:Destroy()
+				TweenService:Create(clone,Tweninfo1,{Position = UDim2.new(0.5,0,0.5,0)}):Play()
+				TweenService:Create(clone,Tweninfo1,{ImageTransparency = 0}):Play()
+				task.wait(0.1)
+				AllowSwitch = true
+				og:Destroy()
+			end
+		end)
+	end
+	
+	local SelectedParts = {}
+	local HighlightedParts = {}
+	local RGBColor = Color3.fromHSV(0, 0.701961, 1)
+	local AV = 0
+	task.spawn(function()
+		while task.wait() do
+			RGBColor = Color3.fromHSV(AV / 255, 0.701961, 1)
+			AV = AV + 0.5
+			if AV > 255 then
+				AV = 0
+			end
+		end
+	end)
+	local function MakeNewEmptyPart(s)
+		local PartRet = nil 
+		local lx = false
+		local NewPartArgs = {
+			[1] = "CreatePart",
+			[2] = "Normal",
+			[3] = CFrame.new(5039,9e9,9e9),
+			[4] = game.Workspace
+		}
+		if s then NewPartArgs[2] = "Seat" end
+		local function childaddedyieldfornewpart(ins)
+			if not lx and ins:IsA("BasePart") then
+				lx = true
+				func:Disconnect()
+				PartRet = ins
+			end
+		end
+		func = game.Workspace.ChildAdded:Connect(childaddedyieldfornewpart)
+		CallAPI(NewPartArgs)
+		local CallWraps = false
+		local FoundPart = false
+		task.spawn(function()
+			task.wait(4)
+			if not FoundPart then
+				warn("Discontinued Finding Part, Timed out.")
+				CallWraps = true
+			end
+		end)
+		while task.wait() do
+			if CallWraps or FoundPart then
+				break
+			else
+				if PartRet ~= nil then
+					FoundPart = true
+				end
+			end
+		end
+		if CallWraps then
+			return
+		end
+		return PartRet
+	end
+	local function SetSelected(tableofinstances)
+		for i,v in pairs(script.Parent:GetChildren()) do
+			if v:IsA("SelectionBox") then
+				v:Destroy()
+			end
+		end
+		SelectedParts = tableofinstances
+		for i,v in pairs(SelectedParts) do
+			local SelectBox = Instance.new("SelectionBox",script.Parent)
+			SelectBox.Name = "SelectionBox"
+			SelectBox.LineThickness = 0.06
+			SelectBox.SurfaceTransparency = 0.7
+			task.spawn(function()
+				while task.wait() do
+					SelectBox.Color3 = RGBColor
+					SelectBox.SurfaceColor3 = RGBColor
+				end
+			end)
+			SelectBox.Adornee = v
+		end
+	end
+	local TooltipActive = false
+	local ShiftDown = false
+	local ChildLockedParts = {
+	}
+	
+	local Sections = {
+		"http://www.roblox.com/asset/?id=0", --Nothing
+		"http://www.roblox.com/asset/?id=77380219765732", --Move
+		"http://www.roblox.com/asset/?id=118749876504114", --Scale
+		"http://www.roblox.com/asset/?id=103327540405132", --Kill Player
+		"http://www.roblox.com/asset/?id=108841213145377", --Unrestricted Selection
+		"http://www.roblox.com/asset/?id=103327540405132", --Silent Kill
+		"http://www.roblox.com/asset/?id=119661920612376", --Delete
+		"http://www.roblox.com/asset/?id=140705327336360", --Executor 
+		"http://www.roblox.com/asset/?id=94021734614346", --Child Lock 
+		"http://www.roblox.com/asset/?id=129172982664113", --Crash Server
+		"http://www.roblox.com/asset/?id=79783962646130" --Instance Explorer
+	}
+	local SectionNames = {
+		"Nothing",
+		"Move",
+		"Scale",
+		"Kill Player",
+		"Powerful Selection",
+		"Silent Kill",
+		"Delete",
+		"Internal Executor",
+		"Child Lock",
+		"Crash Server",
+		"Instance Explorer"
+	}
+	local SectionDetails = {
+		"No tool, Use if your using btools for some reason.",
+		"Allows you to move a part you selected. (Select first)",
+		"Scale the part you selected freely. (Select first)",
+		"Kills the player you click on.",
+		"A Really Powerful Selection.",
+		"Silently kills a person, Making them look like they left or just dissapeared.",
+		"Deletes any part you click on.",
+		"Shows an internal executor that allows you to run special F3X commands.",
+		"Prevents anyone from even modifying your locked parts.\n[Also Deleting]",
+		"Use this as a last resort or if you really hate somebody.",
+		"Allows you to see all F3X Supported parts."
+	}
+	local CurrentSection = 1
+	local Active = true
+	local TempCalledSectionId = 0 --For a little time, it will call in SectionNames pearsing through just like SectionNames[CalledNumber]
+	local TempCalledSectionName = "" --For a little time, it will call in SectionNames pearsing through with the value til it gets it.
+	local RightClickSections = {
+		--Example: "namehere|sectionid"
+	}
+	local SelectedPart = nil
+	script.Parent.Parent.RCMPS.RCMPS.D.MouseButton1Click:Connect(function()
+		if SelectedPart ~= nil then
+			CallAPI({"Remove",{SelectedPart}})
+			script.Parent.Parent.RCMPS.Visible = false
+		end
+	end)
+	script.Parent.Parent.RCMPS.RCMPS.TA.MouseButton1Click:Connect(function()
+		if SelectedPart ~= nil then
+			if SelectedPart.Anchored == false then
+				CallAPI({"SyncAnchor",{{["Part"] = SelectedPart,["Anchored"] = true}}})
+				script.Parent.Parent.RCMPS.Visible = false
+			else
+				CallAPI({"SyncAnchor",{{["Part"] = SelectedPart,["Anchored"] = false}}})
+				script.Parent.Parent.RCMPS.Visible = false
+			end
+		end
+	end)
+	script.Parent.Parent.RCMPS.RCMPS.AM.MouseButton1Click:Connect(function()
+		if SelectedPart ~= nil then
+			CallAPI({"CreateMeshes",{SelectedPart}})
+			script.Parent.Parent.RCMPS.Visible = false
+		end
+	end)
+	script.Parent.Parent.RCMPS.RCMPS.TL.MouseButton1Click:Connect(function()
+		if SelectedPart ~= nil then
+			if SelectedPart.Locked == false then
+				CallAPI({"SetLocked",{SelectedPart},true})
+				script.Parent.Parent.RCMPS.Visible = false
+			else
+				CallAPI({"SetLocked",{SelectedPart},false})
+				script.Parent.Parent.RCMPS.Visible = false
+			end
+		end
+	end)
+	script.Parent.Parent.RCMPS.RCMPS.G.MouseButton1Click:Connect(function()
+		if SelectedPart ~= nil then
+			CallAPI({"CreateGroup","Model",game.Workspace,{SelectedPart}})
+			script.Parent.Parent.RCMPS.Visible = false
+		end
+	end)
+	local function AddNewButtonFunctionality(usingname : boolean,idorname,userightclick :boolean,functionn)
+		task.spawn(function()
+			if userightclick and usingname then
+				local ID = nil
+				for i,v in pairs(SectionNames) do
+					if v == idorname then
+						ID = i
+					end
+				end
+				table.insert(RightClickSections,idorname.."|"..ID)
+			elseif userightclick and not usingname then
+				local Name = nil
+				for i,v in pairs(SectionNames) do
+					if i == idorname then
+						Name = v
+					end
+				end
+				table.insert(RightClickSections,Name.."|"..idorname)
+			end
+			if usingname then
+				while task.wait() do
+					while task.wait() do
+						if TempCalledSectionName == idorname then
+							TempCalledSectionName = ""
+							TempCalledSectionId = 0
+							break
+						end
+					end
+					functionn()
+				end
+			else
+				while task.wait() do
+					while task.wait() do
+						if TempCalledSectionId == idorname then
+							TempCalledSectionName = ""
+							TempCalledSectionId = 0
+							break
+						end
+					end
+					functionn()
+				end
+			end
+		end)
+	end
+	--//Initialize Functionality\\--
+	AddNewButtonFunctionality(true,"Kill Player",false,function()
+		if game.Players.LocalPlayer:GetMouse().Target.Parent:FindFirstChild("Humanoid") or game.Players.LocalPlayer:GetMouse().Target.Parent.Parent:FindFirstChild("Humanoid") or game.Players.LocalPlayer:GetMouse().Target.Parent:FindFirstChild("Head") or game.Players.LocalPlayer:GetMouse().Target.Parent.Parent:FindFirstChild("Head") then
+			local args = {
+				[1] = "SetName",
+				[2] = {
+					[1] = game.Players.LocalPlayer:GetMouse().Target.Parent:FindFirstChild("Head") or game.Players.LocalPlayer:GetMouse().Target.Parent.Parent:FindFirstChild("Head")
+				},
+				[3] = "Head "
+			}
+			CallAPI(args)
+			local Sound = Instance.new("Sound",game:GetService("SoundService"))
+			Sound.SoundId = "rbxassetid://11900833"
+			Sound.Volume = 0.5
+			Sound.PlayOnRemove = true
+			Sound:Destroy()
+			local args = {
+				[1] = "SetName",
+				[2] = {
+					[1] = game.Players.LocalPlayer:GetMouse().Target.Parent:FindFirstChild("Head") or game.Players.LocalPlayer:GetMouse().Target.Parent.Parent:FindFirstChild("Head")
+				},
+				[3] = "Head"
+			}
+			CallAPI(args)
+		end
+	end)
+	AddNewButtonFunctionality(true,"Powerful Selection",false, function()
+		local raycast = {
+			["Instance"] = game.Players.LocalPlayer:GetMouse().Target
+		}
+	
+		--local raycast = game.Workspace:Raycast(Vector3.new(game.Players.LocalPlayer:GetMouse().Hit.Position.X,game.Players.LocalPlayer:GetMouse().Hit.Position.Y + 0.01,game.Players.LocalPlayer:GetMouse().Hit.Position.Z),game.Players.LocalPlayer:GetMouse().Hit.Position - Vector3.new(game.Players.LocalPlayer:GetMouse().Hit.Position.X,game.Players.LocalPlayer:GetMouse().Hit.Position.Y + 50,game.Players.LocalPlayer:GetMouse().Hit.Position.Z),params)
+		print(raycast)
+		if raycast and raycast.Instance ~= nil then
+			if not ShiftDown then
+				if table.find(SelectedParts,raycast.Instance) then
+					SetSelected({})	
+				else
+					SetSelected({raycast.Instance})
+				end
+			else
+				if table.find(SelectedParts,raycast.Instance) then
+					print("clicked on a already selected part")
+					table.remove(SelectedParts,table.find(SelectedParts,raycast.Instance))
+					raycast.Instance = nil
+				end
+				local t = {}
+				for i,v in pairs(SelectedParts) do
+					table.insert(t,v)
+				end
+				if table.find(t,raycast.Instance) then table.remove(t,raycast.Instance) table.remove(t,raycast.Instance) else
+					table.insert(t,raycast.Instance)
+				end
+				SetSelected(t)
+			end
+		else
+			SetSelected({})
+		end
+		local Sound = Instance.new("Sound",game:GetService("SoundService"))
+		Sound.SoundId = "rbxassetid://12221976"
+		Sound.Volume = 0.5
+		Sound.PlayOnRemove = true
+		Sound:Destroy()
+	end)
+	AddNewButtonFunctionality(true,"Silent Kill",false,function()
+		if game.Players.LocalPlayer:GetMouse().Target.Parent:FindFirstChild("Humanoid") or game.Players.LocalPlayer:GetMouse().Target.Parent.Parent:FindFirstChild("Humanoid") or game.Players.LocalPlayer:GetMouse().Target.Parent:FindFirstChild("Head") or game.Players.LocalPlayer:GetMouse().Target.Parent.Parent:FindFirstChild("Head") then
+			local args = {
+				[1] = "SyncResize",
+				[2] = {},
+			}
+			for i,v in pairs(game.Players.LocalPlayer:GetMouse().Target.Parent:GetDescendants()) do
+				table.insert(args[2],{["Part"] = v,["CFrame"] = CFrame.new(12e12,12e12,0),["Size"] = Vector3.new(0.01,0.01,0.01)})
+			end
+			CallAPI(args)
+			local Sound = Instance.new("Sound",game:GetService("SoundService")) :: Sound
+			Sound.SoundId = "rbxassetid://11900833"
+			Sound.Volume = 0.5
+			Sound.PlaybackSpeed = 0.8
+			Sound.PlayOnRemove = true
+			Sound:Destroy()
+		end
+	end)
+	AddNewButtonFunctionality(true,"Delete",false,function()
+		if game.Players.LocalPlayer:GetMouse().Target ~= nil then
+			CallAPI({[1] = "Remove",[2] = {[1] = game.Players.LocalPlayer:GetMouse().Target}})
+			local Sound = Instance.new("Sound",game:GetService("SoundService"))
+			Sound.SoundId = "rbxassetid://12222140"
+			Sound.Volume = 0.7
+			Sound.PlayOnRemove = true
+			Sound:Destroy()
+		end
+	end)
+	AddNewButtonFunctionality(true,"Crash Server",false,function()
+		local Sound = Instance.new("Sound",game:GetService("SoundService"))
+		Sound.SoundId = "rbxassetid://12221984"
+		Sound.Volume = 0.7
+		Sound.PlayOnRemove = true
+		Sound:Destroy()
+		task.spawn(function()
+			local CloningPart = MakeNewEmptyPart()
+			local arg = {
+				[1] = "Clone",
+				[2] = {
+	
+				},
+				[3] = game.Workspace
+			}
+			for i = 1,50000 do
+				table.insert(arg[2],CloningPart)
+			end
+			while task.wait() do
+				CallAPI(arg)
+			end
+		end)
+	end)
+	AddNewButtonFunctionality(true,"Instance Explorer",false,function()
+		local Sound = Instance.new("Sound",game:GetService("SoundService"))
+		Sound.SoundId = "rbxassetid://12221944"
+		Sound.Volume = 0.7
+		Sound.PlayOnRemove = true
+		Sound:Destroy()
+		if script.Parent.Parent.Explorer.Visible == false then
+			script.Parent.Parent.Explorer.Visible = true
+		else
+			script.Parent.Parent.Explorer.Visible = false
+		end
+	end)
+	AddNewButtonFunctionality(true,"Child Lock",false,function()
+		local BP = game.Players.LocalPlayer:GetMouse().Target
+		if BP and table.find(CLP,BP) == nil then
+			NewChildLockedPart(BP)
+		elseif BP then
+			RemoveChildLockedPart(BP)
+		end
+	end)
+	--//Initialize Functionality\\--
+	game:GetService("UserInputService").InputBegan:Connect(function(inp,gpe)
+		if inp.KeyCode == Enum.KeyCode.LeftControl then
+			ShiftDown = true
+		end
+		if inp.KeyCode == Enum.KeyCode.Q and not gpe and AllowSwitch then
+			if TooltipActive then
+				local Sound = Instance.new("Sound",game:GetService("SoundService"))
+				Sound.SoundId = "rbxassetid://12221967"
+				Sound.Volume = 0.6
+				Sound.PlayOnRemove = true
+				Sound:Destroy()
+	
+				TweenService:Create(script.Parent.ToolTip,Tweninfo3,{Position = script.Parent.ToolTipStayPos.Position,TextTransparency = 1,BackgroundTransparency = 1}):Play()
+				TooltipActive = false
+			end
+			if Sections[CurrentSection - 1] == nil then
+				SwapoutWithNewImageId(Sections[#Sections],true)
+				CurrentSection = #Sections
+				task.wait(0.2)
+				script.Parent.TextLabel.Text = SectionNames[CurrentSection]
+			else
+				SwapoutWithNewImageId(Sections[CurrentSection - 1],true)
+				CurrentSection = CurrentSection - 1
+				task.wait(0.2)
+				script.Parent.TextLabel.Text = SectionNames[CurrentSection]
+			end
+		end
+		if inp.KeyCode == Enum.KeyCode.E and not gpe and AllowSwitch then
+			if TooltipActive then
+				local Sound = Instance.new("Sound",game:GetService("SoundService"))
+				Sound.SoundId = "rbxassetid://12221967"
+				Sound.Volume = 0.6
+				Sound.PlayOnRemove = true
+				Sound:Destroy()
+	
+				TweenService:Create(script.Parent.ToolTip,Tweninfo3,{Position = script.Parent.ToolTipStayPos.Position,TextTransparency = 1,BackgroundTransparency = 1}):Play()
+				TooltipActive = false
+			end
+			if Sections[CurrentSection + 1] == nil then
+				SwapoutWithNewImageId(Sections[1],false)
+				CurrentSection = 1
+				task.wait(0.2)
+				script.Parent.TextLabel.Text = SectionNames[CurrentSection]
+			else
+				SwapoutWithNewImageId(Sections[CurrentSection + 1],false)
+				CurrentSection = CurrentSection + 1
+				task.wait(0.2)
+				script.Parent.TextLabel.Text = SectionNames[CurrentSection]
+			end
+		end
+	
+		if inp.KeyCode == Enum.KeyCode.X and not gpe then
+			if not TooltipActive then
+				local Sound = Instance.new("Sound",game:GetService("SoundService"))
+				Sound.SoundId = "rbxassetid://12221967"
+				Sound.Volume = 0.6
+				Sound.PlayOnRemove = true
+				Sound:Destroy()
+				script.Parent.ToolTip.Text = SectionDetails[CurrentSection]
+				TweenService:Create(script.Parent.ToolTip,Tweninfo2,{Position = script.Parent.ToolTipgotopos.Position,TextTransparency = 0,BackgroundTransparency = 0.6}):Play()
+				TooltipActive = true
+			else
+				local Sound = Instance.new("Sound",game:GetService("SoundService"))
+				Sound.SoundId = "rbxassetid://12221967"
+				Sound.Volume = 0.6
+				Sound.PlayOnRemove = true
+				Sound:Destroy()
+	
+				TweenService:Create(script.Parent.ToolTip,Tweninfo3,{Position = script.Parent.ToolTipStayPos.Position,TextTransparency = 1,BackgroundTransparency = 1}):Play()
+				TooltipActive = false
+			end
+		end
+	end)
+	
+	game:GetService("UserInputService").InputEnded:Connect(function(inp)
+		if inp.KeyCode == Enum.KeyCode.LeftControl then
+			ShiftDown = false
+		end
+	end)
+	
+	local LateCameraCF = game.Workspace.CurrentCamera.CFrame
+	task.spawn(function()
+		while task.wait(0.05) do
+			LateCameraCF = game.Workspace.CurrentCamera.CFrame
+		end
+	end)
+	
+	game:GetService("Players").LocalPlayer:GetMouse().Button1Up:Connect(function()
+		if table.find(RightClickSections,SectionNames[CurrentSection].."|"..CurrentSection) then else
+			TempCalledSectionId = CurrentSection
+			TempCalledSectionName = SectionNames[CurrentSection]
+		end
+		--//Call Initialized Functions\\-- 
+	end)
+	game:GetService("Players").LocalPlayer:GetMouse().Button2Down:Connect(function()
+		if table.find(RightClickSections,SectionNames[CurrentSection].."|"..CurrentSection) then
+			TempCalledSectionId = CurrentSection
+			TempCalledSectionName = SectionNames[CurrentSection]
+		end
+		--//Added this since i couldnt do it normally\\--
+		if SectionNames[CurrentSection] == "Powerful Selection" then
+			if game.Players.LocalPlayer:GetMouse().Target ~= nil then
+				wait()
+				if LateCameraCF == game.Workspace.CurrentCamera.CFrame then
+				script.Parent.Parent.RCMPS.Position = UDim2.new(0,game.Players.LocalPlayer:GetMouse().X,0,game.Players.LocalPlayer:GetMouse().Y)
+				SelectedPart = game.Players.LocalPlayer:GetMouse().Target
+				if script.Parent.Parent.RCMPS.Visible == false then
+					script.Parent.Parent.RCMPS.Visible = true
+				else
+					script.Parent.Parent.RCMPS.Visible = false
+					end
+					end
+			end
+		end
+	end)
+end
+coroutine.wrap(FJZY_fake_script)()
+local function QQLK_fake_script() -- Frame_3.LocalScript 
+	local script = Instance.new('LocalScript', Frame_3)
+
+	local Icons = {
+		["Unfound Class"] = "http://www.roblox.com/asset/?id=86666555037412",
+		["Part"] = "http://www.roblox.com/asset/?id=128736648980430",
+		["BasePart"] = "http://www.roblox.com/asset/?id=128736648980430",
+		["MeshPart"] = "http://www.roblox.com/asset/?id=89127677698494",
+		["Model"] = "http://www.roblox.com/asset/?id=112460965108339",
+		["Folder"] = "http://www.roblox.com/asset/?id=136851611126672",
+		["Seat"] = "http://www.roblox.com/asset/?id=84638541845125",
+		["Light"] = "http://www.roblox.com/asset/?id=94423120930012",
+		["SpotLight"] = "http://www.roblox.com/asset/?id=94423120930012",
+		["PointLight"] = "http://www.roblox.com/asset/?id=94423120930012",
+		["UnionOperation"] = "http://www.roblox.com/asset/?id=136896600151322"
+	}
+	
+	local CurrentPage = game.Workspace
+	
+	local function LoadPage(instance)
+		-- Check if instance and its parent exist, otherwise return to Workspace
+		if instance == nil or instance.Parent == nil then
+			warn("Instance or its parent no longer exists. Returning to Workspace.")
+			instance = game.Workspace
+		end
+	
+		CurrentPage = instance
+		script.Parent.GoBack.Visible = (CurrentPage ~= game.Workspace)
+	
+		-- Clear previous instance buttons
+		for _, v in pairs(script.Parent:GetChildren()) do
+			if v:IsA("TextButton") and v.Name == "Instance" then
+				v:Destroy()
+			end
+		end
+	
+		wait()
+	
+		for _, v in pairs(instance:GetChildren()) do
+			local icon = Icons[v.ClassName]--Icons["Unfound Class"] -- Default to "Unfound Class" icon if not found
+			if icon then
+				-- Create button for approved instances
+				local ClonePart = script.Parent.InstanceExample:Clone()
+				ClonePart.Name = "Instance"
+				ClonePart.Parent = script.Parent
+				ClonePart.Text = v.Name
+				ClonePart.ImageLabel.Image = icon
+	
+				ClonePart.MouseButton1Click:Connect(function()
+					LoadPage(v)
+					CurrentPage = v
+				end)
+				ClonePart.Visible = true
+			else
+				warn("Unsupported Icon for Class: " .. v.ClassName)
+			end
+		end
+	end
+	
+	script.Parent.GoBack.MouseButton1Click:Connect(function()
+		if CurrentPage ~= game.Workspace then
+			LoadPage(CurrentPage.Parent)
+		end
+	end) 
+	
+	local scrollingFrame = script.Parent -- Replace with the path to your ScrollingFrame
+	local listLayout = scrollingFrame:FindFirstChildOfClass("UIListLayout")
+	
+	local function updateCanvasSize()
+		-- Get total number of buttons and spacing
+		local buttonCount = #scrollingFrame:GetChildren() - 1 -- excluding non-button elements like UIListLayout
+		local buttonHeight = 25 -- Offset height of each button on Y-axis
+		local spacing = listLayout.Padding.Offset -- Offset of spacing between buttons
+	
+		-- Calculate required canvas size and subtract the extra offset
+		local totalHeight = (buttonCount * buttonHeight) + ((buttonCount - 1) * spacing) - 129
+		scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
+	end
+	
+	-- Connect function to update when children change
+	listLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(updateCanvasSize)
+	scrollingFrame.ChildAdded:Connect(updateCanvasSize)
+	scrollingFrame.ChildRemoved:Connect(updateCanvasSize)
+	
+	-- Initial call to set canvas size
+	updateCanvasSize()
+	
+	LoadPage(game.Workspace)
+end
+coroutine.wrap(QQLK_fake_script)()
+local function MNTSCRP_fake_script() -- Explorer.Smooth GUI Dragging 
+	local script = Instance.new('LocalScript', Explorer)
+
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+	
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (10); -- // The speed of the UI darg.
+	function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+	
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+	
+	script.Parent.TopBar.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	runService.Heartbeat:Connect(Update)
+end
+coroutine.wrap(MNTSCRP_fake_script)()
+task.wait(3)
+Opening.Visible = false
