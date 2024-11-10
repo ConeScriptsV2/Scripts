@@ -527,16 +527,15 @@ local function EKGOI_fake_script() -- Frame.UserCode
 	local IsAdmin = false
 	local SupportedGames = {2248834135}
 	local Supported = false
-	task.spawn(function()
-	if isfile("specialkey.cmk") then
+	if isfile("specialkeyconeshub.cmk") then
 		local Auth = false
 		for i,v in pairs(game:HttpGet("https://pastebin.com/raw/dhgxdeq1"):split("|")) do
-			if readfile("specialkey.cmk") == v then
+			if readfile("specialkeyconeshub.cmk") == v then
 				IsAdmin = true
+				print("admin")
 			end
 		end
 		end
-		end)
 	for i,v in pairs(SupportedGames) do
 		if game.GameId == v then
 			Supported = true
@@ -1433,11 +1432,11 @@ local function EKGOI_fake_script() -- Frame.UserCode
 					end
 					if typeof(AuthorizedKey) == "string" then
 						IsAdmin = true
-						writefile("specialkey.cmk",AuthorizedKey)
+						writefile("specialkeyconeshub.cmk",AuthorizedKey)
 						NewMessageOnMenu("Success","You are authorized! You should now be able to run premium features.\nRestart to apply changes.",nil,0.5,'Continue')
 					NewMessageOnMenu("Warning","Before you go, Do not share your key with ANYONE!\nDoing this and getting caught will lead to your key being revoked.",nil,0.5,"Restart")
 					CHT:Destroy()
-					loadstring(game:HttpGet("https://github.com/ConeScriptsV2/Scripts/blob/main/ConeHub"))()
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConeHub"))()
 					else
 					NewMessageOnMenu("Error","Your key is not in our database. Try again!",nil,0.5,"Alright")
 					end
