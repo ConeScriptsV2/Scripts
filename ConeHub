@@ -529,7 +529,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			CHT.Enabled = not CHT.Enabled
 		end
 	end)
-	local Ver = 2.10
+	local Ver = 2.11
 	task.spawn(function()
 		while task.wait(1) do
 			if tonumber(game:HttpGet("https://pastebin.com/raw/X9MHMwyv")) > Ver then
