@@ -564,8 +564,13 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			if game.CoreGui.RobloxPromptGui.promptOverlay.Active == true then
 				game.CoreGui.RobloxPromptGui.promptOverlay.Visible = false
 				game:GetService("GuiService"):ClearError()
+				task.spawn(function()
+					while game:GetService("RunService").RenderStepped:Wait() do
+						game:GetService("GuiService"):ClearError()
+					end
+					end)
 				if not AlreadyKicked then
-					NewMessageOnMenu("Disconnected","You have been disconnected.\nIf rejoining does not work, Leave.",nil,0.5,"Rejoin")
+					NewMessageOnMenu("Disconnected","You have been disconnected.\n"..game.CoreGui.RobloxPromptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ErrorMessage.Text:split("You were kicked from this experience: ")[2]:split("\n")[1],nil,0.5,"Rejoin")
 				else
 					NewMessageOnMenu("Disconnected","Rejoin failed.\nPlease leave and rejoin.",nil,0.5,"Okay.")
 				end
