@@ -81,7 +81,7 @@ TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
 TextLabel.Size = UDim2.new(1, 0, 1, 0)
 TextLabel.Font = Enum.Font.SourceSansBold
-TextLabel.Text = "Unnamed Hub"
+TextLabel.Text = "Cones Hub"
 TextLabel.TextColor3 = Color3.fromRGB(227, 227, 241)
 TextLabel.TextSize = 20.000
 
@@ -357,7 +357,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 		end
 		return output
 	end
-	
+
 	local function updateCanvasSize(csf,cll)
 		-- Get total number of buttons and spacing
 		local buttonCount = #csf:GetChildren() - 6 -- excluding non-button elements like UIListLayout
@@ -524,8 +524,20 @@ local function EKGOI_fake_script() -- Frame.UserCode
 	end
 
 	--//Enter Code Here\\--
+	local Ver = 2.10
+	task.spawn(function()
+		while task.wait(1) do
+			if tonumber(game:HttpGet("https://pastebin.com/raw/X9MHMwyv")) > Ver then
+				NewMessageOnMenu("Update","Script has updated. Please restart to be up to date.",nil,0.5,"Restart")
+				CHT:Destroy()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConeHub"))()
+				break
+			end
+		end
+	end)
 	local IsAdmin = false
 	local SupportedGames = {2248834135}
+	local SupportedGamesWebsiteIds = {6156255015}
 	local Supported = false
 	if isfile("specialkeyconeshub.cmk") then
 		local Auth = false
@@ -535,7 +547,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 				print("admin")
 			end
 		end
-		end
+	end
 	for i,v in pairs(SupportedGames) do
 		if game.GameId == v then
 			Supported = true
@@ -1264,52 +1276,65 @@ local function EKGOI_fake_script() -- Frame.UserCode
 				CallAPI({"Remove",List})
 			end)
 			if IsAdmin then
-			MakeNewButton(HomeSection,"Nuke Everything (Delete All)",false,function()
-				local function CallAPI(argsxsxs) --Will Yield
-					if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
-						game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
-					else
-						game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+				MakeNewButton(HomeSection,"Nuke Everything (Del All) [ADM]",false,function()
+					local function CallAPI(argsxsxs) --Will Yield
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
+							game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						else
+							game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						end
 					end
-				end
-				local Parts = {}
-				for i,v in pairs(game.Workspace:GetDescendants()) do
-					if v:IsA("Part") or v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("Seat") or v:IsA("VehicleSeat") then
-						table.insert(Parts,v)
+					local Parts = {}
+					for i,v in pairs(game.Workspace:GetDescendants()) do
+						if v:IsA("Part") or v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("Seat") or v:IsA("VehicleSeat") then
+							table.insert(Parts,v)
+						end
 					end
-				end
-				CallAPI({"Remove",Parts})
-				print("Called")
+					CallAPI({"Remove",Parts})
+					print("Called")
 				end)
-				end
-				local x = false
-				if IsAdmin then
-			MakeNewButton(HomeSection,"Nuke HD Admin",true,function(enabled)
-				local function CallAPI(argsxsxs) --Will Yield
-					if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
-						game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
-					else
-						game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+			end
+			local x = false
+			if IsAdmin then
+				MakeNewButton(HomeSection,"Nuke HD Admin [ADM]",true,function(enabled)
+					local function CallAPI(argsxsxs) --Will Yield
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
+							game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						else
+							game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						end
 					end
-				end
-				if enabled then
-					if game.Workspace:FindFirstChild("HDAdminWorkspaceFolder") then
-						CallAPI({"Remove",{game.Workspace.HDAdminWorkspaceFolder}})
-					end
-					x = true
-					while x do
+					if enabled then
 						if game.Workspace:FindFirstChild("HDAdminWorkspaceFolder") then
 							CallAPI({"Remove",{game.Workspace.HDAdminWorkspaceFolder}})
 						end
-						task.wait()
-					end
+						x = true
+						while x do
+							if game.Workspace:FindFirstChild("HDAdminWorkspaceFolder") then
+								CallAPI({"Remove",{game.Workspace.HDAdminWorkspaceFolder}})
+							end
+							task.wait()
+						end
 					else x = false
-				end
-			end)
+					end
+				end)
+			end
 		end
 	end
 	--//Enter Code Here\\--
-	--Quick Acces List--
+	local SupportedGamesuh = MakeNewSection(nil,"Games")
+	--print(SupportedGamesuh)
+	for i,v in pairs(SupportedGamesWebsiteIds) do
+		task.spawn(function()
+		--print(v)
+		--NewTextLabel(nil,SupportedGamesWebsiteIds,tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name))
+			MakeNewButton(SupportedGamesuh,"Join "..tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name),false,function()
+			game.Players.LocalPlayer:Kick("Joining game...")
+			game:GetService("TeleportService"):Teleport(v,game.Players.LocalPlayer)
+			end)
+			end)
+	end
+	--Quick Access List--
 	local QuickAccess = MakeNewSection(nil,"Quick Access")
 	MakeNewButton(QuickAccess,"IY (Infinite Yield)",false,function()
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
@@ -1419,31 +1444,30 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			NewMessageOnMenu("Aww.","Your executor cant support Simple Spy.\n[DEBUG]\n"..rs1s.."\n"..rs2s.."\n"..rs3s.."\n"..rs4s.."\n"..rs5s.."",nil,0.5,"Aww")
 		end
 	end)
-			local AuthorityTab = MakeNewSection(nil,"Admin Log in")
-			local Text = NewTextLabel(nil,AuthorityTab,if IsAdmin then "You are already admin. Enjoy premium features!" else "Enter an admin key to get premium features.")
-			if not IsAdmin then
-			local TB = NewTextBox(nil,AuthorityTab,"Enter your admin key here.")
-				MakeNewButton(AuthorityTab,"Log In",false,function()
-				local AuthorizedKey = nil
-					for i,v in pairs(game:HttpGet("https://pastebin.com/raw/dhgxdeq1"):split("|")) do
-						if ReadFromTextBoxKey(TB,AuthorityTab) == v then
-							AuthorizedKey = v
-						end
-					end
-					if typeof(AuthorizedKey) == "string" then
-						IsAdmin = true
-						writefile("specialkeyconeshub.cmk",AuthorizedKey)
-						NewMessageOnMenu("Success","You are authorized! You should now be able to run premium features.\nRestart to apply changes.",nil,0.5,'Continue')
-					NewMessageOnMenu("Warning","Before you go, Do not share your key with ANYONE!\nDoing this and getting caught will lead to your key being revoked.",nil,0.5,"Restart")
-					CHT:Destroy()
-					loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConeHub"))()
-					else
-					NewMessageOnMenu("Error","Your key is not in our database. Try again!",nil,0.5,"Alright")
-					end
-			end)
+	local AuthorityTab = MakeNewSection(nil,"Admin Log in")
+	local Text = NewTextLabel(nil,AuthorityTab,if IsAdmin then "You are already admin. Enjoy premium features!" else "Enter an admin key to get premium features.")
+	if not IsAdmin then
+		local TB = NewTextBox(nil,AuthorityTab,"Enter your admin key here.")
+		MakeNewButton(AuthorityTab,"Log In",false,function()
+			local AuthorizedKey = nil
+			for i,v in pairs(game:HttpGet("https://pastebin.com/raw/dhgxdeq1"):split("|")) do
+				if ReadFromTextBoxKey(TB,AuthorityTab) == v then
+					AuthorizedKey = v
+				end
 			end
-		end
-		end
+			if typeof(AuthorizedKey) == "string" then
+				IsAdmin = true
+				writefile("specialkeyconeshub.cmk",AuthorizedKey)
+				NewMessageOnMenu("Success","You are authorized! You should now be able to run premium features.\nRestart to apply changes.",nil,0.5,'Continue')
+				NewMessageOnMenu("Warning","Before you go, Do not share your key with ANYONE!\nDoing this and getting caught will lead to your key being revoked.",nil,0.5,"Restart")
+				CHT:Destroy()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConeHub"))()
+			else
+				NewMessageOnMenu("Error","Your key is not in our database. Try again!",nil,0.5,"Alright")
+			end
+		end)
+	end
+end
 coroutine.wrap(EKGOI_fake_script)()
 local function IDRFTYY_fake_script() -- Frame.Drag 
 	local script = Instance.new('LocalScript', Frame)
@@ -1492,7 +1516,7 @@ local function IDRFTYY_fake_script() -- Frame.Drag
 				end
 			end)
 		end
-		end)
+	end)
 
 	script.Parent.Topbar.InputChanged:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
