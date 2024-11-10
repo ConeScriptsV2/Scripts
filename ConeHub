@@ -524,6 +524,11 @@ local function EKGOI_fake_script() -- Frame.UserCode
 	end
 
 	--//Enter Code Here\\--
+	game:GetService("UserInputService").InputBegan:Connect(function(inp,gpe)
+		if inp == Enum.KeyCode.RightShift and not gpe then
+			CHT.Enabled = not CHT.Enabled
+		end
+	end)
 	local Ver = 2.10
 	task.spawn(function()
 		while task.wait(1) do
@@ -553,6 +558,23 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			Supported = true
 		end
 	end
+	task.spawn(function()
+		local AlreadyKicked = false
+		while game:GetService("RunService").RenderStepped:Wait() do
+			if game.CoreGui.RobloxPromptGui.promptOverlay.Active == true then
+				game.CoreGui.RobloxPromptGui.promptOverlay.Visible = false
+				game:GetService("GuiService"):ClearError()
+				if not AlreadyKicked then
+					NewMessageOnMenu("Disconnected","You have been disconnected.\nIf rejoining does not work, Leave.",nil,0.5,"Rejoin")
+				else
+					NewMessageOnMenu("Disconnected","Rejoin failed.\nPlease leave and rejoin.",nil,0.5,"Okay.")
+				end
+				game.CoreGui.RobloxPromptGui.promptOverlay.Active = false
+				AlreadyKicked = true
+				game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+			end
+		end
+	end)
 	if not Supported then
 		NewMessageOnMenu("Error","Game Not Supported.\nResulting to Quick Access!",nil,0.5,"Okay")
 	else
@@ -1329,8 +1351,12 @@ local function EKGOI_fake_script() -- Frame.UserCode
 		--print(v)
 		--NewTextLabel(nil,SupportedGamesWebsiteIds,tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name))
 			MakeNewButton(SupportedGamesuh,"Join "..tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name),false,function()
+				if SupportedGames[i] == game.GameId then 
+					NewMessageOnMenu("Error","You're currently playing this game.",nil,0.5,"Okay")
+				else
 			game.Players.LocalPlayer:Kick("Joining game...")
 			game:GetService("TeleportService"):Teleport(v,game.Players.LocalPlayer)
+			end
 			end)
 			end)
 	end
