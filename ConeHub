@@ -81,7 +81,7 @@ TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
 TextLabel.Size = UDim2.new(1, 0, 1, 0)
 TextLabel.Font = Enum.Font.SourceSansBold
-TextLabel.Text = "Cones Hub"
+TextLabel.Text = "Unnamed Hub"
 TextLabel.TextColor3 = Color3.fromRGB(227, 227, 241)
 TextLabel.TextSize = 20.000
 
@@ -527,6 +527,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 	local IsAdmin = false
 	local SupportedGames = {2248834135}
 	local Supported = false
+	task.spawn(function()
 	if isfile("specialkey.cmk") then
 		local Auth = false
 		for i,v in pairs(game:HttpGet("https://pastebin.com/raw/dhgxdeq1"):split("|")) do
@@ -534,7 +535,8 @@ local function EKGOI_fake_script() -- Frame.UserCode
 				IsAdmin = true
 			end
 		end
-	end
+		end
+		end)
 	for i,v in pairs(SupportedGames) do
 		if game.GameId == v then
 			Supported = true
@@ -1421,9 +1423,9 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			local AuthorityTab = MakeNewSection(nil,"Admin Log in")
 			local Text = NewTextLabel(nil,AuthorityTab,if IsAdmin then "You are already admin. Enjoy premium features!" else "Enter an admin key to get premium features.")
 			if not IsAdmin then
-				local TB = NewTextBox(nil,AuthorityTab,"Enter your admin key here.")
+			local TB = NewTextBox(nil,AuthorityTab,"Enter your admin key here.")
 				MakeNewButton(AuthorityTab,"Log In",false,function()
-					local AuthorizedKey = nil
+				local AuthorizedKey = nil
 					for i,v in pairs(game:HttpGet("https://pastebin.com/raw/dhgxdeq1"):split("|")) do
 						if ReadFromTextBoxKey(TB,AuthorityTab) == v then
 							AuthorizedKey = v
@@ -1433,11 +1435,13 @@ local function EKGOI_fake_script() -- Frame.UserCode
 						IsAdmin = true
 						writefile("specialkey.cmk",AuthorizedKey)
 						NewMessageOnMenu("Success","You are authorized! You should now be able to run premium features.\nRestart to apply changes.",nil,0.5,'Continue')
-						NewMessageOnMenu("Warning","Before you go, Do not share your key with ANYONE!\nDoing this and getting caught will lead to your key being revoked.",nil,0.5,"Alright")
+					NewMessageOnMenu("Warning","Before you go, Do not share your key with ANYONE!\nDoing this and getting caught will lead to your key being revoked.",nil,0.5,"Restart")
+					CHT:Destroy()
+					loadstring(game:HttpGet("https://github.com/ConeScriptsV2/Scripts/blob/main/ConeHub"))()
 					else
-						NewMessageOnMenu("Error","Your key is not in our database. Try again!",nil,0.5,"Alright")
+					NewMessageOnMenu("Error","Your key is not in our database. Try again!",nil,0.5,"Alright")
 					end
-				end)
+			end)
 			end
 		end
 		end
