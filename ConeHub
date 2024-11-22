@@ -583,7 +583,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 	if not Supported then
 		NewMessageOnMenu("Error","Game Not Supported.\nResulting to Quick Access!",nil,0.5,"Okay")
 	else
-		if game.GameId == SupportedGames[table.find(SupportedGames,2248834135)] or game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") or game.Players.LocalPlayer.Character:FindFirstChild("Building Tools") then
+		if game.GameId == SupportedGames[table.find(SupportedGames,2248834135)] or game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") or game.Players.LocalPlayer.Character:FindFirstChild("F3X Building Tools") or game.Players.LocalPlayer.Character:FindFirstChild("Building Tool") or game.Players.LocalPlayer.Character:FindFirstChild("[Build] Building Tools") then
 			local HomeSection = MakeNewSection(nil,"Home")
 			MakeNewButton(HomeSection,"Cones Custom Btools",false,function()
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConesBtools"))()
