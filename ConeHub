@@ -529,7 +529,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			CHT.Enabled = not CHT.Enabled
 		end
 	end)
-	local Ver = 2.12
+	local Ver = 2.13
 	task.spawn(function()
 		while task.wait(1) do
 			if tonumber(game:HttpGet("https://pastebin.com/raw/X9MHMwyv")) > Ver then
@@ -1746,7 +1746,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			elseif active then
 				xc = game.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
                 if game.Players.LocalPlayer.Backpack:FindFirstChild("PaintingTool") or game.Players.LocalPlayer.Character:FindFirstChild("PaintingTool") then
-					if game.Players.LocalPlayer:GetMouse().Target:IsDescendantOf(game.Workspace.Blocks.ConeVanilla_Furry) then
+					if game.Players.LocalPlayer:GetMouse().Target:IsDescendantOf(game.Workspace.Blocks[game.Players.LocalPlayer.Name]) then
 						RainbowBlock(game.Players.LocalPlayer:GetMouse().Target.Parent,Brightness,LightValue)
 					else
 						NewMessageOnMenu("Failed","This is not your block.",nil,1,"Okay.")
