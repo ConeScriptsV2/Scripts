@@ -529,7 +529,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			CHT.Enabled = not CHT.Enabled
 		end
 	end)
-	local Ver = 2.13
+	local Ver = 2.14
 	task.spawn(function()
 		while task.wait(1) do
 			if tonumber(game:HttpGet("https://pastebin.com/raw/X9MHMwyv")) > Ver then
@@ -541,8 +541,8 @@ local function EKGOI_fake_script() -- Frame.UserCode
 		end
 	end)
 	local IsAdmin = false
-	local SupportedGames = {2248834135,6631166683,905198065,210851291}
-	local SupportedGamesWebsiteIds = {6156255015,91232956735357,2537430692,537413528}
+	local SupportedGames = {2248834135,6631166683,905198065,210851291,2668101271,6491900489}
+	local SupportedGamesWebsiteIds = {6156255015,91232956735357,2537430692,537413528,6961824067,92171645661524}
 	local Supported = false
 	if isfile("specialkeyconeshub.cmk") then
 		local Auth = false
@@ -1741,174 +1741,433 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			end
 			local xc
 			MakeNewButton(FS,"Click Rainbow Part [FE] [PAINT REQUIRED]",true,function(active)
-			if xc and not active then
-				xc:Disconnect()
-			elseif active then
-				xc = game.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("PaintingTool") or game.Players.LocalPlayer.Character:FindFirstChild("PaintingTool") then
-					if game.Players.LocalPlayer:GetMouse().Target:IsDescendantOf(game.Workspace.Blocks[game.Players.LocalPlayer.Name]) then
-						RainbowBlock(game.Players.LocalPlayer:GetMouse().Target.Parent,Brightness,LightValue)
-					else
-						NewMessageOnMenu("Failed","This is not your block.",nil,1,"Okay.")
+				if xc and not active then
+					xc:Disconnect()
+				elseif active then
+					xc = game.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("PaintingTool") or game.Players.LocalPlayer.Character:FindFirstChild("PaintingTool") then
+							if game.Players.LocalPlayer:GetMouse().Target:IsDescendantOf(game.Workspace.Blocks[game.Players.LocalPlayer.Name]) then
+								RainbowBlock(game.Players.LocalPlayer:GetMouse().Target.Parent,Brightness,LightValue)
+							else
+								NewMessageOnMenu("Failed","This is not your block.",nil,1,"Okay.")
+							end
+						else
+							NewMessageOnMenu("Failed","You do not have the paint tool.",nil,1,"Okay.")
+						end
+					end)
+				end
+			end)
+		end
+		if game.GameId == SupportedGames[5] then
+			local ops = MakeNewSection(nil,"Fun Section")
+			local func
+			MakeNewButton(ops,"Anticheat/Delete Anything you touch",true,function(active)
+				if active then
+					func = game.Workspace.ChildAdded:Connect(function(ins)
+						if ins.Name == "GrabParts" and ins:IsA("Model") and ins.GrabPart.WeldConstraint.Part1 ~= nil then
+							while not isnetworkowner(ins.GrabPart.WeldConstraint.Part1) do
+								task.wait()
+							end
+							task.spawn(function() for i = 1,25 do ins.GrabPart.WeldConstraint.Part1.Velocity = Vector3.new(0,9e9,0) wait() end end)
+							game.ReplicatedStorage.GrabEvents.SetNetworkOwner:FireServer(ins.GrabPart.WeldConstraint.Part1,ins.GrabPart.WeldConstraint.Part1.CFrame)
+							--Since the DestroyGrabLine didnt work, i resort to a different method. for i = 1,10 do game.ReplicatedStorage.GrabEvents.DestroyGrabLine:FireServer(unpack({ins.GrabPart.WeldConstraint.Part1})) end
+							local sp = ins.GrabPart.WeldConstraint.Part1.Parent
+							ins.GrabPart.WeldConstraint.Part1.Parent = nil
+							ins.GrabPart.WeldConstraint.Part1.Parent = sp
+						end
+					end)
+				else
+					func:Disconnect()
+				end
+			end)
+			local BA = false
+			local BS = 0
+			game.Workspace.ChildRemoved:Connect(function(ins)
+				if ins.Name == "GrabParts" and ins:IsA("Model") and ins.GrabPart.WeldConstraint.Part1 ~= nil and isnetworkowner(ins.GrabPart.WeldConstraint.Part1) and BA then
+					ins.GrabPart.WeldConstraint.Part1.Velocity = Vector3.new(ins.GrabPart.WeldConstraint.Part1.Velocity.X * BS,ins.GrabPart.WeldConstraint.Part1.Velocity.Y * BS,ins.GrabPart.WeldConstraint.Part1.Velocity.Z * BS)
+				end
+			end)
+			MakeNewButton(ops,"Legit Fling Boost",true,function(active)
+				BA = active
+				BS = 1.25
+			end)
+			MakeNewButton(ops,"Fling Boost",true,function(active)
+				BA = active
+				BS = 1.5
+			end)
+			MakeNewButton(ops,"Big Fling Boost",true,function(active)
+				BA = active
+				BS = 4
+			end)
+			MakeNewButton(ops,"Ungodly Fling Boost",true,function(active)
+				BA = active
+				BS = 55
+			end)
+			MakeNewButton(ops,"One punch type fling Boost",true,function(active)
+				BA = active
+				BS = 600
+			end)
+			local ss = MakeNewSection(nil,"Stupid Section")
+			local allowed = false
+			MakeNewButton(ss,"Allow Stupid Scripts",true,function(active)
+				allowed = active
+			end)
+			MakeNewButton(ss,"Anticheat Kick Yourself [Garuntee]",false,function()
+				if allowed then
+					while task.wait() do
+						if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y < 9999 then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,8e8,0)
+						end
+						--task.wait()
+						--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lcf
 					end
-                    else
-NewMessageOnMenu("Failed","You do not have the paint tool.",nil,1,"Okay.")
-                end
-				end)
-			end
-	end)
-	end
+				else
+					NewMessageOnMenu("Error","Stupid scripts isint allowed.",nil,1,"Alright")
+				end
+			end)
+			local rgop = MakeNewSection(nil,"Revenge Tab")
+			local targetuser = NewTextBox(nil,rgop,"Username Here")
+			MakeNewButton(rgop,"Anticheat Kick User [BETA]",false,function()
+				local strn = ReadFromTextBoxKey(targetuser,rgop):lower()
+				local Plr
+				for i,phlr in pairs(game.Players:GetPlayers()) do
+					local ts2 = ""
+					for i,v in pairs(strn:split("")) do
+						ts2 = ts2..tostring(phlr.Name:split("")[i]:lower())
+
+					end
+
+					if ts2 == strn then
+						Plr = phlr
+					end
+				end
+				if Plr == nil then NewMessageOnMenu("Failed","User does not exist.\nDid you type the display?",nil,1,"Okay") else
+					task.spawn(function() NewMessageOnMenu("Progress","Attempting to anticheat kick, this may take some time.",nil,1,"Okay") end)
+					local Noclip = false
+					local function NoclipLoop()
+						if game.Players.LocalPlayer.Character ~= nil and Noclip then
+							for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+								if child:IsA("BasePart") and child.CanCollide == true then
+									child.CanCollide = false
+								end
+							end
+						end
+					end
+					local Noclipping = game:GetService("RunService").Stepped:Connect(NoclipLoop)
+					while Plr and Plr.Parent and not game.Workspace:FindFirstChild("BlackHoleKick") do
+						task.wait()
+						if Plr and Plr.Character and Plr.Character:FindFirstChild("HumanoidRootPart") and Plr.Character.HumanoidRootPart.Position.Y < 9999 then
+							local SavedSpot = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+							Noclip = true
+							game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Plr.Character.HumanoidRootPart.Position.X,-17.5,Plr.Character.HumanoidRootPart.Position.Z)
+							wait(game.Players.LocalPlayer:GetNetworkPing() * 1.15)
+							local Target = Plr
+							--Tip: do not use this when the targets out of reach, YOU WILL GET A WARNING
+							local TargetVelocitySetTo = Vector3.new(0,9e9,0)
+							local function SetNetworkAsMe(ins)
+								game.ReplicatedStorage.GrabEvents.SetNetworkOwner:FireServer(ins,ins.CFrame)
+							end
+							SetNetworkAsMe(Target.Character.HumanoidRootPart)
+							for i = 1,10 do Target.Character.HumanoidRootPart.Velocity = TargetVelocitySetTo task.wait() end
+							SetNetworkAsMe(Target.Character.HumanoidRootPart)
+							Noclip = false
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedSpot
+						end
+					end
+					if game.Workspace:FindFirstChild("BlackHoleKick") then
+						NewMessageOnMenu("Success","Player has been kicked.",nil,1,"Great!")
+					else
+						NewMessageOnMenu("Success","Player has left.",nil,1,"Great!")
+					end
+					Noclipping:Disconnect()
+				end
+			end)
+			MakeNewButton(rgop,"Respawn User",false,function()
+				local strn = ReadFromTextBoxKey(targetuser,rgop):lower()
+				local Plr
+				for i,phlr in pairs(game.Players:GetPlayers()) do
+					local ts2 = ""
+					for i,v in pairs(strn:split("")) do
+						ts2 = ts2..tostring(phlr.Name:split("")[i]:lower())
+
+					end
+
+					if ts2 == strn then
+						Plr = phlr
+					end
+				end
+				local Noclip = false
+				local function NoclipLoop()
+					if game.Players.LocalPlayer.Character ~= nil and Noclip then
+						for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+							if child:IsA("BasePart") and child.CanCollide == true then
+								child.CanCollide = false
+							end
+						end
+					end
+				end
+				local Noclipping = game:GetService("RunService").Stepped:Connect(NoclipLoop)
+				if Plr == nil then NewMessageOnMenu("Failed","User does not exist.\nDid you type the display?",nil,1,"Okay") else
+					if Plr and Plr.Character and Plr.Character:FindFirstChild("HumanoidRootPart") then
+						local SavedSpot = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						Noclip = true
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,3e3,0)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 2.3)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Plr.Character.HumanoidRootPart.Position.X,Plr.Character.HumanoidRootPart.Position.Y - 3.5,Plr.Character.HumanoidRootPart.Position.Z)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 3.5)
+						local Target = Plr
+						--Tip: do not use this when the targets out of reach, YOU WILL GET A WARNING
+						local TargetVelocitySetTo = CFrame.new(0,game.Workspace.FallenPartsDestroyHeight,0)
+						local function SetNetworkAsMe(ins)
+							game.ReplicatedStorage.GrabEvents.SetNetworkOwner:FireServer(ins,ins.CFrame)
+						end
+						task.spawn(function() for i = 1,5 do SetNetworkAsMe(Target.Character.HumanoidRootPart) wait() end end)
+						for i = 1,2 do Target.Character.HumanoidRootPart.CFrame = TargetVelocitySetTo task.wait() end
+						local lp = Target.Character.Parent
+						SetNetworkAsMe(Target.Character.HumanoidRootPart)
+						wait(.2)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,3e3,0)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 5)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedSpot
+						wait(.7)
+						Noclipping:Disconnect()
+						if Plr.Character:FindFirstChild("Head") then
+							NewMessageOnMenu("Failed","Couldnt respawn player.",nil,1,"Aww..")
+						else
+							NewMessageOnMenu("Success","Respawned player successfully.",nil,1,"Yay!")
+						end
+					end
+				end
+			end)
+			MakeNewButton(rgop,"Send User to Backrooms",false,function()
+				local strn = ReadFromTextBoxKey(targetuser,rgop):lower()
+				local Plr
+				for i,phlr in pairs(game.Players:GetPlayers()) do
+					local ts2 = ""
+					for i,v in pairs(strn:split("")) do
+						ts2 = ts2..tostring(phlr.Name:split("")[i]:lower())
+
+					end
+
+					if ts2 == strn then
+						Plr = phlr
+					end
+				end
+				local Noclip = false
+				local function NoclipLoop()
+					if game.Players.LocalPlayer.Character ~= nil and Noclip then
+						for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+							if child:IsA("BasePart") and child.CanCollide == true then
+								child.CanCollide = false
+							end
+						end
+					end
+				end
+				local Noclipping = game:GetService("RunService").Stepped:Connect(NoclipLoop)
+				if Plr == nil then NewMessageOnMenu("Failed","User does not exist.\nDid you type the display?",nil,1,"Okay") else
+					if Plr and Plr.Character and Plr.Character:FindFirstChild("HumanoidRootPart") then
+						local SavedSpot = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						Noclip = true
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,3e3,0)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 2.3)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Plr.Character.HumanoidRootPart.Position.X,Plr.Character.HumanoidRootPart.Position.Y - 3.5,Plr.Character.HumanoidRootPart.Position.Z)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 3.5)
+						local Target = Plr
+						--Tip: do not use this when the targets out of reach, YOU WILL GET A WARNING
+						local TargetVelocitySetTo = CFrame.new(-464, -7, 469)
+						local function SetNetworkAsMe(ins)
+							game.ReplicatedStorage.GrabEvents.SetNetworkOwner:FireServer(ins,ins.CFrame)
+						end
+						task.spawn(function() for i = 1,5 do SetNetworkAsMe(Target.Character.HumanoidRootPart) wait() end end)
+						for i = 1,2 do Target.Character.HumanoidRootPart.CFrame = TargetVelocitySetTo task.wait() end
+						local lp = Target.Character.Parent
+						SetNetworkAsMe(Target.Character.HumanoidRootPart)
+						wait(.2)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,3e3,0)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 5)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedSpot
+						wait(.7)
+						Noclipping:Disconnect()
+						if Plr.Character:FindFirstChild("Head") then
+							NewMessageOnMenu("Failed","Couldnt send player.",nil,1,"Aww..")
+						else
+							NewMessageOnMenu("Success","sent player successfully.",nil,1,"Yay!")
+						end
+					end
+				end
+			end)
+		end
+		if game.GameId == SupportedGames[6] then
+			local t = MakeNewSection(nil,"Holder")
+			MakeNewButton(t,"Hold Egg Above Tray",false,function()
+				for i,v in pairs(game.Workspace.Trays:GetChildren()) do
+					if v.TrayPlayer.Value == game.Players.LocalPlayer then
+						local Egg = v.Egg.Value
+						while game:GetService("RunService").RenderStepped:Wait() do
+						    Egg.CFrame = v.Base.CFrame + Vector3.new(0,20,0)
+                            Egg.Velocity = Vector3.zero
+						end
+					end
+				end
+			end)
+		end
 	end
 	--//Enter Code Here\\--
-local SupportedGamesuh = MakeNewSection(nil,"Games")
---print(SupportedGamesuh)
-for i,v in pairs(SupportedGamesWebsiteIds) do
-	task.spawn(function()
-		--print(v)
-		--NewTextLabel(nil,SupportedGamesWebsiteIds,tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name))
-		MakeNewButton(SupportedGamesuh,"Join "..tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name),false,function()
-			if SupportedGames[i] == game.GameId then 
-				NewMessageOnMenu("Error","You're currently playing this game.",nil,0.5,"Okay")
+	local SupportedGamesuh = MakeNewSection(nil,"Games")
+	--print(SupportedGamesuh)
+	for i,v in pairs(SupportedGamesWebsiteIds) do
+		task.spawn(function()
+			--print(v)
+			--NewTextLabel(nil,SupportedGamesWebsiteIds,tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name))
+			task.wait(0.11)
+			MakeNewButton(SupportedGamesuh,"Join "..tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name),false,function()
+				if SupportedGames[i] == game.GameId then 
+					NewMessageOnMenu("Error","You're currently playing this game.",nil,0.5,"Okay")
+				else
+					game.Players.LocalPlayer:Kick("Joining game...")
+					game:GetService("TeleportService"):Teleport(v,game.Players.LocalPlayer)
+				end
+			end)
+		end)
+	end
+	--Quick Access List--
+	local QuickAccess = MakeNewSection(nil,"Quick Access")
+	MakeNewButton(QuickAccess,"IY (Infinite Yield)",false,function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	end)
+	MakeNewButton(QuickAccess,"Dex (Secure Dex)",false,function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+	end)
+	MakeNewButton(QuickAccess,"Dex (IY Compatible)",false,function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+	end)
+	MakeNewButton(QuickAccess,"Undetected Fly (CLIENT)",false,function()
+		local Speed = 1 * 35
+		local CenterPart = Instance.new("Part",game.Workspace)
+		CenterPart.Name = "FlySupporter"
+		CenterPart.CanCollide = false
+		local BV = Instance.new("BodyVelocity",CenterPart)
+		local W = Instance.new("Weld",CenterPart)
+		W.Part0 = CenterPart
+		W.Part1 = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Head") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Torso") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("UpperTorso")
+		BV.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+		while game:GetService("RunService").RenderStepped:Wait() do
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0 then
+				CenterPart:Destroy()
+				break
+			end
+			local SC = CenterPart.CFrame
+			CenterPart.CFrame = game:GetService("Workspace").CurrentCamera.CFrame
+			local XVal = CenterPart.Orientation.X
+			CenterPart.CFrame = SC
+			local FirstMath = nil
+			local SecondMath = nil
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.W) then --Assume Currently Going Forward
+				local V = game:GetService("Workspace").CurrentCamera.CFrame.LookVector * Speed
+				if FirstMath == nil then
+					FirstMath = V
+				else
+					SecondMath = V
+				end
+			end
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.S) then --Assume Currently Going Backwards
+				local V = game:GetService("Workspace").CurrentCamera.CFrame.LookVector * (0 - Speed)
+				if FirstMath == nil then
+					FirstMath = V
+				else
+					SecondMath = V
+				end
+			end
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.A) then --Assume Currently Going Backwards
+				local V = (game:GetService("Workspace").CurrentCamera.CFrame * CFrame.Angles(0, math.pi/2, 0)).LookVector * Speed
+				if FirstMath == nil then
+					FirstMath = V
+				else
+					SecondMath = V
+				end
+			end
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.D) then --Assume Currently Going Backwards
+				local V = (game:GetService("Workspace").CurrentCamera.CFrame * CFrame.Angles(0, -math.pi/2, 0)).LookVector * Speed
+				if FirstMath == nil then
+					FirstMath = V
+				else
+					SecondMath = V
+				end
+			end
+
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude <= 0 then
+				BV.Velocity = Vector3.zero
 			else
-				game.Players.LocalPlayer:Kick("Joining game...")
-				game:GetService("TeleportService"):Teleport(v,game.Players.LocalPlayer)
+				print(FirstMath)
+				print(SecondMath)
+				if FirstMath == nil and SecondMath == nil then else
+					local BVC
+					if FirstMath == not nil and SecondMath == nil then
+						BVC = SecondMath * Speed
+						print("SM")
+					end
+					if FirstMath == not nil and SecondMath == nil then
+						BVC = FirstMath * Speed
+						print("FM")
+					end
+					if FirstMath == not nil and SecondMath == not nil then
+						print("C")
+						BVC = Vector3.new(FirstMath.X + SecondMath.X,FirstMath.Y + SecondMath.Y,FirstMath.Z + SecondMath.Z)
+					end
+					print(tostring(BVC))
+					BV.Velocity = Vector3.new(BVC.X / Speed,BVC.Y / Speed,BVC.Z / Speed)
+				end
+			end
+		end
+	end)
+	MakeNewButton(QuickAccess,"IYR (Infinite Yield Reborn)",false,function()
+		loadstring(game:HttpGet("https://storage.iyr.lol/legacy-iyr/source"))
+	end)
+	MakeNewButton(QuickAccess,"Will RSPY Work? [UNC Test]",false,function()
+		local rspysyn1 = getsynasset or getcustomasset
+		local rspysyn2 = cloneref or blankfunction
+		local rspysyn3 = getupvalues or debug.getupvalues
+		local rspysyn4 = getconstants or debug.getconstants
+		local rspysyn5 = request or syn and syn.request
+		local rs1s = if rspysyn1 then "Getsynasset: Yes" else "Getsynasset: No"
+		local rs2s = if rspysyn2 then "cloneref: Yes" else "cloneref: No"
+		local rs3s = if rspysyn3 then "getupvalues: Yes" else "getupvalues: No"
+		local rs4s = if rspysyn4 then "getconstants: Yes" else "getconstants: No"
+		local rs5s = if rspysyn5 then "request: Yes" else "request: No"
+		if rspysyn1 and rspysyn2 and rspysyn3 and rspysyn4 and rspysyn5 then
+			NewMessageOnMenu("Yay!","Your executor might aswell be able to run Simple Spy!\n[DEBUG]\n"..rs1s.."\n"..rs2s.."\n"..rs3s.."\n"..rs4s.."\n"..rs5s.."",nil,0.5,"Yipie!")
+		else
+			NewMessageOnMenu("Aww.","Your executor cant support Simple Spy.\n[DEBUG]\n"..rs1s.."\n"..rs2s.."\n"..rs3s.."\n"..rs4s.."\n"..rs5s.."",nil,0.5,"Aww")
+		end
+	end)
+	local AuthorityTab = MakeNewSection(nil,"Admin Log in")
+	local Text = NewTextLabel(nil,AuthorityTab,if IsAdmin then "You are already admin. Enjoy premium features!" else "Enter an admin key to get premium features.")
+	if not IsAdmin then
+		local TB = NewTextBox(nil,AuthorityTab,"Enter your admin key here.")
+		MakeNewButton(AuthorityTab,"Log In",false,function()
+			local AuthorizedKey = nil
+			for i,v in pairs(game:HttpGet("https://pastebin.com/raw/dhgxdeq1"):split("|")) do
+				if ReadFromTextBoxKey(TB,AuthorityTab) == v then
+					AuthorizedKey = v
+				end
+			end
+			if typeof(AuthorizedKey) == "string" then
+				IsAdmin = true
+				writefile("specialkeyconeshub.cmk",AuthorizedKey)
+				NewMessageOnMenu("Success","You are authorized! You should now be able to run premium features.\nRestart to apply changes.",nil,0.5,'Continue')
+				NewMessageOnMenu("Warning","Before you go, Do not share your key with ANYONE!\nDoing this and getting caught will lead to your key being revoked.",nil,0.5,"Restart")
+				CHT:Destroy()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConeHub"))()
+			else
+				NewMessageOnMenu("Error","Your key is not in our database. Try again!",nil,0.5,"Alright")
 			end
 		end)
-	end)
-end
---Quick Access List--
-local QuickAccess = MakeNewSection(nil,"Quick Access")
-MakeNewButton(QuickAccess,"IY (Infinite Yield)",false,function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
-MakeNewButton(QuickAccess,"Dex (Secure Dex)",false,function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
-end)
-MakeNewButton(QuickAccess,"Dex (IY Compatible)",false,function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
-end)
-MakeNewButton(QuickAccess,"Undetected Fly (CLIENT)",false,function()
-	local Speed = 1 * 35
-	local CenterPart = Instance.new("Part",game.Workspace)
-	CenterPart.Name = "FlySupporter"
-	CenterPart.CanCollide = false
-	local BV = Instance.new("BodyVelocity",CenterPart)
-	local W = Instance.new("Weld",CenterPart)
-	W.Part0 = CenterPart
-	W.Part1 = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Head") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Torso") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("UpperTorso")
-	BV.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-	while game:GetService("RunService").RenderStepped:Wait() do
-		if game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0 then
-			CenterPart:Destroy()
-			break
-		end
-		local SC = CenterPart.CFrame
-		CenterPart.CFrame = game:GetService("Workspace").CurrentCamera.CFrame
-		local XVal = CenterPart.Orientation.X
-		CenterPart.CFrame = SC
-		local FirstMath = nil
-		local SecondMath = nil
-		if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.W) then --Assume Currently Going Forward
-			local V = game:GetService("Workspace").CurrentCamera.CFrame.LookVector * Speed
-			if FirstMath == nil then
-				FirstMath = V
-			else
-				SecondMath = V
-			end
-		end
-		if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.S) then --Assume Currently Going Backwards
-			local V = game:GetService("Workspace").CurrentCamera.CFrame.LookVector * (0 - Speed)
-			if FirstMath == nil then
-				FirstMath = V
-			else
-				SecondMath = V
-			end
-		end
-		if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.A) then --Assume Currently Going Backwards
-			local V = (game:GetService("Workspace").CurrentCamera.CFrame * CFrame.Angles(0, math.pi/2, 0)).LookVector * Speed
-			if FirstMath == nil then
-				FirstMath = V
-			else
-				SecondMath = V
-			end
-		end
-		if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.D) then --Assume Currently Going Backwards
-			local V = (game:GetService("Workspace").CurrentCamera.CFrame * CFrame.Angles(0, -math.pi/2, 0)).LookVector * Speed
-			if FirstMath == nil then
-				FirstMath = V
-			else
-				SecondMath = V
-			end
-		end
-
-		if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude <= 0 then
-			BV.Velocity = Vector3.zero
-		else
-			print(FirstMath)
-			print(SecondMath)
-			if FirstMath == nil and SecondMath == nil then else
-				local BVC
-				if FirstMath == not nil and SecondMath == nil then
-					BVC = SecondMath * Speed
-					print("SM")
-				end
-				if FirstMath == not nil and SecondMath == nil then
-					BVC = FirstMath * Speed
-					print("FM")
-				end
-				if FirstMath == not nil and SecondMath == not nil then
-					print("C")
-					BVC = Vector3.new(FirstMath.X + SecondMath.X,FirstMath.Y + SecondMath.Y,FirstMath.Z + SecondMath.Z)
-				end
-				print(tostring(BVC))
-				BV.Velocity = Vector3.new(BVC.X / Speed,BVC.Y / Speed,BVC.Z / Speed)
-			end
-		end
 	end
-end)
-MakeNewButton(QuickAccess,"IYR (Infinite Yield Reborn)",false,function()
-	loadstring(game:HttpGet("https://storage.iyr.lol/legacy-iyr/source"))
-end)
-MakeNewButton(QuickAccess,"Will RSPY Work? [UNC Test]",false,function()
-	local rspysyn1 = getsynasset or getcustomasset
-	local rspysyn2 = cloneref or blankfunction
-	local rspysyn3 = getupvalues or debug.getupvalues
-	local rspysyn4 = getconstants or debug.getconstants
-	local rspysyn5 = request or syn and syn.request
-	local rs1s = if rspysyn1 then "Getsynasset: Yes" else "Getsynasset: No"
-	local rs2s = if rspysyn2 then "cloneref: Yes" else "cloneref: No"
-	local rs3s = if rspysyn3 then "getupvalues: Yes" else "getupvalues: No"
-	local rs4s = if rspysyn4 then "getconstants: Yes" else "getconstants: No"
-	local rs5s = if rspysyn5 then "request: Yes" else "request: No"
-	if rspysyn1 and rspysyn2 and rspysyn3 and rspysyn4 and rspysyn5 then
-		NewMessageOnMenu("Yay!","Your executor might aswell be able to run Simple Spy!\n[DEBUG]\n"..rs1s.."\n"..rs2s.."\n"..rs3s.."\n"..rs4s.."\n"..rs5s.."",nil,0.5,"Yipie!")
-	else
-		NewMessageOnMenu("Aww.","Your executor cant support Simple Spy.\n[DEBUG]\n"..rs1s.."\n"..rs2s.."\n"..rs3s.."\n"..rs4s.."\n"..rs5s.."",nil,0.5,"Aww")
-	end
-end)
-local AuthorityTab = MakeNewSection(nil,"Admin Log in")
-local Text = NewTextLabel(nil,AuthorityTab,if IsAdmin then "You are already admin. Enjoy premium features!" else "Enter an admin key to get premium features.")
-if not IsAdmin then
-	local TB = NewTextBox(nil,AuthorityTab,"Enter your admin key here.")
-	MakeNewButton(AuthorityTab,"Log In",false,function()
-		local AuthorizedKey = nil
-		for i,v in pairs(game:HttpGet("https://pastebin.com/raw/dhgxdeq1"):split("|")) do
-			if ReadFromTextBoxKey(TB,AuthorityTab) == v then
-				AuthorizedKey = v
-			end
-		end
-		if typeof(AuthorizedKey) == "string" then
-			IsAdmin = true
-			writefile("specialkeyconeshub.cmk",AuthorizedKey)
-			NewMessageOnMenu("Success","You are authorized! You should now be able to run premium features.\nRestart to apply changes.",nil,0.5,'Continue')
-			NewMessageOnMenu("Warning","Before you go, Do not share your key with ANYONE!\nDoing this and getting caught will lead to your key being revoked.",nil,0.5,"Restart")
-			CHT:Destroy()
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConeHub"))()
-		else
-			NewMessageOnMenu("Error","Your key is not in our database. Try again!",nil,0.5,"Alright")
-		end
-	end)
-end
 end
 coroutine.wrap(EKGOI_fake_script)()
 local function IDRFTYY_fake_script() -- Frame.Drag 
