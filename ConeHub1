@@ -1,0 +1,2230 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local CHT = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Topbar = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local UICorner_2 = Instance.new("UICorner")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local UICorner_3 = Instance.new("UICorner")
+local SectionList = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local Frame_2 = Instance.new("ScrollingFrame")
+local UICorner_5 = Instance.new("UICorner")
+local UIListLayout = Instance.new("UIListLayout")
+local SectionButton = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
+local Section_Tab = Instance.new("ScrollingFrame")
+local UIListLayout_2 = Instance.new("UIListLayout")
+local TapButtonEx = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local ImageLabel = Instance.new("ImageLabel")
+local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+local ToggleButtonEx = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local TextEx = Instance.new("TextLabel")
+local UICorner_9 = Instance.new("UICorner")
+local TextboxEx = Instance.new("TextBox")
+local UICorner_10 = Instance.new("UICorner")
+local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
+local NotifOverlay = Instance.new("Frame")
+local Frame_3 = Instance.new("Frame")
+local UICorner_11 = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local UICorner_12 = Instance.new("UICorner")
+local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
+local Desc = Instance.new("TextLabel")
+local UICorner_13 = Instance.new("UICorner")
+local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
+local Option = Instance.new("TextButton")
+local UICorner_14 = Instance.new("UICorner")
+local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_10 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_11 = Instance.new("UIAspectRatioConstraint")
+local UIAspectRatioConstraint_12 = Instance.new("UIAspectRatioConstraint")
+
+--Properties:
+
+CHT.Name = "CHT"
+CHT.Parent = game.CoreGui
+CHT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+CHT.DisplayOrder = 211111212
+CHT.ResetOnSpawn = false
+
+Frame.Parent = CHT
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 39)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.5, 0, 0.499371082, 0)
+Frame.Size = UDim2.new(0.229629636, 0, 0.30440253, 0)
+
+Topbar.Name = "Topbar"
+Topbar.Parent = Frame
+Topbar.BackgroundColor3 = Color3.fromRGB(42, 42, 66)
+Topbar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Topbar.BorderSizePixel = 0
+Topbar.Size = UDim2.new(1, 0, 0.161157012, 0)
+Topbar.ZIndex = 155
+
+TextLabel.Parent = Topbar
+TextLabel.BackgroundColor3 = Color3.fromRGB(35, 35, 54)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(1, 0, 1, 0)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.Text = "Cones Hub"
+TextLabel.TextColor3 = Color3.fromRGB(227, 227, 241)
+TextLabel.TextSize = 20.000
+
+UICorner.CornerRadius = UDim.new(0, 6)
+UICorner.Parent = TextLabel
+
+UIAspectRatioConstraint.Parent = TextLabel
+UIAspectRatioConstraint.AspectRatio = 11.128
+
+UICorner_2.CornerRadius = UDim.new(0, 6)
+UICorner_2.Parent = Topbar
+
+UIAspectRatioConstraint_2.Parent = Topbar
+UIAspectRatioConstraint_2.AspectRatio = 11.128
+
+UICorner_3.CornerRadius = UDim.new(0, 6)
+UICorner_3.Parent = Frame
+
+SectionList.Name = "SectionList"
+SectionList.Parent = Frame
+SectionList.BackgroundColor3 = Color3.fromRGB(36, 36, 56)
+SectionList.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SectionList.BorderSizePixel = 0
+SectionList.Position = UDim2.new(0, 0, 0.161157027, 0)
+SectionList.Size = UDim2.new(0.23963134, 0, 0.838842928, 0)
+
+UICorner_4.CornerRadius = UDim.new(0, 6)
+UICorner_4.Parent = SectionList
+
+Frame_2.Name = "Frame"
+Frame_2.Parent = SectionList
+Frame_2.BackgroundColor3 = Color3.fromRGB(36, 36, 56)
+Frame_2.BackgroundTransparency = 1.000
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0.057692308, 0, 0.0295566507, 0)
+Frame_2.Selectable = false
+Frame_2.Size = UDim2.new(0.884615362, 0, 0.940886676, 0)
+Frame_2.CanvasSize = UDim2.new(0, 0, 0, 0)
+Frame_2.ScrollBarThickness = 0
+
+UICorner_5.CornerRadius = UDim.new(0, 6)
+UICorner_5.Parent = Frame_2
+
+UIListLayout.Parent = Frame_2
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 6)
+
+SectionButton.Name = "SectionButton"
+SectionButton.Parent = Frame_2
+SectionButton.BackgroundColor3 = Color3.fromRGB(114, 114, 179)
+SectionButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SectionButton.BorderSizePixel = 0
+SectionButton.Size = UDim2.new(1, 0, 0, 24)
+SectionButton.Visible = false
+SectionButton.Font = Enum.Font.SourceSansBold
+SectionButton.Text = "Placeholder"
+SectionButton.TextColor3 = Color3.fromRGB(227, 227, 241)
+SectionButton.TextSize = 16.000
+
+UICorner_6.CornerRadius = UDim.new(0, 6)
+UICorner_6.Parent = SectionButton
+
+UIAspectRatioConstraint_3.Parent = Frame_2
+UIAspectRatioConstraint_3.AspectRatio = 0.482
+
+UIAspectRatioConstraint_4.Parent = SectionList
+UIAspectRatioConstraint_4.AspectRatio = 0.512
+
+Section_Tab.Name = "Section_Tab"
+Section_Tab.Parent = Frame
+Section_Tab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Section_Tab.BackgroundTransparency = 1.000
+Section_Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Section_Tab.BorderSizePixel = 0
+Section_Tab.Position = UDim2.new(0.253456235, 0, 0.185950413, 0)
+Section_Tab.Selectable = false
+Section_Tab.Size = UDim2.new(0.732718885, 0, 0.789256215, 0)
+Section_Tab.Visible = false
+Section_Tab.CanvasSize = UDim2.new(0, 0, 0, 0)
+Section_Tab.ScrollBarThickness = 6
+
+UIListLayout_2.Parent = Section_Tab
+UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_2.Padding = UDim.new(0, 7)
+
+TapButtonEx.Name = "TapButtonEx"
+TapButtonEx.Parent = Section_Tab
+TapButtonEx.BackgroundColor3 = Color3.fromRGB(154, 154, 241)
+TapButtonEx.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TapButtonEx.BorderSizePixel = 0
+TapButtonEx.Position = UDim2.new(0.185534596, 0, 0, 0)
+TapButtonEx.Size = UDim2.new(1, 0, 0, 35)
+TapButtonEx.Visible = false
+TapButtonEx.Font = Enum.Font.SourceSansBold
+TapButtonEx.TextColor3 = Color3.fromRGB(227, 227, 241)
+TapButtonEx.TextSize = 17.000
+
+UICorner_7.CornerRadius = UDim.new(0, 6)
+UICorner_7.Parent = TapButtonEx
+
+ImageLabel.Parent = TapButtonEx
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.875471711, 0, 0.22857143, 0)
+ImageLabel.Size = UDim2.new(0.0716981143, 0, 0.54285717, 0)
+ImageLabel.Image = "rbxassetid://14913216473"
+
+UIAspectRatioConstraint_5.Parent = ImageLabel
+
+ToggleButtonEx.Name = "ToggleButtonEx"
+ToggleButtonEx.Parent = Section_Tab
+ToggleButtonEx.BackgroundColor3 = Color3.fromRGB(86, 86, 135)
+ToggleButtonEx.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToggleButtonEx.BorderSizePixel = 0
+ToggleButtonEx.Position = UDim2.new(0.185534596, 0, 0, 0)
+ToggleButtonEx.Size = UDim2.new(1, 0, 0, 35)
+ToggleButtonEx.Visible = false
+ToggleButtonEx.Font = Enum.Font.SourceSansBold
+ToggleButtonEx.TextColor3 = Color3.fromRGB(227, 227, 241)
+ToggleButtonEx.TextSize = 17.000
+
+UICorner_8.CornerRadius = UDim.new(0, 6)
+UICorner_8.Parent = ToggleButtonEx
+
+TextEx.Name = "TextEx"
+TextEx.Parent = Section_Tab
+TextEx.Active = true
+TextEx.BackgroundColor3 = Color3.fromRGB(109, 109, 191)
+TextEx.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextEx.BorderSizePixel = 0
+TextEx.Position = UDim2.new(0.185534596, 0, 0, 0)
+TextEx.Selectable = true
+TextEx.Size = UDim2.new(1, 0, 0, 35)
+TextEx.Visible = false
+TextEx.Font = Enum.Font.SourceSansBold
+TextEx.Text = "Button"
+TextEx.TextColor3 = Color3.fromRGB(227, 227, 241)
+TextEx.TextSize = 17.000
+
+UICorner_9.CornerRadius = UDim.new(0, 6)
+UICorner_9.Parent = TextEx
+
+TextboxEx.Name = "TextboxEx"
+TextboxEx.Parent = Section_Tab
+TextboxEx.BackgroundColor3 = Color3.fromRGB(85, 85, 149)
+TextboxEx.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextboxEx.BorderSizePixel = 0
+TextboxEx.Position = UDim2.new(0.185534596, 0, 0, 0)
+TextboxEx.Size = UDim2.new(1, 0, 0, 35)
+TextboxEx.Visible = false
+TextboxEx.Font = Enum.Font.SourceSansBold
+TextboxEx.PlaceholderColor3 = Color3.fromRGB(139, 139, 173)
+TextboxEx.PlaceholderText = "Type in something!"
+TextboxEx.Text = "Button"
+TextboxEx.TextColor3 = Color3.fromRGB(227, 227, 241)
+TextboxEx.TextSize = 17.000
+TextboxEx.TextWrapped = true
+
+UICorner_10.CornerRadius = UDim.new(0, 6)
+UICorner_10.Parent = TextboxEx
+
+UIAspectRatioConstraint_6.Parent = Section_Tab
+UIAspectRatioConstraint_6.AspectRatio = 1.665
+
+NotifOverlay.Name = "NotifOverlay"
+NotifOverlay.Parent = Frame
+NotifOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+NotifOverlay.BackgroundTransparency = 0.700
+NotifOverlay.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NotifOverlay.BorderSizePixel = 0
+NotifOverlay.ClipsDescendants = true
+NotifOverlay.Size = UDim2.new(1, 0, 1, 0)
+NotifOverlay.Visible = false
+NotifOverlay.ZIndex = 5
+
+Frame_3.Parent = NotifOverlay
+Frame_3.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame_3.BackgroundColor3 = Color3.fromRGB(38, 38, 59)
+Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_3.BorderSizePixel = 0
+Frame_3.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame_3.Size = UDim2.new(0.612903237, 0, 0.561983466, 0)
+
+UICorner_11.CornerRadius = UDim.new(0, 6)
+UICorner_11.Parent = Frame_3
+
+Title.Name = "Title"
+Title.Parent = Frame_3
+Title.BackgroundColor3 = Color3.fromRGB(34, 34, 52)
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.127819553, 0, 0.0661764741, 0)
+Title.Size = UDim2.new(0.74060148, 0, 0.286764711, 0)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Untitled"
+Title.TextColor3 = Color3.fromRGB(227, 227, 241)
+Title.TextSize = 17.000
+
+UICorner_12.CornerRadius = UDim.new(0, 6)
+UICorner_12.Parent = Title
+
+UIAspectRatioConstraint_7.Parent = Title
+UIAspectRatioConstraint_7.AspectRatio = 5.051
+
+Desc.Name = "Desc"
+Desc.Parent = Frame_3
+Desc.BackgroundColor3 = Color3.fromRGB(34, 34, 52)
+Desc.BackgroundTransparency = 1.000
+Desc.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Desc.BorderSizePixel = 0
+Desc.Position = UDim2.new(0.0300751887, 0, 0.404411763, 0)
+Desc.Size = UDim2.new(0.932330847, 0, 0.286764711, 0)
+Desc.Font = Enum.Font.SourceSansBold
+Desc.Text = "No Description."
+Desc.TextColor3 = Color3.fromRGB(227, 227, 241)
+Desc.TextSize = 17.000
+Desc.TextWrapped = true
+
+UICorner_13.CornerRadius = UDim.new(0, 6)
+UICorner_13.Parent = Desc
+
+UIAspectRatioConstraint_8.Parent = Desc
+UIAspectRatioConstraint_8.AspectRatio = 6.359
+
+Option.Name = "Option"
+Option.Parent = Frame_3
+Option.BackgroundColor3 = Color3.fromRGB(154, 154, 241)
+Option.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Option.BorderSizePixel = 0
+Option.Position = UDim2.new(0.270676702, 0, 0.752058804, 0)
+Option.Size = UDim2.new(0.447368413, 0, 0.198529407, 0)
+Option.Font = Enum.Font.SourceSansBold
+Option.Text = "Okay"
+Option.TextColor3 = Color3.fromRGB(227, 227, 241)
+Option.TextSize = 17.000
+
+UICorner_14.CornerRadius = UDim.new(0, 6)
+UICorner_14.Parent = Option
+
+UIAspectRatioConstraint_9.Parent = Option
+UIAspectRatioConstraint_9.AspectRatio = 4.407
+
+UIAspectRatioConstraint_10.Parent = Frame_3
+UIAspectRatioConstraint_10.AspectRatio = 1.956
+
+UIAspectRatioConstraint_11.Parent = NotifOverlay
+UIAspectRatioConstraint_11.AspectRatio = 1.793
+
+UIAspectRatioConstraint_12.Parent = Frame
+UIAspectRatioConstraint_12.AspectRatio = 1.793
+
+-- Scripts:
+
+local function EKGOI_fake_script() -- Frame.UserCode 
+	local script = Instance.new('LocalScript', Frame)
+	--Insert your code at [Enter Code Here]--
+	local Chars = {}
+	local TS = game:GetService("TweenService")
+	local TI = TweenInfo.new(0.2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0)
+	for i = 1,10 do
+		table.insert(Chars,""..string.char(math.random(40,90)))
+	end
+	local function _Core_NumberToLetters(number) --Sorts numbers from 0-9 from the encryption table
+		local output = ""
+		local num = tostring(number)
+		for i,v in pairs(num:split("")) do
+			output = output..""..Chars[tonumber(v) + 1]
+		end
+		return output
+	end
+
+	local function updateCanvasSize(csf,cll)
+		-- Get total number of buttons and spacing
+		local buttonCount = #csf:GetChildren() - 6 -- excluding non-button elements like UIListLayout
+		local buttonHeight = 35 -- Offset height of each button on Y-axis
+		local spacing = cll.Padding.Offset -- Offset of spacing between buttons
+
+		-- Calculate required canvas size and subtract the extra offset
+		local totalHeight = (buttonCount * buttonHeight) + ((buttonCount - 1) * spacing)
+		csf.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
+	end
+
+	-- Connect function to update when children change
+
+	local function GetNumberExtractFromKey(strg) --Desorts numbers from 0-9 from the encryption table
+		local output = ""
+		local str = tostring(strg)
+		for i,v in pairs(strg:split("")) do
+			output = output..(table.find(Chars,v) - 1)
+		end
+		return output
+	end
+
+	script.Parent.NotifOverlay.Frame.Option.MouseButton1Click:Connect(function()
+		script.Parent.NotifOverlay.Visible = false
+	end)
+
+	local function NewTextBox(setkey,keyortabvariable,startingtext) -- Set setkey to nil if you want it to be random.
+		local key = setkey or "TB"..math.random(100000,999999)..math.random(100000,999999)
+		local TB = script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)].TextboxEx:Clone() :: TextBox
+		TB.Name = "Textbox_"..key
+		TB.Parent = script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]
+		TB.Text = startingtext or ""
+		TB.Visible = true
+		return key
+	end
+
+	local function ReadFromTextBoxKey(keyortextboxvariable,keyortabvariable)
+		return script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]["Textbox_"..keyortextboxvariable].Text
+	end
+
+	local function WriteFromTextBoxKey(keyortextboxvariable,keyortabvariable,data : string)
+		script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]["Textbox_"..keyortextboxvariable].Text = data
+	end
+
+	local function NewTextLabel(setkey,keyortabvariable,text) -- Set setkey to nil if you want it to be random.
+		local key = setkey or "T"..math.random(100000,999999)..math.random(100000,999999)
+		local TB = script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)].TextEx:Clone() :: TextBox
+		TB.Name = "Text_"..key
+		TB.Parent = script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]
+		TB.Text = text or "Untitled"
+		TB.Visible = true
+		return key
+	end
+
+	local function ReadFromTextKey(keyortextboxvariable,keyortabvariable)
+		return script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]["Text_"..keyortextboxvariable].Text
+	end
+
+	local function WriteFromTextKey(keyortextboxvariable,keyortabvariable,data : string)
+		script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]["Text_"..keyortextboxvariable].Text = data
+	end
+
+	local function NewMessageOnMenu(title,message,notifaudioid,volume : number,option1text) -- Leave notifaudioid as nil if you want to use the default noise.
+		local sound = Instance.new("Sound",game:GetService("SoundService"))
+		sound.SoundId = "rbxassetid://18595195017"
+		sound.Volume = volume
+		sound.PlayOnRemove = true
+		for i,v in pairs(script.Parent.NotifOverlay.Frame:GetChildren()) do
+			if v:IsA("TextButton") or v:IsA("TextLabel") then
+				v.TextTransparency = 1
+				v.BackgroundTransparency = 1
+			end
+		end
+		script.Parent.NotifOverlay.BackgroundTransparency = 1
+		script.Parent.NotifOverlay.Frame.BackgroundTransparency = 1
+		script.Parent.NotifOverlay.Frame.Position = UDim2.fromScale(0.5,tonumber(0.5 + 0.3))
+		script.Parent.NotifOverlay.Frame.Title.Text = title or "Untitled"
+		script.Parent.NotifOverlay.Frame.Desc.Text = message or "No Description."
+		script.Parent.NotifOverlay.Visible = true
+		script.Parent.NotifOverlay.Frame.Option.Text = option1text or "Okay"
+		sound:Destroy()
+		for i,v in pairs(script.Parent.NotifOverlay.Frame:GetChildren()) do
+			if v:IsA("TextButton") or v:IsA("TextLabel") then
+				TS:Create(v,TI,{TextTransparency = 0,BackgroundTransparency = 0}):Play()
+			end
+		end
+		TS:Create(script.Parent.NotifOverlay,TI,{BackgroundTransparency = 0.7}):Play()
+		TS:Create(script.Parent.NotifOverlay.Frame,TI,{BackgroundTransparency = 0,Position = UDim2.fromScale(0.5,0.5)}):Play()
+		while script.Parent.NotifOverlay.Visible do
+			task.wait()
+		end
+	end
+
+
+	local function MakeNewSection(setkey,name : string) --If you want to set a specific key, Set it as a number. Else you can just return it as nil.
+		local Key = setkey or tonumber(""..math.random(10000,99999)..""..math.random(10000,99999)..""..math.random(10000,99999)..""..math.random(10000,99999))
+		local Section = script.Parent.Section_Tab:Clone()
+		Section.Parent = script.Parent
+		Section.Name = "SecPg_".._Core_NumberToLetters(Key)
+		local SecButton = script.Parent.SectionList.Frame.SectionButton:Clone()
+		SecButton.Parent = script.Parent.SectionList.Frame
+		SecButton.Text = name
+		SecButton.Name = "SecBt_".._Core_NumberToLetters(Key)
+		SecButton.Visible = true
+
+		SecButton.MouseButton1Click:Connect(function()
+			for i,v in pairs(script.Parent:GetChildren()) do
+				if v.Name:split("_")[2] == nil or v == Section then elseif v.Name:split("_")[1] == "SecPg" then
+					v.Visible = false
+				end
+			end
+			for i,v in pairs(script.Parent.SectionList.Frame:GetChildren()) do
+				if v.Name:split("_")[2] == nil or v == SecButton then elseif v.Name:split("_")[1] == "SecBt" then
+					TS:Create(v,TI,{BackgroundColor3 = Color3.fromRGB(114, 114, 179)}):Play()
+				end
+			end
+			Section.Visible = true
+			updateCanvasSize(Section,Section.UIListLayout)
+			TS:Create(SecButton,TI,{BackgroundColor3 = Color3.fromRGB(152, 152, 240)}):Play()
+		end)
+
+		return Key
+	end
+
+	local function MakeNewButton(keyortabvariable,name : string,toggle : boolean,functionality) --If toggle is on, it will return true if its enabled and false if its disabled.
+		local ButtonKey = "BK"..math.random(10000,99999)
+		if not toggle then
+			local Button = script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)].TapButtonEx:Clone() :: TextButton
+			Button.Parent = script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]
+			Button.Visible = true
+			Button.Text = name
+			Button.Name = "TapButton_"..ButtonKey
+			Button.MouseButton1Click:Connect(functionality)
+		else
+			local en = false
+			local Button = script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)].ToggleButtonEx:Clone() :: TextButton
+			Button.Parent = script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]
+			Button.Visible = true
+			Button.Text = name
+			Button.Name = "ToggleButton_"..ButtonKey
+			local function monitoredfunctionality()
+				if en then en=false TS:Create(Button,TI,{BackgroundColor3 = Color3.fromRGB(86, 86, 135)}):Play() else en=true TS:Create(Button,TI,{BackgroundColor3 = Color3.fromRGB(150, 150, 255)}):Play() end --Toggle en
+				functionality(en)
+			end
+			Button.MouseButton1Click:Connect(monitoredfunctionality)
+		end
+		return ButtonKey
+	end
+
+	local function EraseSection(keyortabvariable)
+		script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]:Destroy()
+		script.Parent.SectionList.Frame["SecBt_".._Core_NumberToLetters(keyortabvariable)]:Destroy()
+	end
+
+	local function EraseButton(keyorbuttonvariable,keyortabvariable)
+		for i,v in pairs(script.Parent["SecPg_".._Core_NumberToLetters(keyortabvariable)]:GetChildren()) do
+			if v:IsA("TextButton") then if v.Name == "TapButton_"..keyorbuttonvariable or v.Name == "ToggleButton_"..keyorbuttonvariable then
+					v:Destroy()
+				else
+					print(v.Name)
+				end
+			end
+		end
+	end
+
+	--//Enter Code Here\\--
+	game:GetService("UserInputService").InputBegan:Connect(function(inp,gpe)
+		if inp == Enum.KeyCode.RightShift and not gpe then
+			CHT.Enabled = not CHT.Enabled
+		end
+	end)
+	local Ver = 2.14
+	task.spawn(function()
+		while task.wait(1) do
+			if tonumber(game:HttpGet("https://pastebin.com/raw/X9MHMwyv")) > Ver then
+				NewMessageOnMenu("Update","Script has updated. Please restart to be up to date.",nil,0.5,"Restart")
+				CHT:Destroy()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConeHub"))()
+				break
+			end
+		end
+	end)
+	local IsAdmin = false
+	local SupportedGames = {2248834135,6631166683,905198065,210851291,2668101271,6491900489}
+	local SupportedGamesWebsiteIds = {6156255015,91232956735357,2537430692,537413528,6961824067,92171645661524}
+	local Supported = false
+	if isfile("specialkeyconeshub.cmk") then
+		local Auth = false
+		for i,v in pairs(game:HttpGet("https://pastebin.com/raw/dhgxdeq1"):split("|")) do
+			if readfile("specialkeyconeshub.cmk") == v then
+				IsAdmin = true
+				print("admin")
+			end
+		end
+	end
+	for i,v in pairs(SupportedGames) do
+		if game.GameId == v then
+			Supported = true
+		end
+	end
+	task.spawn(function()
+		local AlreadyKicked = false
+		while game:GetService("RunService").RenderStepped:Wait() do
+			if game.CoreGui.RobloxPromptGui.promptOverlay.Active == true then
+				game.CoreGui.RobloxPromptGui.promptOverlay.Visible = false
+				game:GetService("GuiService"):ClearError()
+				task.spawn(function()
+					while game:GetService("RunService").RenderStepped:Wait() do
+						game:GetService("GuiService"):ClearError()
+					end
+				end)
+				if not AlreadyKicked then
+					NewMessageOnMenu("Disconnected","You have been disconnected.\n"..game.CoreGui.RobloxPromptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ErrorMessage.Text:split("You were kicked from this experience: ")[2]:split("\n")[1],nil,0.5,"Rejoin")
+				else
+					NewMessageOnMenu("Disconnected","Rejoin failed.\nPlease leave and rejoin.",nil,0.5,"Okay.")
+				end
+				game.CoreGui.RobloxPromptGui.promptOverlay.Active = false
+				AlreadyKicked = true
+				game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+			end
+		end
+	end)
+	if not Supported then
+		NewMessageOnMenu("Error","Game Not Supported.\nResulting to Quick Access!",nil,0.5,"Okay")
+	else
+		if game.GameId == SupportedGames[1] or game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") or game.Players.LocalPlayer.Character:FindFirstChild("F3X Building Tools") or game.Players.LocalPlayer.Character:FindFirstChild("Building Tool") or game.Players.LocalPlayer.Character:FindFirstChild("[Build] Building Tools") then
+			local HomeSection = MakeNewSection(nil,"Home")
+			MakeNewButton(HomeSection,"Cones Custom Btools",false,function()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConesBtools"))()
+			end)
+			MakeNewButton(HomeSection,"Penis [R6]",false,function()
+				print("runing")
+				local OffsetPreloadation = Vector3.new(0,9e9,9e9)
+
+				local function generateRandomString(length)
+					--local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{};/''.,][|:"
+					local randomString = ""
+					for i = 1, length do
+						--local randomIndex = math.random(1, #charset)
+						randomString = randomString .. string.char(math.random(100,130))--charset:sub(randomIndex, randomIndex)
+					end
+					return randomString
+				end
+
+
+				local function FetchRandomName()
+					return generateRandomString(math.random(1,2594))
+				end
+
+
+
+				local function CallAPI(argsxsxs) --Will Yield
+					if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
+						game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+					else
+						game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+					end
+				end
+
+
+				local TorsoAnchorArgs = {
+					[1] = "SyncAnchor",
+					[2] = {
+						[1] = {
+							["Anchored"] = true,
+							["Part"] = game.Players.LocalPlayer.Character.Torso
+						}
+					}
+				}
+				CallAPI(TorsoAnchorArgs)
+
+				local function MakePart(cf,parent)
+					local PartRet = nil 
+					local lx = false
+					local NewPartArgs = {
+						[1] = "CreatePart",
+						[2] = "Normal",
+						[3] = cf,
+						[4] = parent
+					}
+					local function childaddedyieldfornewpart(ins)
+						if not lx and ins:IsA("BasePart") then
+							lx = true
+							func:Disconnect()
+							PartRet = ins
+						end
+					end
+					func = parent.ChildAdded:Connect(childaddedyieldfornewpart)
+
+					CallAPI(NewPartArgs)
+					local CallWraps = false
+					local FoundPart = false
+					task.spawn(function()
+						task.wait(2)
+						if not FoundPart then
+							warn("Discontinued Finding Part, Timed out.")
+							CallWraps = true
+						end
+					end)
+					while task.wait() do
+						if CallWraps or FoundPart then
+							break
+						else
+							if PartRet ~= nil then
+								FoundPart = true
+							end
+						end
+					end
+					if CallWraps then
+						return
+					end
+					return PartRet
+				end
+				--Making the parts--
+				local p1 = MakePart(CFrame.new(0,0,0) + OffsetPreloadation,game.Players.LocalPlayer.Character.HumanoidRootPart) --b
+				local p2 = MakePart(CFrame.new(0,0.4,1.2) + OffsetPreloadation,game.Players.LocalPlayer.Character.HumanoidRootPart) --d
+				local p3 = MakePart(CFrame.new(0,0.5,2.4) + OffsetPreloadation,game.Players.LocalPlayer.Character.HumanoidRootPart) --t
+				--Calling Mesh Creations on parts--
+				--print(p1) --DEBUG
+				--print(p2) --DEBUG
+				--print(p3) --DEBUG
+				local MeshArgs = {
+					[1] = "CreateMeshes",
+					[2] = {
+						[1] = {
+							["Part"] = p1
+						},
+						[2] = {
+							["Part"] = p2
+						},
+						[3] = {
+							["Part"] = p3
+						}
+					}
+				}
+				CallAPI(MeshArgs)
+				--Setting the mesh type to FileMesh For Preperation Of MeshIds--
+				local SyncMeshArgs = {
+					[1] = "SyncMesh",
+					[2] = {
+						[1] = {
+							["MeshType"] = "FileMesh",
+							["Part"] = p1
+						},
+						[2] = {
+							["MeshType"] = "FileMesh",
+							["Part"] = p2
+						},
+						[3] = {
+							["MeshType"] = "FileMesh",
+							["Part"] = p3
+						}
+					}
+				}
+				CallAPI(SyncMeshArgs)
+				--Build Meshes--
+				SyncMeshArgs = {
+					[1] = "SyncMesh",
+					[2] = {
+						[1] = {
+							["MeshId"] = "rbxassetid://16826711375",
+							["Part"] = p1
+						},
+						[2] = {
+							["MeshId"] = "rbxassetid://16676895549",
+							["Part"] = p2
+						},
+						[3] = {
+							["MeshId"] = "rbxassetid://16826712670",
+							["Part"] = p3
+						}
+					}
+				}
+				CallAPI(SyncMeshArgs)
+				--Set Size Of Meshes To Be Exact--
+				SyncMeshArgs = {
+					[1] = "SyncMesh",
+					[2] = {
+						[1] = {
+							["Part"] = p1,
+							["Scale"] = Vector3.new(2,2.1,2)
+						},
+						[2] = {
+							["Part"] = p2,
+							["Scale"] = Vector3.new(1.63,1.87,1.93)
+						},
+						[3] = {
+							["Part"] = p3,
+							["Scale"] = Vector3.new(1.6,2,1.9)
+						}
+					}
+				}
+				CallAPI(SyncMeshArgs)
+				--Rename All The Parts To Something Comepletely Random--
+				local PartNameArgs1 = {
+					[1] = "SetName",
+					[2] = {
+						[1] = p1
+					},
+					[3] = FetchRandomName()
+				}
+				local PartNameArgs2 = {
+					[1] = "SetName",
+					[2] = {
+						[1] = p2
+					},
+					[3] = FetchRandomName()
+				}
+				local PartNameArgs3 = {
+					[1] = "SetName",
+					[2] = {
+						[1] = p3
+					},
+					[3] = FetchRandomName()
+				}
+				CallAPI(PartNameArgs1)
+				CallAPI(PartNameArgs2)
+				CallAPI(PartNameArgs3)
+				--Set Parts To Be Locked So Its Harder To Remove 😏--
+				local PartLockArgs = {
+					[1] = "SetLocked",
+					[2] = {
+						[1] = p1,
+						[2] = p2,
+						[3] = p3
+					},
+					[3] = true
+				}
+				CallAPI(PartLockArgs)
+				--Make Sure Collision Is Off So it doesent interfere with parts and such--
+				local PartLockArgs = {
+					[1] = "SyncCollision",
+					[2] = {
+						[1] = {
+							["CanCollide"] = false,
+							["Part"] = p1
+						},
+						[2] = {
+							["CanCollide"] = false,
+							["Part"] = p2
+						},
+						[3] = {
+							["CanCollide"] = false,
+							["Part"] = p3
+						}
+					},
+				}
+				CallAPI(PartLockArgs)
+				--Colorizing It for better effects--
+				local TopColor = Color3.fromRGB(0,0,0)
+				local TCMR
+				local TCMG
+				local TCMB
+				if game.Players.LocalPlayer.Character["Body Colors"].TorsoColor3.R <= 0 then
+					TCMR = 0
+				else
+					TCMR = game.Players.LocalPlayer.Character["Body Colors"].TorsoColor3.R - 210
+				end
+				if game.Players.LocalPlayer.Character["Body Colors"].TorsoColor3.G <= 0 then
+					TCMG = 0
+				else
+					TCMG = game.Players.LocalPlayer.Character["Body Colors"].TorsoColor3.G - 210
+				end
+				if game.Players.LocalPlayer.Character["Body Colors"].TorsoColor3.B <= 0 then
+					TCMB = 0
+				else
+					TCMB = game.Players.LocalPlayer.Character["Body Colors"].TorsoColor3.B - 210
+				end
+				TopColor = Color3.new(TCMR,TCMG,TCMB)
+				local ColorizingArgs = {
+					[1] = "SyncColor",
+					[2] = {
+						[1] = {
+							["Color"] = game.Players.LocalPlayer.Character["Body Colors"].TorsoColor3,
+							["Part"] = p1,
+							["UnionColoring"] = true,
+						},
+						[2] = {
+							["Color"] = game.Players.LocalPlayer.Character["Body Colors"].TorsoColor3,
+							["Part"] = p2,
+							["UnionColoring"] = true,
+						},
+						[3] = {
+							["Color"] = TopColor,
+							["Part"] = p3,
+							["UnionColoring"] = true,
+						},
+					}
+				}
+				CallAPI(ColorizingArgs)
+				--Align Parts With The User--
+
+				local bcf = CFrame.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.7 + game.Players.LocalPlayer.Character.HumanoidRootPart.Position) + Vector3.new(0,-1.4,0)) --CFrame.Angles(math.rad(0),math.rad(game.Players.LocalPlayer.Character.HumanoidRootPart.Orientation.Y),math.rad(0)
+				local dcf = CFrame.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 1.5 + game.Players.LocalPlayer.Character.HumanoidRootPart.Position) + Vector3.new(0,-1.17,0))
+				local tcf = CFrame.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 2.8 + game.Players.LocalPlayer.Character.HumanoidRootPart.Position) + Vector3.new(0,-1.22,0))
+				local bpp = Instance.new("Part")
+				bpp.Name = "Cones Prediction Part [Balls]"
+				local dpp = Instance.new("Part")
+				dpp.Name = "Cones Prediction Part [Dick]"
+				local tpp = Instance.new("Part")
+				tpp.Name = "Cones Prediction Part [Tip]"
+
+				bpp.CFrame = bcf
+				dpp.CFrame = dcf
+				tpp.CFrame = tcf
+
+				bpp.Orientation = Vector3.new(0,game.Players.LocalPlayer.Character.Torso.Orientation.Y - 180,0)
+				dpp.Orientation = Vector3.new(6,game.Players.LocalPlayer.Character.Torso.Orientation.Y - 180,0)
+				tpp.Orientation = Vector3.new(9,dpp.Orientation.Y,0)
+
+				local PartMoveArgs = {
+					[1] = "SyncMove",
+					[2] = {
+						[1] = {
+							["CFrame"] = bpp.CFrame,
+							["Part"] = p1
+						},
+						[2] = {
+							["CFrame"] = dpp.CFrame,
+							["Part"] = p2
+						},
+						[3] = {
+							["CFrame"] = tpp.CFrame,
+							["Part"] = p3
+						}
+					}
+				}
+				CallAPI(PartMoveArgs)
+				--Welding so you can move around with it--
+				local PartLockArgs = {
+					[1] = "CreateWelds",
+					[2] = {
+						[1] = p1,
+						[2] = p2,
+						[3] = p3
+					},
+					[3] = game.Players.LocalPlayer.Character.Torso
+				}
+				CallAPI(PartLockArgs)
+				--Unanchoring it so you can move--
+				local MainArgs = {
+					[1] = "SyncAnchor",
+					[2] = {
+						[1] = {
+							["Anchored"] = false,
+							["Part"] = p1
+						},
+						[2] = {
+							["Anchored"] = false,
+							["Part"] = p2
+						},
+						[3] = {
+							["Anchored"] = false,
+							["Part"] = p3
+						}
+					}
+				}
+				CallAPI(MainArgs)
+				--Unlock Player To Move--
+				TorsoAnchorArgs = {
+					[1] = "SyncAnchor",
+					[2] = {
+						[1] = {
+							["Anchored"] = false,
+							["Part"] = game.Players.LocalPlayer.Character.Torso
+						}
+					}
+				}
+				CallAPI(TorsoAnchorArgs)
+			end)
+			local TextBox = NewTextBox(nil,HomeSection,"User Here [Can be shortened]")
+			MakeNewButton(HomeSection,"Add penis to user [R6]",false,function()
+				local strn = ReadFromTextBoxKey(TextBox,HomeSection):lower()
+				local Plr
+				for i,phlr in pairs(game.Players:GetPlayers()) do
+					local ts2 = ""
+					for i,v in pairs(strn:split("")) do
+						ts2 = ts2..tostring(phlr.Name:split("")[i]:lower())
+
+					end
+
+					if ts2 == strn then
+						Plr = phlr
+					end
+				end
+				if Plr == nil then else
+					print("runing")
+					local OffsetPreloadation = Vector3.new(0,9e9,9e9)
+					local Target = Plr
+					local function generateRandomString(length)
+						--local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{};/''.,][|:"
+						local randomString = ""
+						for i = 1, length do
+							--local randomIndex = math.random(1, #charset)
+							randomString = randomString .. string.char(math.random(100,130))--charset:sub(randomIndex, randomIndex)
+						end
+						return randomString
+					end
+
+
+					local function FetchRandomName()
+						return generateRandomString(math.random(1,2594))
+					end
+
+
+
+					local function CallAPI(argsxsxs) --Will Yield
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
+							game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						else
+							game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						end
+					end
+
+
+					local TorsoAnchorArgs = {
+						[1] = "SyncAnchor",
+						[2] = {
+							[1] = {
+								["Anchored"] = true,
+								["Part"] = Target.Character.Torso
+							}
+						}
+					}
+					CallAPI(TorsoAnchorArgs)
+
+					local function MakePart(cf,parent)
+						local PartRet = nil 
+						local lx = false
+						local NewPartArgs = {
+							[1] = "CreatePart",
+							[2] = "Normal",
+							[3] = cf,
+							[4] = parent
+						}
+						local function childaddedyieldfornewpart(ins)
+							if not lx and ins:IsA("BasePart") then
+								lx = true
+								func:Disconnect()
+								PartRet = ins
+							end
+						end
+						func = parent.ChildAdded:Connect(childaddedyieldfornewpart)
+
+						CallAPI(NewPartArgs)
+						local CallWraps = false
+						local FoundPart = false
+						task.spawn(function()
+							task.wait(2)
+							if not FoundPart then
+								warn("Discontinued Finding Part, Timed out.")
+								CallWraps = true
+							end
+						end)
+						while task.wait() do
+							if CallWraps or FoundPart then
+								break
+							else
+								if PartRet ~= nil then
+									FoundPart = true
+								end
+							end
+						end
+						if CallWraps then
+							return
+						end
+						return PartRet
+					end
+					--Making the parts--
+					local p1 = MakePart(CFrame.new(0,0,0) + OffsetPreloadation,Target.Character.HumanoidRootPart) --b
+					local p2 = MakePart(CFrame.new(0,0.4,1.2) + OffsetPreloadation,Target.Character.HumanoidRootPart) --d
+					local p3 = MakePart(CFrame.new(0,0.5,2.4) + OffsetPreloadation,Target.Character.HumanoidRootPart) --t
+					--Calling Mesh Creations on parts--
+					--print(p1) --DEBUG
+					--print(p2) --DEBUG
+					--print(p3) --DEBUG
+					local MeshArgs = {
+						[1] = "CreateMeshes",
+						[2] = {
+							[1] = {
+								["Part"] = p1
+							},
+							[2] = {
+								["Part"] = p2
+							},
+							[3] = {
+								["Part"] = p3
+							}
+						}
+					}
+					CallAPI(MeshArgs)
+					--Setting the mesh type to FileMesh For Preperation Of MeshIds--
+					local SyncMeshArgs = {
+						[1] = "SyncMesh",
+						[2] = {
+							[1] = {
+								["MeshType"] = "FileMesh",
+								["Part"] = p1
+							},
+							[2] = {
+								["MeshType"] = "FileMesh",
+								["Part"] = p2
+							},
+							[3] = {
+								["MeshType"] = "FileMesh",
+								["Part"] = p3
+							}
+						}
+					}
+					CallAPI(SyncMeshArgs)
+					--Build Meshes--
+					SyncMeshArgs = {
+						[1] = "SyncMesh",
+						[2] = {
+							[1] = {
+								["MeshId"] = "rbxassetid://16826711375",
+								["Part"] = p1
+							},
+							[2] = {
+								["MeshId"] = "rbxassetid://16676895549",
+								["Part"] = p2
+							},
+							[3] = {
+								["MeshId"] = "rbxassetid://16826712670",
+								["Part"] = p3
+							}
+						}
+					}
+					CallAPI(SyncMeshArgs)
+					--Set Size Of Meshes To Be Exact--
+					SyncMeshArgs = {
+						[1] = "SyncMesh",
+						[2] = {
+							[1] = {
+								["Part"] = p1,
+								["Scale"] = Vector3.new(1.6,1.7,1.6)
+							},
+							[2] = {
+								["Part"] = p2,
+								["Scale"] = Vector3.new(1.23,1.37,1.4)
+							},
+							[3] = {
+								["Part"] = p3,
+								["Scale"] = Vector3.new(1.2,1.4,1.5)
+							}
+						}
+					}
+					CallAPI(SyncMeshArgs)
+					--Rename All The Parts To Something Comepletely Random--
+					local PartNameArgs1 = {
+						[1] = "SetName",
+						[2] = {
+							[1] = p1
+						},
+						[3] = FetchRandomName()
+					}
+					local PartNameArgs2 = {
+						[1] = "SetName",
+						[2] = {
+							[1] = p2
+						},
+						[3] = FetchRandomName()
+					}
+					local PartNameArgs3 = {
+						[1] = "SetName",
+						[2] = {
+							[1] = p3
+						},
+						[3] = FetchRandomName()
+					}
+					CallAPI(PartNameArgs1)
+					CallAPI(PartNameArgs2)
+					CallAPI(PartNameArgs3)
+					--Set Parts To Be Locked So Its Harder To Remove 😏--
+					local PartLockArgs = {
+						[1] = "SetLocked",
+						[2] = {
+							[1] = p1,
+							[2] = p2,
+							[3] = p3
+						},
+						[3] = true
+					}
+					CallAPI(PartLockArgs)
+					--Make Sure Collision Is Off So it doesent interfere with parts and such--
+					local PartLockArgs = {
+						[1] = "SyncCollision",
+						[2] = {
+							[1] = {
+								["CanCollide"] = false,
+								["Part"] = p1
+							},
+							[2] = {
+								["CanCollide"] = false,
+								["Part"] = p2
+							},
+							[3] = {
+								["CanCollide"] = false,
+								["Part"] = p3
+							}
+						},
+					}
+					CallAPI(PartLockArgs)
+					--Colorizing It for better effects--
+					local TopColor = Color3.fromRGB(0,0,0)
+					local TCMR
+					local TCMG
+					local TCMB
+					if Target.Character.Torso.Color.R <= 0 then
+						TCMR = 0
+					else
+						TCMR = Target.Character.Torso.Color.R - 210
+					end
+					if Target.Character.Torso.Color.G <= 0 then
+						TCMG = 0
+					else
+						TCMG = Target.Character.Torso.Color.G - 210
+					end
+					if Target.Character.Torso.Color.B <= 0 then
+						TCMB = 0
+					else
+						TCMB = Target.Character.Torso.Color.B - 210
+					end
+					TopColor = Color3.new(TCMR,TCMG,TCMB)
+					ColorizingArgs = {
+						[1] = "SyncColor",
+						[2] = {
+							[1] = {
+								["Color"] = Target.Character.Torso.Color,
+								["Part"] = p1,
+								["UnionColoring"] = true,
+							},
+							[2] = {
+								["Color"] = Target.Character.Torso.Color,
+								["Part"] = p2,
+								["UnionColoring"] = true,
+							},
+							[3] = {
+								["Color"] = TopColor,
+								["Part"] = p3,
+								["UnionColoring"] = true,
+							},
+						}
+					}
+					CallAPI(ColorizingArgs)
+					--Align Parts With The User--
+
+					local bcf = CFrame.new((Target.Character.HumanoidRootPart.CFrame.lookVector * 0.7 + Target.Character.HumanoidRootPart.Position) + Vector3.new(0,-1.4,0)) --CFrame.Angles(math.rad(0),math.rad(Target.Character.HumanoidRootPart.Orientation.Y),math.rad(0)
+					local dcf = CFrame.new((Target.Character.HumanoidRootPart.CFrame.lookVector * 1.4 + Target.Character.HumanoidRootPart.Position) + Vector3.new(0,-0.88,0))
+					local tcf = CFrame.new((Target.Character.HumanoidRootPart.CFrame.lookVector * 2.3 + Target.Character.HumanoidRootPart.Position) + Vector3.new(0,-0.46,0))
+					local bpp = Instance.new("Part")
+					bpp.Name = "Cones Prediction Part [Balls]"
+					local dpp = Instance.new("Part")
+					dpp.Name = "Cones Prediction Part [Dick]"
+					local tpp = Instance.new("Part")
+					tpp.Name = "Cones Prediction Part [Tip]"
+
+					bpp.CFrame = bcf
+					dpp.CFrame = dcf
+					tpp.CFrame = tcf
+
+					bpp.Orientation = Vector3.new(0,Target.Character.Torso.Orientation.Y - 180,0)
+					dpp.Orientation = Vector3.new(-20,Target.Character.Torso.Orientation.Y - 180,0)
+					tpp.Orientation = Vector3.new(-30,dpp.Orientation.Y,0)
+
+					local PartMoveArgs = {
+						[1] = "SyncMove",
+						[2] = {
+							[1] = {
+								["CFrame"] = bpp.CFrame,
+								["Part"] = p1
+							},
+							[2] = {
+								["CFrame"] = dpp.CFrame,
+								["Part"] = p2
+							},
+							[3] = {
+								["CFrame"] = tpp.CFrame,
+								["Part"] = p3
+							}
+						}
+					}
+					CallAPI(PartMoveArgs)
+					--Welding so you can move around with it--
+					local PartLockArgs = {
+						[1] = "CreateWelds",
+						[2] = {
+							[1] = p1,
+							[2] = p2,
+							[3] = p3
+						},
+						[3] = Target.Character.Torso
+					}
+					CallAPI(PartLockArgs)
+					--Unanchoring it so you can move--
+					local MainArgs = {
+						[1] = "SyncAnchor",
+						[2] = {
+							[1] = {
+								["Anchored"] = false,
+								["Part"] = p1
+							},
+							[2] = {
+								["Anchored"] = false,
+								["Part"] = p2
+							},
+							[3] = {
+								["Anchored"] = false,
+								["Part"] = p3
+							}
+						}
+					}
+					CallAPI(MainArgs)
+					--Unlock Player To Move--
+					TorsoAnchorArgs = {
+						[1] = "SyncAnchor",
+						[2] = {
+							[1] = {
+								["Anchored"] = false,
+								["Part"] = Target.Character.Torso
+							}
+						}
+					}
+					CallAPI(TorsoAnchorArgs)
+				end
+			end)			
+			MakeNewButton(HomeSection,"Delete all decals [Anti C00lKidd]",false,function()
+				local function CallAPI(argsxsxs) --Will Yield
+					if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
+						game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+					else
+						game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+					end
+				end
+				local List = {}
+				for i,v in pairs(game.Workspace:GetDescendants()) do
+					if v:IsA("Decal") then
+						if v.Name == "face" or v.Name == "Face" then else
+							table.insert(List,v)
+						end
+					end
+				end
+				CallAPI({"Remove",List})
+			end)
+			if IsAdmin then
+				MakeNewButton(HomeSection,"Nuke Everything (Del All) [ADM]",false,function()
+					local function CallAPI(argsxsxs) --Will Yield
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
+							game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						else
+							game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						end
+					end
+					local Parts = {}
+					for i,v in pairs(game.Workspace:GetDescendants()) do
+						if v:IsA("Part") or v:IsA("MeshPart") or v:IsA("UnionOperation") or v:IsA("Seat") or v:IsA("VehicleSeat") then
+							table.insert(Parts,v)
+						end
+					end
+					CallAPI({"Remove",Parts})
+					print("Called")
+				end)
+			end
+			local x = false
+			if IsAdmin then
+				MakeNewButton(HomeSection,"Nuke HD Admin [ADM]",true,function(enabled)
+					local function CallAPI(argsxsxs) --Will Yield
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Building Tools") then
+							game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						else
+							game:GetService("Players").LocalPlayer.Character:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(argsxsxs))
+						end
+					end
+					if enabled then
+						if game.Workspace:FindFirstChild("HDAdminWorkspaceFolder") then
+							CallAPI({"Remove",{game.Workspace.HDAdminWorkspaceFolder}})
+						end
+						x = true
+						while x do
+							if game.Workspace:FindFirstChild("HDAdminWorkspaceFolder") then
+								CallAPI({"Remove",{game.Workspace.HDAdminWorkspaceFolder}})
+							end
+							task.wait()
+						end
+					else x = false
+					end
+				end)
+			end
+		end
+		if game.GameId == SupportedGames[2] then
+			local toolammount = 50
+			local ta = MakeNewSection(nil,"Tool Abuse")
+			MakeNewButton(ta,"Rain Random Items [WILL AUTO RESET]",false,function()
+				task.spawn(function()
+					local lp = game:GetService("Players").LocalPlayer
+					local c = lp.Character
+					local hrp0 = c:FindFirstChild("HumanoidRootPart")
+					local hrp1 = hrp0:Clone()
+					c.Parent = nil
+					hrp0.Parent = hrp1
+					hrp0.RootJoint.Part0 = nil
+					hrp1.Parent = c
+					c.Parent = workspace
+					local h = game:GetService("RunService").Heartbeat
+					hrp0.Transparency = 0.5
+					local Resetting = false
+					task.spawn(function()
+						while h:Wait() and c and c.Parent do
+							if not Resetting then
+								hrp0.CFrame = CFrame.new(-117, 258, -24)
+								hrp0.Orientation += Vector3.new(0, -90, 0)
+								hrp0.Velocity = Vector3.new(0,4,0)
+							else
+								hrp0.CFrame = CFrame.new(9e9,9e9,9e9)
+								hrp0.Velocity = Vector3.new(0,4,0)
+							end
+						end
+					end)
+
+					local RandomList = {game.Workspace.Map["Convenience Store"].IceCreamFreezer.IceCreamInteractive.ClickDetector,game.Workspace.Map["Convenience Store"].ConvenienceStoreDrinks.RedBLOXs.Interactive.ClickDetector,game.Workspace.Map["Convenience Store"].ConvenienceStoreDrinks.Colas.Interactive.ClickDetector,game.Workspace.Map["Convenience Store"].ConvenienceStoreDrinks.Goalas.Interactive.ClickDetector}
+					local function GetRandomItemCD()
+						return RandomList[math.random(1,#RandomList)]
+					end
+					if game.Players.LocalPlayer.Backpack:FindFirstChild("Rock") then
+						game.Players.LocalPlayer.Backpack.Rock:Destroy()
+					end
+					for i = 1,toolammount do
+						fireclickdetector(GetRandomItemCD())
+						game:GetService("RunService").RenderStepped:Wait()
+					end
+
+					local c = 0
+					local endh = false
+					local scf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+					task.spawn(function()
+					end)
+					game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function(ins)
+						if ins:IsA("HopperBin") or ins:IsA("Tool") and not endh then
+							ins.Parent = game.Players.LocalPlayer.Character
+							ins.Parent = game.Workspace
+						end
+					end)
+					for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+						v.Parent = game.Players.LocalPlayer.Character
+						v.Parent = game.Workspace
+						task.spawn(function()
+							local canufeeldalight = false
+							local c2 = 0
+							while true do
+								task.wait()
+								if v ~= nil and v.Handle ~= nil and isnetworkowner(v.Handle) and v.Parent == game.Workspace then
+									wait()
+									if isnetworkowner(v.Handle) then
+										task.wait(0.35)
+										break
+									else
+										--game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							--v.Handle.CFrame = CFrame.new(0,200,0)
+							--v.Handle.Velocity = (game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 105) --+ Vector3.new(math.random(-7,7),math.random(1,15),math.random(-7,7))
+						end)
+						c = c + 1
+						if c > 14 then
+							c = 0
+							wait()
+							--game:GetService("RunService").RenderStepped:Wait()
+						end
+					end
+					while #game.Players.LocalPlayer.Backpack:GetChildren() > 0 and not game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") do
+						wait()
+					end
+					endh = true
+					Resetting = true
+					task.wait(0.1 + (game.Players.LocalPlayer:GetNetworkPing() * 5))
+					game.Players.LocalPlayer.Character.Humanoid.Health = 0
+				end)
+			end)
+			local CB = nil
+			MakeNewButton(ta,"+ Ammount",false,function() toolammount = toolammount + 1  task.spawn(function() 
+					NewMessageOnMenu("Ammount",tostring(toolammount),nil,1,"Alright")
+				end) end)
+			MakeNewButton(ta,"++ Ammount",false,function() toolammount = toolammount + 30  task.spawn(function() 
+					NewMessageOnMenu("Ammount",tostring(toolammount),nil,1,"Alright")
+				end) end)
+			MakeNewButton(ta,"+++ Ammount",false,function() toolammount = toolammount + 90  task.spawn(function() 
+					NewMessageOnMenu("Ammount",tostring(toolammount),nil,1,"Alright")
+				end) end)
+			MakeNewButton(ta,"- Ammount",false,function() toolammount = toolammount - 1  task.spawn(function() 
+					NewMessageOnMenu("Ammount",tostring(toolammount),nil,1,"Alright")
+				end) end)
+			MakeNewButton(ta,"-- Ammount",false,function() toolammount = toolammount - 30 task.spawn(function() 
+					NewMessageOnMenu("Ammount",tostring(toolammount),nil,1,"Alright")
+				end) end)
+			MakeNewButton(ta,"--- Ammount",false,function() toolammount = toolammount - 90  task.spawn(function() 
+					NewMessageOnMenu("Ammount",tostring(toolammount),nil,1,"Alright")
+				end) end)
+			local CA = MakeNewSection(nil,"Car Abuse")
+			local Seat = nil
+			task.spawn(function()
+				while task.wait() do
+					--print('loop')
+					local Continu = false
+					task.spawn(function()
+						while task.wait() do
+							if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+								Continu = true
+								--print("accepted")
+								break
+							end
+						end
+					end)
+					while task.wait() do
+						if Continu then
+							break
+						end
+					end
+					--print("Connected")
+					local func = game.Players.LocalPlayer.Character.Humanoid.Seated:Connect(function(active,seat)
+						if active and seat ~= nil then
+							Seat = seat
+						end
+					end)
+					while game.Players.LocalPlayer.Character.Parent and game.Players.LocalPlayer.Character.Parent.Parent do
+						task.wait()
+					end
+					func:Disconnect()
+				end
+			end)
+			MakeNewButton(CA,"Speedy Car",true,function(active)
+				if active then
+					Seat.Parent["Configurations"].Speed.Value = 2e2
+				else
+					Seat.Parent["Configurations"].Speed.Value = 80
+				end
+			end)
+		end
+		if game.GameId == SupportedGames[3] then
+			local NPS = MakeNewSection(nil,"Normal Player")
+			local AW = false
+			game.Players.LocalPlayer.Changed:Connect(function(prop)
+				if prop == "Team" and game.Players.LocalPlayer.Team == game.Teams.Towers and AW then
+					game.Players.LocalPlayer.CharacterAdded:Wait()
+					task.wait(0.2)
+					local fti = firetouchinterest or firetouch or syn.firetouchinterest
+					if fti then
+						local s,e = pcall(function()
+							fti(game.Workspace.Map.Classic.Button:FindFirstChildOfClass("TouchInterest"))
+						end)
+						if not s then
+							local CF = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+							for i = 1,5 do
+								game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.Classic.Button.CFrame
+								wait()
+							end
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
+						end
+					else
+						local CF = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						for i = 1,5 do
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.Classic.Button.CFrame
+							wait()
+						end
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
+					end
+				end
+			end)
+			MakeNewButton(NPS,"Always Win",true,function(active)
+				AW = active
+			end)
+			MakeNewButton(NPS,"Trigger Win",false,function(active)
+				if game.Players.LocalPlayer.Team == game.Teams.Towers then
+					local fti = firetouchinterest or firetouch or syn.firetouchinterest
+					if fti then
+						local s,e = pcall(function()
+							fti(game.Workspace.Map.Classic.Button:FindFirstChildOfClass("TouchInterest"))
+						end)
+						if not s then
+							local CF = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+							for i = 1,5 do
+								game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.Classic.Button.CFrame
+								wait()
+							end
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
+						end
+					else
+						local CF = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						for i = 1,5 do
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.Classic.Button.CFrame
+							wait()
+						end
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
+					end
+				else
+					NewMessageOnMenu("Error","Cannot trigger a win.\nThe server anticheat would kick you.",nil,1,"Okay")
+				end
+			end)
+			MakeNewButton(NPS,"Stop Client Anticheat [LAUGHABLY EASY]",false,function()
+				if game.Players.LocalPlayer.PlayerScripts.PlayerClient.Disabled == false then
+					game.Players.LocalPlayer.PlayerScripts.PlayerClient.Disabled = true
+					NewMessageOnMenu("Success","You Should be able to use fly and fling with IY.",nil,1,"Yippie!")
+				else
+					NewMessageOnMenu("Already Comepleted","You've already stopped the client anticheat.",nil,1,"Alrighty!")
+				end
+			end)
+		end
+		if game.GameId == SupportedGames[4] then
+			local AG = MakeNewSection(nil,"Grind Section")
+			local Stop = false
+			local GoldSafeFailCount = 0
+			local UsingAFKFarm = false
+			local GoldRetrievedCount = 0
+			local SavingsMode = false
+			local LastSavedGoldN = tonumber(game.Players.LocalPlayer.Data.Gold.Value)
+			MakeNewButton(AG,"AFK Farm [With Anti AFK]",true,function(active)
+				if active == true then
+					Stop = false
+					LastSavedGoldN = tonumber(game.Players.LocalPlayer.Data.Gold.Value)
+					UsingAFKFarm = true
+					local GC = getconnections or get_signal_cons
+					if GC then
+						for i,v in pairs(GC(game.Players.LocalPlayer.Idled)) do
+							if v["Disable"] then
+								v["Disable"](v)
+							elseif v["Disconnect"] then
+								v["Disconnect"](v)
+							end
+						end
+					else
+						local VirtualUser = cloneref(game:GetService("VirtualUser"))
+						game.Players.LocalPlayer.Idled:Connect(function()
+							VirtualUser:CaptureController()
+							VirtualUser:ClickButton2(Vector2.new())
+						end)
+					end
+					if SavingsMode then
+						local fpscap = setfpscap
+						if fpscap then
+							fpscap(57)
+							game:GetService("RunService"):Set3dRenderingEnabled(false)
+						end
+					end
+					task.spawn(function()
+						while not Stop do
+							task.wait()
+							if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+								game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,5,0)
+							end
+						end
+					end)
+					while not Stop do
+						task.wait()
+						if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-48.73445510864258, 48.03536605834961, 1082.457763671875)
+							game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(21,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0),{CFrame = CFrame.new(-48.73445510864258, 48.03535079956055, 8582.4580078125)}):Play()
+							task.wait(21)
+							if not Stop then
+								game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(2,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0),{CFrame = CFrame.new(-55.706512451171875, -358.7396240234375, 9492.3564453125)}):Play()
+							end
+							task.wait(2.1)
+							if not Stop then
+								task.spawn(function()
+									game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(.3,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0),{CFrame = CFrame.new(-55.706512451171875, -358.7396240234375, 9472.3564453125)}):Play()
+									task.wait(0.3)
+									game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(.3,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0),{CFrame = CFrame.new(-55.706512451171875, -358.7396240234375, 9512.3564453125)}):Play()
+								end)
+							end
+							if not Stop then
+								task.spawn(function()
+									for i = 1,40 do
+										if game.workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger:FindFirstChild("TouchInterest") then
+											firetouchinterest(game.workspace.BoatStages.NormalStages.TheEnd.GoldenChest.Trigger.TouchInterest) --//Prevents losing gold.
+										else
+											local CF = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+											game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF + Vector3.new(0,15,0)
+											wait()
+											game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
+										end
+										wait()
+									end
+								end)
+							end
+							local StopSafeFail = false
+							local SafeFailed = false
+							task.spawn(function()
+								while not StopSafeFail do
+									task.wait(15)
+									if not StopSafeFail and not Stop then
+										warn("Safefail prevented a gold claim issue.")
+										GoldSafeFailCount = GoldSafeFailCount + 1
+										GoldRetrievedCount = GoldRetrievedCount + 1
+										if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+											game.Players.LocalPlayer.Character.Humanoid.Health = 0
+											SafeFailed = true
+										end
+										break
+									else
+										break
+									end
+								end
+							end)
+							game.Players.LocalPlayer.CharacterAdded:Wait()
+							StopSafeFail = true
+							if not SafeFailed then
+								GoldRetrievedCount = GoldRetrievedCount + 1
+							end
+						end
+					end
+				else
+					Stop = true
+					if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+						game.Players.LocalPlayer.Character.Humanoid.Health = 0
+					end
+					if GoldRetrievedCount > 0 then
+						local AS = ""
+						if GoldRetrievedCount < 5 then
+							AS = "Aww.."
+						else
+							AS = "Yippie!"
+						end
+						UsingAFKFarm = false
+						if SavingsMode then
+							local fpscap = setfpscap
+							if fpscap then
+								fpscap(4e4)
+								game:GetService("RunService"):Set3dRenderingEnabled(true)
+							end
+						end
+						NewMessageOnMenu("Satistics","Youve made it to the end: "..tostring(GoldRetrievedCount).." Times.\nSafefail saved your gold: "..tostring(GoldSafeFailCount).." Times.",nil,1,AS)
+						local EndText = " Gold."
+						if tonumber(game.Players.LocalPlayer.Data.Gold.Value) - LastSavedGoldN > 10000 then
+							EndText = " Gold. Congrats!"
+						end
+						GoldRetrievedCount = 0
+						GoldSafeFailCount = 0
+						NewMessageOnMenu("Gold Earnings","You have earned "..tonumber(game.Players.LocalPlayer.Data.Gold.Value) - LastSavedGoldN..""..EndText)
+					end
+				end
+			end)
+			MakeNewButton(AG,"Farm Savings Mode [Saves CPU and Memory]",true,function(active)
+				SavingsMode = active
+			end)
+			local FS = MakeNewSection(nil,"Fun Section")
+			local ClickRainbow = false
+			local DeltaTime = 0
+			local Brightness = (255) / 255 --165
+			local LightValue = (178) / 255
+			task.spawn(function()
+				while task.wait() do
+					if DeltaTime >= 1 then
+						DeltaTime = 0
+					else
+						DeltaTime = DeltaTime + (0.5 / 255)
+					end
+				end
+			end)
+			local function RainbowBlock(ins : Model,Bright,LightVal)
+				task.spawn(function() while ins and ins.Parent and ins.Parent ~= nil and ins ~= nil do
+						local args = { --Thanks mobile RSPY For debugging
+							{
+								{
+									ins,
+									Color3.fromHSV(DeltaTime, LightVal, Bright)
+								}
+							}
+						}
+						task.spawn(function()
+							local PT
+							if game.Players.LocalPlayer.Backpack:FindFirstChild("PaintingTool") then
+								PT = game.Players.LocalPlayer.Backpack.PaintingTool
+							else
+								PT = game.Players.LocalPlayer.Character:WaitForChild("PaintingTool",10)
+							end
+							PT.RF:InvokeServer(unpack(args))
+						end)
+						wait()
+					end
+					--print("Stopped, since it ceased to exist.")
+				end)
+			end
+			local xc
+			MakeNewButton(FS,"Click Rainbow Part [FE] [PAINT REQUIRED]",true,function(active)
+				if xc and not active then
+					xc:Disconnect()
+				elseif active then
+					xc = game.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("PaintingTool") or game.Players.LocalPlayer.Character:FindFirstChild("PaintingTool") then
+							if game.Players.LocalPlayer:GetMouse().Target:IsDescendantOf(game.Workspace.Blocks[game.Players.LocalPlayer.Name]) then
+								RainbowBlock(game.Players.LocalPlayer:GetMouse().Target.Parent,Brightness,LightValue)
+							else
+								NewMessageOnMenu("Failed","This is not your block.",nil,1,"Okay.")
+							end
+						else
+							NewMessageOnMenu("Failed","You do not have the paint tool.",nil,1,"Okay.")
+						end
+					end)
+				end
+			end)
+		end
+		if game.GameId == SupportedGames[5] then
+			local ops = MakeNewSection(nil,"Fun Section")
+			local func
+			MakeNewButton(ops,"Anticheat/Delete Anything you touch",true,function(active)
+				if active then
+					func = game.Workspace.ChildAdded:Connect(function(ins)
+						if ins.Name == "GrabParts" and ins:IsA("Model") and ins.GrabPart.WeldConstraint.Part1 ~= nil then
+							while not isnetworkowner(ins.GrabPart.WeldConstraint.Part1) do
+								task.wait()
+							end
+							task.spawn(function() for i = 1,25 do ins.GrabPart.WeldConstraint.Part1.Velocity = Vector3.new(0,9e9,0) wait() end end)
+							game.ReplicatedStorage.GrabEvents.SetNetworkOwner:FireServer(ins.GrabPart.WeldConstraint.Part1,ins.GrabPart.WeldConstraint.Part1.CFrame)
+							--Since the DestroyGrabLine didnt work, i resort to a different method. for i = 1,10 do game.ReplicatedStorage.GrabEvents.DestroyGrabLine:FireServer(unpack({ins.GrabPart.WeldConstraint.Part1})) end
+							local sp = ins.GrabPart.WeldConstraint.Part1.Parent
+							ins.GrabPart.WeldConstraint.Part1.Parent = nil
+							ins.GrabPart.WeldConstraint.Part1.Parent = sp
+						end
+					end)
+				else
+					func:Disconnect()
+				end
+			end)
+			local BA = false
+			local BS = 0
+			game.Workspace.ChildRemoved:Connect(function(ins)
+				if ins.Name == "GrabParts" and ins:IsA("Model") and ins.GrabPart.WeldConstraint.Part1 ~= nil and isnetworkowner(ins.GrabPart.WeldConstraint.Part1) and BA then
+					ins.GrabPart.WeldConstraint.Part1.Velocity = Vector3.new(ins.GrabPart.WeldConstraint.Part1.Velocity.X * BS,ins.GrabPart.WeldConstraint.Part1.Velocity.Y * BS,ins.GrabPart.WeldConstraint.Part1.Velocity.Z * BS)
+				end
+			end)
+			MakeNewButton(ops,"Legit Fling Boost",true,function(active)
+				BA = active
+				BS = 1.25
+			end)
+			MakeNewButton(ops,"Fling Boost",true,function(active)
+				BA = active
+				BS = 1.5
+			end)
+			MakeNewButton(ops,"Big Fling Boost",true,function(active)
+				BA = active
+				BS = 4
+			end)
+			MakeNewButton(ops,"Ungodly Fling Boost",true,function(active)
+				BA = active
+				BS = 55
+			end)
+			MakeNewButton(ops,"One punch type fling Boost",true,function(active)
+				BA = active
+				BS = 600
+			end)
+			local ss = MakeNewSection(nil,"Stupid Section")
+			local allowed = false
+			MakeNewButton(ss,"Allow Stupid Scripts",true,function(active)
+				allowed = active
+			end)
+			MakeNewButton(ss,"Anticheat Kick Yourself [Garuntee]",false,function()
+				if allowed then
+					while task.wait() do
+						if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y < 9999 then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,8e8,0)
+						end
+						--task.wait()
+						--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lcf
+					end
+				else
+					NewMessageOnMenu("Error","Stupid scripts isint allowed.",nil,1,"Alright")
+				end
+			end)
+			local rgop = MakeNewSection(nil,"Revenge Tab")
+			local targetuser = NewTextBox(nil,rgop,"Username Here")
+			MakeNewButton(rgop,"Anticheat Kick User [BETA]",false,function()
+				local strn = ReadFromTextBoxKey(targetuser,rgop):lower()
+				local Plr
+				for i,phlr in pairs(game.Players:GetPlayers()) do
+					local ts2 = ""
+					for i,v in pairs(strn:split("")) do
+						ts2 = ts2..tostring(phlr.Name:split("")[i]:lower())
+
+					end
+
+					if ts2 == strn then
+						Plr = phlr
+					end
+				end
+				if Plr == nil then NewMessageOnMenu("Failed","User does not exist.\nDid you type the display?",nil,1,"Okay") else
+					task.spawn(function() NewMessageOnMenu("Progress","Attempting to anticheat kick, this may take some time.",nil,1,"Okay") end)
+					local Noclip = false
+					local function NoclipLoop()
+						if game.Players.LocalPlayer.Character ~= nil and Noclip then
+							for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+								if child:IsA("BasePart") and child.CanCollide == true then
+									child.CanCollide = false
+								end
+							end
+						end
+					end
+					local Noclipping = game:GetService("RunService").Stepped:Connect(NoclipLoop)
+					while Plr and Plr.Parent and not game.Workspace:FindFirstChild("BlackHoleKick") do
+						task.wait()
+						if Plr and Plr.Character and Plr.Character:FindFirstChild("HumanoidRootPart") and Plr.Character.HumanoidRootPart.Position.Y < 9999 then
+							local SavedSpot = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+							Noclip = true
+							game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Plr.Character.HumanoidRootPart.Position.X,-17.5,Plr.Character.HumanoidRootPart.Position.Z)
+							wait(game.Players.LocalPlayer:GetNetworkPing() * 1.15)
+							local Target = Plr
+							--Tip: do not use this when the targets out of reach, YOU WILL GET A WARNING
+							local TargetVelocitySetTo = Vector3.new(0,9e9,0)
+							local function SetNetworkAsMe(ins)
+								game.ReplicatedStorage.GrabEvents.SetNetworkOwner:FireServer(ins,ins.CFrame)
+							end
+							SetNetworkAsMe(Target.Character.HumanoidRootPart)
+							for i = 1,10 do Target.Character.HumanoidRootPart.Velocity = TargetVelocitySetTo task.wait() end
+							SetNetworkAsMe(Target.Character.HumanoidRootPart)
+							Noclip = false
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedSpot
+						end
+					end
+					if game.Workspace:FindFirstChild("BlackHoleKick") then
+						NewMessageOnMenu("Success","Player has been kicked.",nil,1,"Great!")
+					else
+						NewMessageOnMenu("Success","Player has left.",nil,1,"Great!")
+					end
+					Noclipping:Disconnect()
+				end
+			end)
+			MakeNewButton(rgop,"Respawn User",false,function()
+				local strn = ReadFromTextBoxKey(targetuser,rgop):lower()
+				local Plr
+				for i,phlr in pairs(game.Players:GetPlayers()) do
+					local ts2 = ""
+					for i,v in pairs(strn:split("")) do
+						ts2 = ts2..tostring(phlr.Name:split("")[i]:lower())
+
+					end
+
+					if ts2 == strn then
+						Plr = phlr
+					end
+				end
+				local Noclip = false
+				local function NoclipLoop()
+					if game.Players.LocalPlayer.Character ~= nil and Noclip then
+						for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+							if child:IsA("BasePart") and child.CanCollide == true then
+								child.CanCollide = false
+							end
+						end
+					end
+				end
+				local Noclipping = game:GetService("RunService").Stepped:Connect(NoclipLoop)
+				if Plr == nil then NewMessageOnMenu("Failed","User does not exist.\nDid you type the display?",nil,1,"Okay") else
+					if Plr and Plr.Character and Plr.Character:FindFirstChild("HumanoidRootPart") then
+						local SavedSpot = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						Noclip = true
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,3e3,0)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 2.3)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Plr.Character.HumanoidRootPart.Position.X,Plr.Character.HumanoidRootPart.Position.Y - 3.5,Plr.Character.HumanoidRootPart.Position.Z)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 3.5)
+						local Target = Plr
+						--Tip: do not use this when the targets out of reach, YOU WILL GET A WARNING
+						local TargetVelocitySetTo = CFrame.new(0,game.Workspace.FallenPartsDestroyHeight,0)
+						local function SetNetworkAsMe(ins)
+							game.ReplicatedStorage.GrabEvents.SetNetworkOwner:FireServer(ins,ins.CFrame)
+						end
+						task.spawn(function() for i = 1,5 do SetNetworkAsMe(Target.Character.HumanoidRootPart) wait() end end)
+						for i = 1,2 do Target.Character.HumanoidRootPart.CFrame = TargetVelocitySetTo task.wait() end
+						local lp = Target.Character.Parent
+						SetNetworkAsMe(Target.Character.HumanoidRootPart)
+						wait(.2)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,3e3,0)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 5)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedSpot
+						wait(.7)
+						Noclipping:Disconnect()
+						if Plr.Character:FindFirstChild("Head") then
+							NewMessageOnMenu("Failed","Couldnt respawn player.",nil,1,"Aww..")
+						else
+							NewMessageOnMenu("Success","Respawned player successfully.",nil,1,"Yay!")
+						end
+					end
+				end
+			end)
+			MakeNewButton(rgop,"Send User to Backrooms",false,function()
+				local strn = ReadFromTextBoxKey(targetuser,rgop):lower()
+				local Plr
+				for i,phlr in pairs(game.Players:GetPlayers()) do
+					local ts2 = ""
+					for i,v in pairs(strn:split("")) do
+						ts2 = ts2..tostring(phlr.Name:split("")[i]:lower())
+
+					end
+
+					if ts2 == strn then
+						Plr = phlr
+					end
+				end
+				local Noclip = false
+				local function NoclipLoop()
+					if game.Players.LocalPlayer.Character ~= nil and Noclip then
+						for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+							if child:IsA("BasePart") and child.CanCollide == true then
+								child.CanCollide = false
+							end
+						end
+					end
+				end
+				local Noclipping = game:GetService("RunService").Stepped:Connect(NoclipLoop)
+				if Plr == nil then NewMessageOnMenu("Failed","User does not exist.\nDid you type the display?",nil,1,"Okay") else
+					if Plr and Plr.Character and Plr.Character:FindFirstChild("HumanoidRootPart") then
+						local SavedSpot = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						Noclip = true
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,3e3,0)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 2.3)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.zero
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Plr.Character.HumanoidRootPart.Position.X,Plr.Character.HumanoidRootPart.Position.Y - 3.5,Plr.Character.HumanoidRootPart.Position.Z)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 3.5)
+						local Target = Plr
+						--Tip: do not use this when the targets out of reach, YOU WILL GET A WARNING
+						local TargetVelocitySetTo = CFrame.new(-464, -7, 469)
+						local function SetNetworkAsMe(ins)
+							game.ReplicatedStorage.GrabEvents.SetNetworkOwner:FireServer(ins,ins.CFrame)
+						end
+						task.spawn(function() for i = 1,5 do SetNetworkAsMe(Target.Character.HumanoidRootPart) wait() end end)
+						for i = 1,2 do Target.Character.HumanoidRootPart.CFrame = TargetVelocitySetTo task.wait() end
+						local lp = Target.Character.Parent
+						SetNetworkAsMe(Target.Character.HumanoidRootPart)
+						wait(.2)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,3e3,0)
+						wait(game.Players.LocalPlayer:GetNetworkPing() * 5)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavedSpot
+						wait(.7)
+						Noclipping:Disconnect()
+						if Plr.Character:FindFirstChild("Head") then
+							NewMessageOnMenu("Failed","Couldnt send player.",nil,1,"Aww..")
+						else
+							NewMessageOnMenu("Success","sent player successfully.",nil,1,"Yay!")
+						end
+					end
+				end
+			end)
+		end
+		if game.GameId == SupportedGames[6] then
+			local t = MakeNewSection(nil,"Holder")
+			MakeNewButton(t,"Hold Egg Above Tray",false,function()
+				for i,v in pairs(game.Workspace.Trays:GetChildren()) do
+					if v.TrayPlayer.Value == game.Players.LocalPlayer then
+						local Egg = v.Egg.Value
+						while game:GetService("RunService").RenderStepped:Wait() do
+						    Egg.CFrame = v.Base.CFrame + Vector3.new(0,20,0)
+                            Egg.Velocity = Vector3.zero
+						end
+					end
+				end
+			end)
+		end
+	end
+	--//Enter Code Here\\--
+	local SupportedGamesuh = MakeNewSection(nil,"Games")
+	--print(SupportedGamesuh)
+	for i,v in pairs(SupportedGamesWebsiteIds) do
+		task.spawn(function()
+			--print(v)
+			--NewTextLabel(nil,SupportedGamesWebsiteIds,tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name))
+			task.wait(0.11)
+			MakeNewButton(SupportedGamesuh,"Join "..tostring(game:GetService("MarketplaceService"):GetProductInfo(v).Name),false,function()
+				if SupportedGames[i] == game.GameId then 
+					NewMessageOnMenu("Error","You're currently playing this game.",nil,0.5,"Okay")
+				else
+					game.Players.LocalPlayer:Kick("Joining game...")
+					game:GetService("TeleportService"):Teleport(v,game.Players.LocalPlayer)
+				end
+			end)
+		end)
+	end
+	--Quick Access List--
+	local QuickAccess = MakeNewSection(nil,"Quick Access")
+	MakeNewButton(QuickAccess,"IY (Infinite Yield)",false,function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	end)
+	MakeNewButton(QuickAccess,"Dex (Secure Dex)",false,function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+	end)
+	MakeNewButton(QuickAccess,"Dex (IY Compatible)",false,function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+	end)
+	MakeNewButton(QuickAccess,"Undetected Fly (CLIENT)",false,function()
+		local Speed = 1 * 35
+		local CenterPart = Instance.new("Part",game.Workspace)
+		CenterPart.Name = "FlySupporter"
+		CenterPart.CanCollide = false
+		local BV = Instance.new("BodyVelocity",CenterPart)
+		local W = Instance.new("Weld",CenterPart)
+		W.Part0 = CenterPart
+		W.Part1 = game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Head") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Torso") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("UpperTorso")
+		BV.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+		while game:GetService("RunService").RenderStepped:Wait() do
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 0 then
+				CenterPart:Destroy()
+				break
+			end
+			local SC = CenterPart.CFrame
+			CenterPart.CFrame = game:GetService("Workspace").CurrentCamera.CFrame
+			local XVal = CenterPart.Orientation.X
+			CenterPart.CFrame = SC
+			local FirstMath = nil
+			local SecondMath = nil
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.W) then --Assume Currently Going Forward
+				local V = game:GetService("Workspace").CurrentCamera.CFrame.LookVector * Speed
+				if FirstMath == nil then
+					FirstMath = V
+				else
+					SecondMath = V
+				end
+			end
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.S) then --Assume Currently Going Backwards
+				local V = game:GetService("Workspace").CurrentCamera.CFrame.LookVector * (0 - Speed)
+				if FirstMath == nil then
+					FirstMath = V
+				else
+					SecondMath = V
+				end
+			end
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.A) then --Assume Currently Going Backwards
+				local V = (game:GetService("Workspace").CurrentCamera.CFrame * CFrame.Angles(0, math.pi/2, 0)).LookVector * Speed
+				if FirstMath == nil then
+					FirstMath = V
+				else
+					SecondMath = V
+				end
+			end
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.D) then --Assume Currently Going Backwards
+				local V = (game:GetService("Workspace").CurrentCamera.CFrame * CFrame.Angles(0, -math.pi/2, 0)).LookVector * Speed
+				if FirstMath == nil then
+					FirstMath = V
+				else
+					SecondMath = V
+				end
+			end
+
+			if game:GetService("Players").LocalPlayer.Character.Humanoid.MoveDirection.Magnitude <= 0 then
+				BV.Velocity = Vector3.zero
+			else
+				print(FirstMath)
+				print(SecondMath)
+				if FirstMath == nil and SecondMath == nil then else
+					local BVC
+					if FirstMath == not nil and SecondMath == nil then
+						BVC = SecondMath * Speed
+						print("SM")
+					end
+					if FirstMath == not nil and SecondMath == nil then
+						BVC = FirstMath * Speed
+						print("FM")
+					end
+					if FirstMath == not nil and SecondMath == not nil then
+						print("C")
+						BVC = Vector3.new(FirstMath.X + SecondMath.X,FirstMath.Y + SecondMath.Y,FirstMath.Z + SecondMath.Z)
+					end
+					print(tostring(BVC))
+					BV.Velocity = Vector3.new(BVC.X / Speed,BVC.Y / Speed,BVC.Z / Speed)
+				end
+			end
+		end
+	end)
+	MakeNewButton(QuickAccess,"IYR (Infinite Yield Reborn)",false,function()
+		loadstring(game:HttpGet("https://storage.iyr.lol/legacy-iyr/source"))
+	end)
+	MakeNewButton(QuickAccess,"Will RSPY Work? [UNC Test]",false,function()
+		local rspysyn1 = getsynasset or getcustomasset
+		local rspysyn2 = cloneref or blankfunction
+		local rspysyn3 = getupvalues or debug.getupvalues
+		local rspysyn4 = getconstants or debug.getconstants
+		local rspysyn5 = request or syn and syn.request
+		local rs1s = if rspysyn1 then "Getsynasset: Yes" else "Getsynasset: No"
+		local rs2s = if rspysyn2 then "cloneref: Yes" else "cloneref: No"
+		local rs3s = if rspysyn3 then "getupvalues: Yes" else "getupvalues: No"
+		local rs4s = if rspysyn4 then "getconstants: Yes" else "getconstants: No"
+		local rs5s = if rspysyn5 then "request: Yes" else "request: No"
+		if rspysyn1 and rspysyn2 and rspysyn3 and rspysyn4 and rspysyn5 then
+			NewMessageOnMenu("Yay!","Your executor might aswell be able to run Simple Spy!\n[DEBUG]\n"..rs1s.."\n"..rs2s.."\n"..rs3s.."\n"..rs4s.."\n"..rs5s.."",nil,0.5,"Yipie!")
+		else
+			NewMessageOnMenu("Aww.","Your executor cant support Simple Spy.\n[DEBUG]\n"..rs1s.."\n"..rs2s.."\n"..rs3s.."\n"..rs4s.."\n"..rs5s.."",nil,0.5,"Aww")
+		end
+	end)
+	local AuthorityTab = MakeNewSection(nil,"Admin Log in")
+	local Text = NewTextLabel(nil,AuthorityTab,if IsAdmin then "You are already admin. Enjoy premium features!" else "Enter an admin key to get premium features.")
+	if not IsAdmin then
+		local TB = NewTextBox(nil,AuthorityTab,"Enter your admin key here.")
+		MakeNewButton(AuthorityTab,"Log In",false,function()
+			local AuthorizedKey = nil
+			for i,v in pairs(game:HttpGet("https://pastebin.com/raw/dhgxdeq1"):split("|")) do
+				if ReadFromTextBoxKey(TB,AuthorityTab) == v then
+					AuthorizedKey = v
+				end
+			end
+			if typeof(AuthorizedKey) == "string" then
+				IsAdmin = true
+				writefile("specialkeyconeshub.cmk",AuthorizedKey)
+				NewMessageOnMenu("Success","You are authorized! You should now be able to run premium features.\nRestart to apply changes.",nil,0.5,'Continue')
+				NewMessageOnMenu("Warning","Before you go, Do not share your key with ANYONE!\nDoing this and getting caught will lead to your key being revoked.",nil,0.5,"Restart")
+				CHT:Destroy()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/ConeHub"))()
+			else
+				NewMessageOnMenu("Error","Your key is not in our database. Try again!",nil,0.5,"Alright")
+			end
+		end)
+	end
+end
+coroutine.wrap(EKGOI_fake_script)()
+local function IDRFTYY_fake_script() -- Frame.Drag 
+	local script = Instance.new('LocalScript', Frame)
+
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+
+	local gui = script.Parent
+
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+
+	function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (12); -- // The speed of the UI darg.
+	function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+
+	script.Parent.Topbar.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	script.Parent.Topbar.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+
+	runService.Heartbeat:Connect(Update)
+end
+coroutine.wrap(IDRFTYY_fake_script)()
