@@ -415,7 +415,7 @@ local function SKEZTMC_fake_script() -- y.LocalScript
 		local c=0
 		for i,v in pairs(game.Workspace.Blocks:GetChildren()) do
 			if script.Parent.Parent.st.Text == "Team" then
-				if v:IsA("BasePart") and v:FindFirstChild("Functionality") and v.Functionality:FindFirstChild("Teamer") then
+				if v:IsA("BasePart") and v:FindFirstChild("Functionality") and v.Functionality:FindFirstChild("Teamer") and v.Functionality.Teamer.Value.Parent ~= nil then
 					if v.Functionality.Teamer.Value.Name == script.Parent.Parent.ae.Text or script.Parent.Parent.ae.Text == "%any%" then
 						table.insert(AllBlocks,v)
 						c = c + 1
