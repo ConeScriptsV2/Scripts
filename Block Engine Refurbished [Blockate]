@@ -600,6 +600,9 @@ local function SKEZTMC_fake_script() -- y.LocalScript
 						script.Parent.Parent.y.MouseButton1Click:Connect(function()
 							Act = false
 						end)
+						t.ImageButton.MouseButton1Click:Connect(function()
+							t:Destroy()
+						end)
 						c.Changed:Connect(function(prop)
 							if prop == "Parent" and c.Parent.Parent == nil then
 								Act = false
