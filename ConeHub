@@ -529,7 +529,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 			CHT.Enabled = not CHT.Enabled
 		end
 	end)
-	local Ver = 2.14
+	local Ver = 2.15
 	task.spawn(function()
 		while task.wait(1) do
 			if tonumber(game:HttpGet("https://pastebin.com/raw/X9MHMwyv")) > Ver then
@@ -2126,7 +2126,7 @@ local function EKGOI_fake_script() -- Frame.UserCode
 		end
 	end)
 	MakeNewButton(QuickAccess,"IYR (Infinite Yield Reborn)",false,function()
-		loadstring(game:HttpGet("https://storage.iyr.lol/legacy-iyr/source"))
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/IYR%20Reupload"))()
 	end)
 	MakeNewButton(QuickAccess,"Will RSPY Work? [UNC Test]",false,function()
 		local rspysyn1 = getsynasset or getcustomasset
