@@ -6377,7 +6377,7 @@ local TeleportCheck = false
 Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if KeepInfYield and (not TeleportCheck) and queueteleport then
 		TeleportCheck = true
-		queueteleport("loadstring(game:HttpGet('https://storage.iyr.lol/legacy-iyr/source'))()")
+		queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/IYR%20Reupload'))()")
 	end
 end)
 
