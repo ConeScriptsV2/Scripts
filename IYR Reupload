@@ -15,8 +15,8 @@
 	print(test)
 
 	If it prints without any errors, then the issue is probably different.
-  [EDITS] vv
-  As for so far, IYR Has been deleted so i decided to reupload it. Some things MIGHT not work but thats okay!
+  [EDITS]
+  As for so far, IYR Has been deleted so i decided to reupload it. Some things MIGHT not work but thats okay! (if this gets reuploded i will cry)
 ]]--
 
 if IY_LOADED and not _G.IY_DEBUG == true then
@@ -236,7 +236,7 @@ if os.date("*t", os.time()).month == 4 then
 	-- This is a reminder how EdgeIY edgy was
 	Title.Text = "Infinite Yiff v"  .. currentVersion
 else
-	Title.Text = "Cones Infinite Yield Reborn v"  .. currentVersion
+	Title.Text = "Cones IYR v"  .. currentVersion
 end
 do
 	local emoji = ({
