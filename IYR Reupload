@@ -1,3 +1,4 @@
+local s = true and "Supported" or "This shouldn't be printed"
 --[[
 	Hello! You might wonder why Cones Infinite Yield Reborn is not executing.
         You may have also wondered if the script is obfuscated or not. As you can see, it isn't.
@@ -18,6 +19,10 @@
   [EDITS]
   As for so far, IYR Has been deleted so i decided to reupload it. Some things MIGHT not work but thats okay! (if this gets reuploded i will cry)
 ]]--
+
+if s ~= "Supported" then
+	warn("Infinite Yield halted! Your exploit does not support LuaU Syntax. How did you even get an executor that bad?")
+end
 
 if IY_LOADED and not _G.IY_DEBUG == true then
 	loadstring(game:HttpGet('https://storage.iyr.lol/legacy-iyr/alreadyexecuted'))()
