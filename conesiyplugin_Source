@@ -518,6 +518,19 @@ local Plugin = {
 				end
 			end,
 		},
+		
+		["styleddiscconnect"] = {
+			["ListName"] = "styleddisconnect / betterdisconnect / cooldisconnection",
+			["Description"] = "When you get kicked, a really cool gui will take the kicks place.",
+			["Aliases"] = { "styleddisconnect","betterdisconnect","cooldisconnection" },
+			["Function"] = function(args, speaker)
+				if vers >= tonumber(game:HttpGet("https://pastebin.com/raw/MMjYRhmp")) then
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/conesdisconnectscreen"))()
+				else
+					notify("Version Mismatch! I Recommend reloading the plugin.")
+				end
+			end,
+		},
 
 		["getanswertochat"] = {
 			["ListName"] = "getanswertochat [Equasion]",
