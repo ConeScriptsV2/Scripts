@@ -1,6 +1,6 @@
 local loopbreak = false
 local lastcf = CFrame.new(0,9,0)
-local vers = 1
+local vers = 1.1
 local ffabl = false
 local OrgDestroyHeight = VoidDepth or -500
 local function offsetString(input, offset)
