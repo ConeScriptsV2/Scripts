@@ -1,0 +1,537 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local ErMsg = Instance.new("TextLabel")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local Code = Instance.new("TextLabel")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+local Frame_2 = Instance.new("Frame")
+local UIGridLayout = Instance.new("UIGridLayout")
+local Rj = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local UICorner1 = Instance.new("UICorner")
+local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
+local Lev = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
+local SW = Instance.new("TextButton")
+local LM = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UITextSizeConstraint_6 = Instance.new("UITextSizeConstraint")
+local UITextSizeConstraint1 = Instance.new("UITextSizeConstraint")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.DisplayOrder = 2147483647
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Enabled = false
+Frame.Parent = ScreenGui
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 1.000
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.Size = UDim2.new(1, 0, 0.99999994, 0)
+
+TextLabel.Parent = Frame
+TextLabel.AnchorPoint = Vector2.new(0.5, 0)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 11.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.5, 0, 0.271144271, 0)
+TextLabel.Size = UDim2.new(0.212299466, 0, 0.0982587039, 0)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.Text = "Disconnected"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 42.000
+TextLabel.TextWrapped = true
+
+UITextSizeConstraint.Parent = TextLabel
+UITextSizeConstraint.MaxTextSize = 42
+
+ErMsg.Name = "ErMsg"
+ErMsg.Parent = Frame
+ErMsg.AnchorPoint = Vector2.new(0.5, 0.5)
+ErMsg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ErMsg.BackgroundTransparency = 11.000
+ErMsg.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ErMsg.BorderSizePixel = 0
+ErMsg.Position = UDim2.new(0.5, 0, 0.5, 0)
+ErMsg.Size = UDim2.new(0.212299466, 0, 0.0721393004, 0)
+ErMsg.Font = Enum.Font.SourceSansBold
+ErMsg.Text = "[ErrMsgHere]"
+ErMsg.TextColor3 = Color3.fromRGB(255, 255, 255)
+ErMsg.TextScaled = true
+ErMsg.TextSize = 32.000
+ErMsg.TextWrapped = true
+
+UITextSizeConstraint_2.Parent = ErMsg
+UITextSizeConstraint_2.MaxTextSize = 32
+
+Code.Name = "Code"
+Code.Parent = Frame
+Code.AnchorPoint = Vector2.new(0.5, 1)
+Code.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Code.BackgroundTransparency = 11.000
+Code.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Code.BorderSizePixel = 0
+Code.Position = UDim2.new(0.5, 0, 0.618159235, 0)
+Code.Size = UDim2.new(1, 0, 0.0721393004, 0)
+Code.Font = Enum.Font.SourceSansBold
+Code.Text = "Code: [unk]"
+Code.TextColor3 = Color3.fromRGB(255, 255, 255)
+Code.TextScaled = true
+Code.TextSize = 32.000
+Code.TextWrapped = true
+
+UITextSizeConstraint_3.Parent = Code
+UITextSizeConstraint_3.MaxTextSize = 32
+
+Frame_2.Parent = Frame
+Frame_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_2.BackgroundTransparency = 1.000
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0.5, 0, 0.689054728, 0)
+Frame_2.Size = UDim2.new(1, 0, 0.124378107, 0)
+
+UIGridLayout.Parent = Frame_2
+UIGridLayout.FillDirection = Enum.FillDirection.Vertical
+UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+UIGridLayout.CellSize = UDim2.new(0.129999995, 0, 0.5, 0)
+
+Rj.Name = "Rj"
+Rj.Parent = Frame_2
+Rj.Active = false
+Rj.BackgroundColor3 = Color3.fromRGB(255, 184, 98)
+Rj.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Rj.BorderSizePixel = 0
+Rj.Position = UDim2.new(0.39358288, 0, 0.450248748, 0)
+Rj.Selectable = false
+Rj.Size = UDim2.new(0, 397, 0, 58)
+Rj.Font = Enum.Font.SourceSansBold
+Rj.Text = "Rejoin"
+Rj.TextColor3 = Color3.fromRGB(255, 255, 255)
+Rj.TextScaled = true
+Rj.TextSize = 32.000
+Rj.TextWrapped = true
+
+LM.Name = "LM"
+LM.Parent = Frame_2
+LM.Active = false
+LM.BackgroundColor3 = Color3.fromRGB(198, 66, 255)
+LM.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LM.BorderSizePixel = 0
+LM.Position = UDim2.new(0.39358288, 0, 0.450248748, 0)
+LM.Selectable = false
+LM.Size = UDim2.new(0, 397, 0, 58)
+LM.Font = Enum.Font.SourceSansBold
+LM.Text = "Log Messages"
+LM.TextColor3 = Color3.fromRGB(255, 255, 255)
+LM.TextScaled = true
+LM.TextSize = 32.000
+LM.TextWrapped = true
+
+UICorner.Parent = Rj
+
+UITextSizeConstraint_4.Parent = Rj
+UITextSizeConstraint_4.MaxTextSize = 32
+
+UICorner1.Parent = LM
+
+UITextSizeConstraint1.Parent = LM
+UITextSizeConstraint1.MaxTextSize = 32
+
+Lev.Name = "Lev"
+Lev.Parent = Frame_2
+Lev.Active = false
+Lev.BackgroundColor3 = Color3.fromRGB(255, 96, 96)
+Lev.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Lev.BorderSizePixel = 0
+Lev.Position = UDim2.new(0.39358288, 0, 0.450248748, 0)
+Lev.Selectable = false
+Lev.Size = UDim2.new(0, 397, 0, 58)
+Lev.Font = Enum.Font.SourceSansBold
+Lev.Text = "Leave"
+Lev.TextColor3 = Color3.fromRGB(255, 255, 255)
+Lev.TextScaled = true
+Lev.TextSize = 32.000
+Lev.TextWrapped = true
+
+UICorner_2.Parent = Lev
+
+UITextSizeConstraint_5.Parent = Lev
+UITextSizeConstraint_5.MaxTextSize = 32
+
+SW.Name = "SW"
+SW.Parent = Frame_2
+SW.Active = false
+SW.BackgroundColor3 = Color3.fromRGB(90, 101, 255)
+SW.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SW.BorderSizePixel = 0
+SW.Position = UDim2.new(0.39358288, 0, 0.450248748, 0)
+SW.Selectable = false
+SW.Size = UDim2.new(0, 397, 0, 58)
+SW.Font = Enum.Font.SourceSansBold
+SW.Text = "Spectate World"
+SW.TextColor3 = Color3.fromRGB(255, 255, 255)
+SW.TextScaled = true
+SW.TextSize = 32.000
+SW.TextWrapped = true
+
+UICorner_3.Parent = SW
+
+UITextSizeConstraint_6.Parent = SW
+UITextSizeConstraint_6.MaxTextSize = 32
+
+UIAspectRatioConstraint.Parent = Frame
+UIAspectRatioConstraint.AspectRatio = 2.326
+-- Scripts:
+
+local function NLYLUY_fake_script() -- Frame.Handler 
+	local script = Instance.new('LocalScript', Frame)
+	script.Parent.Position = UDim2.fromScale(0.5,0)
+	local isfil = isfile
+	local writefil = writefile
+	local getcustomasse = getcustomasset
+
+	if isfil and writefil and getcustomasse then
+		if not isfile("kicksoundrevmp.mp3") then
+			print("Custom Kick Message: You don't have the kicksound loaded! Let me install that for you.")
+			local Data = game:HttpGet("https://github.com/ConeScriptsV2/Scripts/raw/refs/heads/main/kicksoundrevmp.mp3")
+			writefile("kicksoundrevmp.mp3", Data)
+			getcustomasset("kicksoundrevmp.mp3")
+			print("Done!")
+		end
+
+        local function GetMessages()
+    local tbl = {}
+    for i,v in pairs(game:GetService("CoreGui").ExperienceChat.appLayout.chatWindow.scrollingView.bottomLockedScrollView.RCTScrollView.RCTScrollContentView:GetChildren()) do
+        if v:IsA("Frame") then
+            local bt = v.TextMessage.BodyText.ContentText or ""
+            local pt = ""
+            if v.TextMessage:FindFirstChild("PrefixText") then
+                pt = v.TextMessage.PrefixText.ContentText
+            end
+            table.insert(tbl,bt)
+        end
+    end
+    return tbl
+end
+
+		local Idl = game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/cckmfidle")
+		local Forw = game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/cckmfforward")
+		local Backw = game:HttpGet("https://raw.githubusercontent.com/ConeScriptsV2/Scripts/refs/heads/main/cckmfbackward")
+		local function InitiateFly() task.spawn(function()
+				if game.Players.LocalPlayer.Character:FindFirstChild("Animate") then game.Players.LocalPlayer.Character.Animate.Enabled = false end
+
+				local Char = game.Players.LocalPlayer.Character
+				local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+
+				for i,v in next, Hum:GetPlayingAnimationTracks() do
+					v:Stop()
+				end
+				local CP = Instance.new("Part",game.Workspace) --Center Part FYI
+				CP.Anchored = true
+				CP.Transparency = 1
+				CP.CanCollide = false
+				CP.CanTouch = false
+				local MovingForward = false
+				local MovingBackward = false
+				local MovingLeft = false
+				local MovingRight = false
+				local Vel = Vector3.new(0,0,0)
+				local UntranslatedVel = Vector3.new(0,0,0)
+				local SlowVel = 1.35
+				CP.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+				local function CFrameToOrientation(cf: CFrame)
+					local rx, ry, rz = cf:ToOrientation()
+					return Vector3.new(math.deg(rx), math.deg(ry), math.deg(rz))
+				end
+				CP.Orientation = Vector3.new(0,CFrameToOrientation(game:GetService("Workspace").CurrentCamera.CFrame).Y,0)
+				task.spawn(function()
+					while wait() do --I use task.wait() due to i believe renderstepped being off.
+						game:GetService("TweenService"):Create(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.45, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0), {CFrame = CP.CFrame}):Play()
+						--game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CP.CFrame
+						CP.Orientation = Vector3.new(0,CFrameToOrientation(game:GetService("Workspace").CurrentCamera.CFrame).Y,0)
+						CP.Position = CP.Position + Vel
+						Vel = Vector3.new(Vel.X / SlowVel,Vel.Y / SlowVel,Vel.Z / SlowVel)
+					end
+				end)
+				task.spawn(function()
+					while task.wait() do
+						if UntranslatedVel.X == 0 and UntranslatedVel.Y == 0 and UntranslatedVel.Z == 0 then else
+							Vel = Vector3.new(UntranslatedVel.X / 40,UntranslatedVel.Y / 40,UntranslatedVel.Z / 40)
+							UntranslatedVel = Vector3.new(0,0,0)
+						end
+					end
+				end)
+				UntranslatedVel = Vector3.new(0,10,0)
+				local CurrentAnim = "Idle"
+				game:GetService("UserInputService").InputBegan:Connect(function(key,fotb)
+					--print(key.KeyCode)
+					if key.KeyCode == Enum.KeyCode.W then
+						MovingForward = true
+					end
+					if key.KeyCode == Enum.KeyCode.S then
+						MovingBackward = true
+					end
+					if key.KeyCode == Enum.KeyCode.A then
+						MovingLeft = true
+					end
+					if key.KeyCode == Enum.KeyCode.D then
+						MovingRight = true
+					end
+				end)
+				game:GetService("UserInputService").InputEnded:Connect(function(key,fotb)
+					--print(key.KeyCode)
+					if key.KeyCode == Enum.KeyCode.W then
+						MovingForward = false
+					end
+					if key.KeyCode == Enum.KeyCode.S then
+						MovingBackward = false
+					end
+					if key.KeyCode == Enum.KeyCode.A then
+						MovingLeft = false
+					end
+					if key.KeyCode == Enum.KeyCode.D then
+						MovingRight = false
+					end
+				end)
+				task.spawn(function()
+					while task.wait() do
+						local CapturedAnim = CurrentAnim
+						local function StrToCF(str)
+							return CFrame.new(tonumber(str:split(",")[1]),tonumber(str:split(",")[2]),tonumber(str:split(",")[3]),tonumber(str:split(",")[4]),tonumber(str:split(",")[5]),tonumber(str:split(",")[6]),tonumber(str:split(",")[7]),tonumber(str:split(",")[8]),tonumber(str:split(",")[9]),tonumber(str:split(",")[10]),tonumber(str:split(",")[11]),tonumber(str:split(",")[12]))
+						end
+						local TargetRig = game.Players.LocalPlayer.Character
+						local Args = {
+							TargetRig.HumanoidRootPart.RootJoint,
+							TargetRig.Torso.Neck,
+							TargetRig.Torso["Left Shoulder"],
+							TargetRig.Torso["Right Shoulder"],
+							TargetRig.Torso["Left Hip"],
+							TargetRig.Torso["Right Hip"],
+						}
+						if CapturedAnim == "Idle" then
+							for xi,xv in pairs(Idl:split("*")) do
+								if CapturedAnim == CurrentAnim then
+									for i,v in pairs(xv:split("[")) do
+										if i > 6 then else
+											if CapturedAnim == CurrentAnim then
+												game:GetService("TweenService"):Create(Args[i], TweenInfo.new(0.65, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0), {C1 = StrToCF(v)}):Play()
+											else
+												break
+											end
+										end
+									end
+									task.wait(0.04)
+								else
+									break
+								end
+							end
+						end
+
+						if CapturedAnim == "Forward" then
+							for xi,xv in pairs(Forw:split("*")) do
+								if CapturedAnim == CurrentAnim then
+									for i,v in pairs(xv:split("[")) do
+										if i > 6 then else
+											if CapturedAnim == CurrentAnim then
+												game:GetService("TweenService"):Create(Args[i], TweenInfo.new(0.65, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0), {C1 = StrToCF(v)}):Play()
+											else
+												break
+											end
+										end
+									end
+									task.wait(0.04)
+								else
+									break
+								end
+							end
+						end
+
+						if CapturedAnim == "Backward" then
+							for xi,xv in pairs(Backw:split("*")) do
+								if CapturedAnim == CurrentAnim then
+									for i,v in pairs(xv:split("[")) do
+										if i > 6 then else
+											if CapturedAnim == CurrentAnim then
+												game:GetService("TweenService"):Create(Args[i], TweenInfo.new(0.65, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0), {C1 = StrToCF(v)}):Play()
+											else
+												break
+											end
+										end
+									end
+									task.wait(0.04)
+								else
+									break
+								end
+							end
+						end
+
+					end
+				end)
+				while task.wait() do
+					local EndVel = Vector3.new(0,0,0)
+					if MovingForward then
+						CurrentAnim = "Forward"
+						EndVel = EndVel + game.Workspace.CurrentCamera.CFrame.LookVector * 41
+					end
+					if MovingBackward then
+						CurrentAnim = "Backward"
+						EndVel = EndVel + game.Workspace.CurrentCamera.CFrame.LookVector * -41
+					end
+					if MovingLeft then
+						CurrentAnim = "Left"
+						EndVel = EndVel + (game.Workspace.CurrentCamera.CFrame * CFrame.Angles(0, math.pi/2, 0)).LookVector * 41
+					end
+					if MovingRight then
+						CurrentAnim = "Right"
+						EndVel = EndVel + (game.Workspace.CurrentCamera.CFrame * CFrame.Angles(0, -math.pi/2, 0)).LookVector * 41
+					end
+					if not MovingForward and not MovingBackward and not MovingLeft and not MovingRight then
+						CurrentAnim = "Idle"
+					end
+					if EndVel.X == 0 and EndVel.Y == 0 and EndVel.Z == 0 then
+
+					else
+						UntranslatedVel = EndVel
+					end
+				end
+			end) end
+		script.Parent.Parent.Enabled = false
+		game.CoreGui:WaitForChild("RobloxPromptGui",30)
+		while not game.CoreGui.RobloxPromptGui.promptOverlay.Active do
+			task.wait()
+		end
+		game.CoreGui.RobloxPromptGui.Enabled = false
+		local CC = Instance.new("ColorCorrectionEffect", game.Lighting)
+		CC.TintColor = Color3.new(1, 1, 1)
+
+		task.spawn(function()
+			game:GetService("GuiService"):ClearError()
+			game.CoreGui.RobloxPromptGui.promptOverlay.Changed:Connect(function(prop)
+				if prop == "Active" and game.CoreGui.RobloxPromptGui.promptOverlay.Active then
+					game:GetService("GuiService"):ClearError()
+				end
+			end)
+		end)
+
+		game:GetService("TweenService"):Create(CC, TweenInfo.new(2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0), {
+			TintColor = Color3.fromRGB(115, 115, 115)
+		}):Play()
+
+		-- Extract and parse the error message
+		local errorMessage = game.CoreGui.RobloxPromptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ErrorMessage.Text
+
+		-- Extract error code
+		local errorCode = errorMessage:match("%(Error Code: %d+%)")
+		local code = tonumber(errorCode and errorCode:match("%d+")) -- Extract the numeric error code
+
+		-- Remove the error code from the full message but preserve newlines
+		local fullMessage = errorMessage:gsub("%(Error Code: %d+%)", ""):gsub("\n+$", "")
+
+		-- Update UI elements
+		script.Parent.ErMsg.Text = fullMessage
+
+		local tex = "Code: " .. (code or "Unknown")
+		if code then
+			local codeMessages = {
+				[256] = " [You were moderated while playing a game alone.]",
+				[260] = " [Roblox isn't sending you any data packets. So the client kicked you.]",
+				[261] = " [Server failed to send feedback for data requests.]",
+				[262] = " [The game can't load due to data failing to be sent.]",
+				[264] = " [SECURE YOUR ACCOUNT NOW. Or if someone is logged into your account or is a glitch, you're fine.]",
+				[266] = " [Your client's connection lagged too much to continue the game.]",
+				[267] = " [The game used the :Kick() method to remove you from the game.]",
+				[268] = " [Your client was installed improperly or you were flagged for suspicion of cheating.]",
+				[271] = " [You tried joining while the server was shutting down due to inactivity.]",
+				[272] = " [Your client has been downgraded or lost connection unexpectedly.]",
+				[273] = " [Your account was moderated while playing a game.]",
+				[274] = " [The server was shut down by the owner or the VIP server owner.]",
+				[275] = " [This error is rare. If you see this, it means Roblox deleted the game.]",
+				[277] = " [Your wifi is laggy, so the server disconnected you.]",
+				[278] = " [You either didn't activate anti-AFK via IY or you got timed out for staying in the game too long.]",
+				[279] = " [The client was unable to initialize with the game due to a Roblox internal error.]",
+				[282] = " [The game was placed under review.]",
+				[284] = " [A really fatal error occurred, possibly due to a UI overload, like in simulator games.]",
+				[285] = " [Your client initiated a disconnect randomly with no error code.]",
+				[286] = " [Your device is too weak to handle this game.]",
+				[291] = " [Your player in Players was deleted via :Remove(), basically another way to kick players.]",
+				[600] = " [You are permanently banned via Roblox's Ban API.]",
+				[529] = " [Either roblox is down or you tried playing a game while banned.]",
+				[524] = " [You do not have access to join this game.]",
+				[528] = " [This message is really rare. So if you have this error, It means roblox bugged out like hell.]",
+				[517] = " [Either this game is in the process of shutting down, or just failed to reach the destionation.]"
+			}
+			tex = tex .. (codeMessages[code] or " [Unknown error code.]")
+		end
+		if string.find(game.CoreGui.RobloxPromptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ErrorMessage.Text,"You have been kicked from the experience.") then
+			tex = "Code: 267 [The game didnt specify a reason to kick you or your account has been moderated.]"
+		end
+		script.Parent.Code.Text = tex
+
+		script.Parent.Frame.Rj.MouseButton1Click:Connect(function()
+			game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+		end)
+
+		script.Parent.Frame.Lev.MouseButton1Click:Connect(function()
+			game:Shutdown()
+		end)
+
+        script.Parent.Frame.LM.MouseButton1Click:Connect(function()
+        print("Logged Messages:\n\n")
+			for i,v in pairs(GetMessages()) do
+                print("   "..v)
+                end
+                print("End of logged messages.\n")
+		end)
+
+		script.Parent.Frame.SW.MouseButton1Click:Connect(function()
+			script.Parent.Parent.Enabled = false
+			game:GetService("TweenService"):Create(CC, TweenInfo.new(2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0), {
+				TintColor = Color3.fromRGB(255,255,255)
+			}):Play()
+			InitiateFly()
+		end)
+
+		script.Parent.Parent.Enabled = true
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0), {
+			Position = UDim2.fromScale(0.5,0.5)
+		}):Play()
+
+		local S = Instance.new("Sound", game:GetService("TestService"))
+		S.SoundId = "rbxasset://kicksoundrevmp.mp3"
+		S.PlayOnRemove = true
+		S.Looped = true
+		S.Volume = 1
+		S:Destroy()
+	else
+		if not isfil then
+			warn("Exploit does not support: isfile")
+		end
+		if not writefil then
+			warn("Exploit does not support: writefile")
+		end
+		if not getcustomasse then
+			warn("Exploit does not support: getcustomasset")
+		end
+	end
+
+end
+coroutine.wrap(NLYLUY_fake_script)()
