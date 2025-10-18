@@ -1,0 +1,407 @@
+if isfile and not isfile("BrookHub_Data/music.mp3") and writefile and getcustomasset then
+  local buffer = game:HttpGet("https://github.com/ConeScriptsV2/Scripts/raw/refs/heads/main/music.mp3")
+  writefile("BrookHub_Data/music.mp3",buffer)
+  getcustomasset("BrookHub_Data/music.mp3")
+end
+
+local hit_sound = 6405267300
+local audio_ids = {"rbxasset://music.mp3"}
+local Playback_Speed = 1.1
+
+local a1,a2,tabl
+
+repeat a1,a2,tabl = game:GetService("ReplicatedStorage").Remotes.SpawnVehicle:InvokeServer("SchoolBus") wait() wait() until a1
+
+game.Players.LocalPlayer.Character.Archivable = true
+local charclone = game.Players.LocalPlayer.Character:Clone()
+for i,v in pairs(charclone:GetChildren()) do
+	if v:IsA("BasePart") then
+		v.Transparency = 0.55
+	end
+end
+
+game.Workspace.FallenPartsDestroyHeight = 0/0
+charclone.Animate.Enabled = false
+wait() wait()
+charclone.Parent = game.Workspace
+charclone.Animate.Enabled = true
+charclone.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+local bus = workspace.Vehicles:WaitForChild(game.Players.LocalPlayer.Name.."Car",10)
+
+if bus == nil then
+	assert(false,"Bus didnt spawn, script halted!")
+end
+
+local function Sit(seat,char)
+	local targ = char ~= nil and char or game.Players.LocalPlayer.Character
+	--local cf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	repeat targ.HumanoidRootPart.CFrame = seat.CFrame targ.HumanoidRootPart.Velocity = (seat.Velocity * 1.1) task.wait() until targ.Humanoid.Sit == true --simpl
+	task.wait()
+	--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
+end
+
+Sit(bus.Seats.VehicleSeat)
+
+local ogchar = game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character = charclone
+game.Workspace.CurrentCamera.CameraSubject = charclone.Humanoid
+
+local VictimedChars = {}
+local DEFAULT_DISTANCE = 400
+
+local function RemoveCollider(target)
+	for i,v in pairs(target:GetDescendants()) do
+		if v:IsA("BasePart") or v:IsA("Seat") or v:IsA("MeshPart") then
+			v.Transparency = 1
+		end
+		if v:IsA("SpotLight") or v:IsA("SurfaceLight") or v:IsA("PointLight") or v:IsA("Decal") or v:IsA("SurfaceGui") then
+			v:Destroy()
+		end
+		if v:IsA("Sound") then
+			v.Volume = 0
+		end
+		--print(v.ClassName)
+	end
+	game:GetService("RunService").Stepped:Connect(function()
+		for i,v in pairs(target:GetDescendants()) do pcall(function()
+				if v:IsA("BasePart") then
+					v.CanCollide = false
+					v.Massless = true
+				end
+			end) end
+	end)
+end
+
+local function GetMouseHitExclude(excludedList)
+	local mousePos = game:GetService("UserInputService"):GetMouseLocation()
+	local unitRay = game.Workspace.CurrentCamera:ScreenPointToRay(mousePos.X, mousePos.Y - 10)
+	local origin = unitRay.Origin
+	local direction = unitRay.Direction * DEFAULT_DISTANCE
+
+	local params = RaycastParams.new()
+	params.FilterType = Enum.RaycastFilterType.Exclude
+	params.FilterDescendantsInstances = excludedList or {}
+	params.IgnoreWater = false
+
+	local result = workspace:Raycast(origin, direction, params)
+	return result
+end
+
+local function NewVictim(char)
+	if table.find(VictimedChars,char) then return else table.insert(VictimedChars,char) end
+	local s = Instance.new("Sound",game:GetService("SoundService"))
+	s.SoundId = "rbxassetid://"..tostring(hit_sound)
+	s.Volume = 1
+	s.PlaybackSpeed = Playback_Speed
+	s:Play()
+	task.spawn(function()
+		task.wait(10)
+		s:Destroy()
+	end)
+	for i,v in pairs(char:GetDescendants()) do
+		if v:IsA("BasePart") then
+			v:BreakJoints()
+			v.Transparency = 0.6
+			v.Parent = Area
+
+			task.spawn(function()
+				task.wait(10)
+				game:GetService("TweenService"):Create(v,TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{Size = Vector3.new(0,0,0)}):Play()
+				task.wait(2)
+				v:Destroy()
+			end)
+
+			task.spawn(function()
+				while v and v.Parent do
+					wait()
+					v.Anchored = true
+					v.CFrame = Area.CFrame
+					v.Transparency = Area.Transparency
+				end
+			end)
+		end
+	end
+end
+
+RemoveCollider(ogchar)
+RemoveCollider(bus)
+
+local sh = Instance.new("Hint",workspace)
+sh.Text = "BusKill V1.1 - Made By Cone :3 - Now CTC With any other scripter!"
+task.spawn(function()
+	task.wait(3)
+	sh:Destroy()
+end)
+
+local Holding = false
+local Down = false
+local Area = Instance.new("Part",workspace)
+--Area.Shape = "Ball"
+Area.Size = Vector3.new(22,22,22)
+Area.Anchored = true
+Area.Transparency = 1
+local h = 0
+Area.Color = Color3.fromHSV(h / 255,1,1)
+Area.Material = "ForceField"
+Area.CanCollide = false
+Area.CastShadow = false
+local Audio = Instance.new("Sound",game:GetService("SoundService"))
+local Playlist_Index = 1
+Audio.SoundId = audio_ids[Playlist_Index]
+
+Audio.DidLoop:Connect(function()
+    Playlist_Index = Playlist_Index + 1 > #audio_ids and 1 or Playlist_Index + 1 --if +1 isint going past the limit then do +1 but if it is, reset back to 1
+    Audio.SoundId = audio_ids[Playlist_Index]
+end)
+
+Audio.Volume = 0
+Audio.Looped = true
+Audio:Play()
+local targetpos1 = Vector3.new(0,0,0)
+local rx = 0
+local ry = 0
+local goob = false
+local _deb = false
+
+local AccountedFlingers = {}
+
+local function NewFlinger(plr)
+	if table.find(AccountedFlingers,plr) then return else table.insert(AccountedFlingers,plr) end
+    print("new plr")
+	local rex,rey = 0,0
+	local replicatedarea = Area:Clone()
+	replicatedarea.Parent = workspace
+	replicatedarea.Size = Vector3.new(6,6,6)
+    replicatedarea.Transparency = -0.5
+	RemoveCollider(plr.Character)
+	RemoveCollider(workspace.Vehicles:WaitForChild(plr.Name.."Car",10))
+	task.spawn(function()
+		while task.wait() do
+            local reppedpos = gethiddenproperty(plr,"CloudEditCameraCoordinateFrame").Position
+            local tweentable = {}
+            local detecteddown = reppedpos.Y < 4000
+			repeat task.wait() until plr and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart")
+			if detecteddown then
+                tweentable["Size"] = Vector3.new(6,6,6)
+                tweentable["Transparency"] = -0.5
+                tweentable["CFrame"] = CFrame.new(reppedpos) * CFrame.Angles(rx,ry,rx)
+                else
+                tweentable["Size"] = Vector3.new(3,3,3)
+                tweentable["Transparency"] = 1
+            end
+			replicatedarea.Color = Color3.fromHSV(h / 255,1,1)
+            game:GetService("TweenService"):Create(replicatedarea,TweenInfo.new(1.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),tweentable):Play()
+		end
+	end)
+end
+
+task.spawn(function()
+	while wait() do
+		for i,v in pairs(game.Players:GetPlayers()) do pcall(function()
+			if gethiddenproperty(v,"CloudEditCameraCoordinateFrame").Y ~= 0 and v ~= game.Players.LocalPlayer then --also using the script
+				NewFlinger(v)
+			end end)
+		end
+	end
+end)
+
+task.spawn(function()
+	local increment = 4
+	while task.wait() and charclone and charclone.Parent do
+		h = tonumber(h + increment > 255 and 0 or h + increment)
+		Area.Color = Color3.fromHSV(h / 255,1,math.min(1,Audio.PlaybackLoudness / 650))
+		rx = rx + Audio.PlaybackLoudness / 700
+		ry = ry + Audio.PlaybackLoudness / 600
+
+		if Holding then
+			game:GetService("TweenService"):Create(Audio,TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{Volume = 1}):Play()
+		else
+			game:GetService("TweenService"):Create(Audio,TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{Volume = 0}):Play()
+		end
+
+		local proptable = {}
+		if Holding and targetpos1.Y < 1000 then
+			proptable["Transparency"] = -0.5
+			local add = Audio.PlaybackLoudness / 300
+			proptable["Size"] = Vector3.new(5 + add,5 + add,5 + add)
+			if not goob then
+				goob = true
+				Area.CFrame = charclone.HumanoidRootPart.CFrame
+			else
+				proptable["CFrame"] = CFrame.new(targetpos1) * CFrame.Angles(math.rad(rx),math.rad(ry),math.rad(rx))
+			end
+		else
+			goob = false
+			proptable["Transparency"] = 1.05
+			proptable["Size"] = Vector3.new(1,1,1)
+		end
+
+		local touching = Area:GetTouchingParts()
+
+		if not _deb and #touching > 0 then
+			--print("ra your touchin smth")
+			for i,v in pairs(touching) do
+				if v.Velocity.Magnitude > 100 then
+					local jscontinue = false
+					for i,v1 in pairs(VictimedChars) do
+						if v:IsDescendantOf(v1) then
+							jscontinue = true
+						end
+					end
+
+					if v.Parent:FindFirstChild("Humanoid") or v.Parent.Parent:FindFirstChild("Humanoid") then
+						jscontinue = true
+						local target = v.Parent
+						if not v.Parent:FindFirstChild("Humanoid") then
+							target = v.Parent.Parent
+						end
+						NewVictim(target)
+					end
+
+					if v:IsDescendantOf(bus) then jscontinue = true end
+
+					if jscontinue then continue end
+
+					_deb = true
+					task.spawn(function()
+						task.wait(1)
+						_deb = false
+					end)
+					local s = Instance.new("Sound",game:GetService("SoundService"))
+					s.SoundId = "rbxassetid://"..tostring(hit_sound)
+					s.Volume = 1
+					s.PlaybackSpeed = Playback_Speed
+					s:Play()
+					print("hit object,",v.Parent:FindFirstChild("Humanoid"),v.Parent.Parent:FindFirstChild("Humanoid"),v.Name,v:GetFullName())
+				end
+			end
+		end
+
+		--Area.CFrame = CFrame.new(targetpos1) * CFrame.Angles(math.rad(rx),math.rad(ry),math.rad(rx))
+
+		game:GetService("TweenService"):Create(Area,TweenInfo.new(1.5,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),proptable):Play()
+
+        sethiddenproperty(game.Players.LocalPlayer,"CloudEditCameraCoordinateFrame",CFrame.new(Vector3.new(Area.Position.X,targetpos1.Y,Area.Position.Z)))
+	end
+end)
+
+local filteredseats = bus.Seats:GetChildren()
+
+local ipe
+local regen = false
+ipe = game:GetService("UserInputService").InputBegan:Connect(function(key,fotb)
+	if key.KeyCode == Enum.KeyCode.R and not fotb then
+		local h = Instance.new("Hint",workspace)
+		h.Text = "Regenerating bus..."
+		regen = true
+		game.Players.LocalPlayer.Character = ogchar
+		game.Workspace.CurrentCamera.CameraSubject = charclone.Humanoid
+		task.spawn(function()
+			while ogchar.HumanoidRootPart.CFrame.Position.Y > 300 and not isnetworkowner(ogchar.HumanoidRootPart) do
+				print(isnetworkowner(ogchar.HumanoidRootPart),ogchar.HumanoidRootPart.CFrame.Position)
+				game.Players.LocalPlayer.Character.Humanoid.Sit = false
+				game.Players.LocalPlayer.Character.Humanoid.Jump = true
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1088.09827, 2.84810328, 1427.07935)
+				task.wait()
+			end
+		end)
+		repeat wait() game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0) game.Players.LocalPlayer.Character.HumanoidRootPart.RotVelocity = Vector3.new(0,0,0) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1088.09827, 2.84810328, 1427.07935) game.Players.LocalPlayer.Character.Humanoid.Jump = true game.Players.LocalPlayer.Character.Humanoid.Sit = false print(isnetworkowner(ogchar.HumanoidRootPart),ogchar.HumanoidRootPart.CFrame.Position) until ogchar.HumanoidRootPart.CFrame.Position.Y < 300
+		wait(.25)
+		repeat a1,a2,tabl = game:GetService("ReplicatedStorage").Remotes.SpawnVehicle:InvokeServer("SchoolBus") wait() wait() print(a1,a2,ogchar.Name,ogchar.Humanoid.Jump,ogchar.Humanoid.Sit) ogchar.Humanoid.Jump = true game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1088.09827, 2.84810328, 1427.07935, 0.918002844, 3.41280817e-08, -0.396573812, -8.36623393e-09, 1, 6.66908804e-08, 0.396573812, -5.7904586e-08, 0.918002844) ogchar.Humanoid.Sit = false until a1
+		--print(a1,a2,tabl)
+		wait() wait()
+		bus = workspace.Vehicles:WaitForChild(game.Players.LocalPlayer.Name.."Car",10)
+		print(bus.Seats.VehicleSeat.CFrame)
+		print(ogchar.Humanoid.Sit)
+		RemoveCollider(bus)
+		h.Text = "Forcing network over bus..."
+		Sit(bus.Seats.VehicleSeat)
+		print(ogchar.Humanoid.Sit)
+		h.Text = "Bus regenerated!"
+		game.Players.LocalPlayer.Character = charclone
+		game.Workspace.CurrentCamera.CameraSubject = charclone.Humanoid
+		regen = false
+		task.wait(3)
+		h:Destroy()
+	end
+end)
+
+for i,v in pairs(filteredseats) do
+	if v.Name ~= "Passenger" or v.Name ~= "PassengerBaby" then
+		table.remove(filteredseats,i)
+	end
+end
+
+local uhhidkjustatable = {}
+for i,v in pairs(filteredseats) do
+	table.insert(uhhidkjustatable,nil)
+end
+
+local function GetOccupant(seat)
+	--for i,v in pairs(game.Players:GetPlayers()) do
+	--	if v and v.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and isnetworkowner(v.Character.HumanoidRootPart) and v ~= game.Players.LocalPlayer then
+	--		return v.Character.Humanoid
+	--	end
+	--end
+
+	return seat.Occupant
+end
+
+task.spawn(function()
+	while wait() do
+		for i,v in pairs(filteredseats) do
+			if GetOccupant(v) ~= nil then
+				if uhhidkjustatable[i] == nil then
+					uhhidkjustatable[i] = GetOccupant(v).Parent
+					task.spawn(function() NewVictim(uhhidkjustatable[i]) end)
+				end
+			elseif uhhidkjustatable[i] ~= nil then
+				uhhidkjustatable[i] = nil
+			end
+		end
+
+		--print(string.rep("\n",1000))
+		--print("gurt: "..#uhhidkjustatable)
+		for i,v in pairs(uhhidkjustatable) do
+			print("Victim:",v ~= nil)
+		end
+	end
+end)
+
+game.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
+	Holding = true
+end)
+
+game.Players.LocalPlayer:GetMouse().Button1Up:Connect(function()
+	Holding = false
+end)
+
+while ogchar and ogchar.Parent and ogchar:FindFirstChild("Head") and charclone and charclone.Parent do
+	if regen then
+		repeat task.wait() until not regen
+	end
+	if bus == nil then
+		repeat task.wait() until bus ~= nil
+	end
+	if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+		game.Players.LocalPlayer.Character = ogchar
+		charclone:Destroy()
+		ogchar.Head:Destroy()
+		ogchar.Humanoid.Health = 0
+		break
+	end
+	task.wait()
+	ogchar.HumanoidRootPart.RotVelocity = Vector3.new(0,10e10,0)--Vector3.new(math.random(-10000,10000),math.random(-10000,10000),math.random(-10000,10000))
+	ogchar.HumanoidRootPart.Velocity = Vector3.new(111,111,111)--Vector3.new(math.random(-1000,1000),math.random(-1000,1000),math.random(-1000,1000))
+	local ray = GetMouseHitExclude({bus,ogchar,Area})
+	local targetpos = charclone.HumanoidRootPart.Position + Vector3.new(0,8e8,9e9)
+	local actualtargetpos = targetpos
+	if ray and ray.Position and Holding then
+		actualtargetpos = ray.Position
+		targetpos = ray.Position -- (targetseat.Position - ogchar.HumanoidRootPart.CFrame.Position)
+	end
+	targetpos1 = actualtargetpos
+	ogchar.HumanoidRootPart.CFrame = CFrame.new(targetpos + Vector3.new(math.random(-1,1),math.random(-2,6),math.random(-1,1))) * CFrame.Angles(0,math.rad(math.random(-360,360)),0)
+end
+ipe:Disconnect()
