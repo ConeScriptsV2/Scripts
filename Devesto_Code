@@ -1,0 +1,105 @@
+local Move = false
+local CurrentAnim = "Idle"
+local CapturedAnim = CurrentAnim
+local Callback = _G.Devesto_Callback
+
+_G.Devesto_Callback = nil
+
+task.spawn(function()
+	while task.wait() do
+		if script.Parent.HumanoidRootPart.Anchored then
+			repeat task.wait() until not script.Parent.HumanoidRootPart.Anchored
+		end
+		if script.Parent.Humanoid.MoveDirection.Magnitude > 0 then
+			CurrentAnim = "Walk"
+			Move = true
+		else
+			CurrentAnim = "Idle"
+			Move = false
+		end
+	end
+end)
+
+local TargetRig = script.Parent
+local AnimPack = {}
+
+for i,v in pairs(TargetRig.C1_Animations:GetChildren()) do
+	AnimPack[v.Name] = v.Value
+end
+
+local Args = {
+	TargetRig.HumanoidRootPart.RootJoint,
+	TargetRig.Torso.Neck,
+	TargetRig.Torso["Left Shoulder"],
+	TargetRig.Torso["Right Shoulder"],
+	TargetRig.Torso["Left Hip"],
+	TargetRig.Torso["Right Hip"],
+}
+
+local function StrToCF(str)
+	return CFrame.new(tonumber(str:split(",")[1]),tonumber(str:split(",")[2]),tonumber(str:split(",")[3]),tonumber(str:split(",")[4]),tonumber(str:split(",")[5]),tonumber(str:split(",")[6]),tonumber(str:split(",")[7]),tonumber(str:split(",")[8]),tonumber(str:split(",")[9]),tonumber(str:split(",")[10]),tonumber(str:split(",")[11]),tonumber(str:split(",")[12]))
+end
+
+local cd_time = 20
+local lasttick = 0
+
+game:GetService("UserInputService").InputBegan:Connect(function(key,fotb)
+	if not fotb and key.KeyCode == Enum.KeyCode.Q then
+		if tick() - lasttick > cd_time then
+			lasttick = tick()
+			TargetRig.HumanoidRootPart.Anchored = true
+			CurrentAnim = "Dropbox"
+			task.wait(2.617)
+			TargetRig.HumanoidRootPart.Anchored = false
+		end
+	end
+end)
+
+task.spawn(function()
+	script.Parent.Btools.CFrame = CFrame.new(script.Parent["Right Arm"].F3XAttachment.WorldCFrame.Position)
+	local x,y = 0,0
+	while task.wait() do
+		script.Parent.Btools.CFrame = CFrame.new(script.Parent["Right Arm"].F3XAttachment.WorldCFrame.Position)
+		game:GetService("TweenService"):Create(script.Parent.Btools,TweenInfo.new(1,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{CFrame = CFrame.new(script.Parent["Right Arm"].F3XAttachment.CFrame.Position) * CFrame.Angles(math.rad(x),math.rad(y),math.rad(0))}):Play()
+		x,y = x + 3.5,y + 3.5
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		CapturedAnim = CurrentAnim
+
+		--if CapturedAnim == "Idle" and Mode == 3 then
+		--	CapturedAnim = "Idle_M3"
+		--end
+		--if CapturedAnim == "Walk" and Mode == 3 then
+		--	CapturedAnim = "Walk_M3"
+		--end
+
+		for xi,xv in pairs(AnimPack[CapturedAnim]:split("*")) do
+			--print(CapturedAnim,CurrentAnim)
+			if CapturedAnim == CurrentAnim then
+				for i,v in pairs(xv:split("[")) do
+					if i > 6 then else
+						if CapturedAnim == CurrentAnim then
+							--print(cframelist[Args[i]])
+							Args[i].C1 = StrToCF(v)
+							--cframelist[Args[i]] = StrToCF(v)
+						else
+							break
+						end
+					end
+				end
+			else
+				break
+			end
+			local BeSlower = false
+			
+			if CurrentAnim == "Idle" then
+				BeSlower = true
+			end
+			
+			task.wait(not BeSlower and 0.04 or 0.065)
+		end
+	end
+end)
