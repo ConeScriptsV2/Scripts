@@ -59,7 +59,10 @@ task.spawn(function()
 	script.Parent.Btools.CFrame = CFrame.new(script.Parent["Right Arm"].F3XAttachment.WorldCFrame.Position)
 	local x,y = 0,0
 	while task.wait() do
-		script.Parent.Btools.CFrame = CFrame.new(script.Parent["Right Arm"].F3XAttachment.WorldCFrame.Position)
+		script.Parent.Btools.CFrame = script.Parent["Right Arm"].F3XAttachment.WorldCFrame
+		script.Parent.Btools.Velocity = Vector3.new(0,0,0)
+		script.Parent.Btools.RotVelocity = Vector3.new(0,0,0)
+		script.Parent.Btools.Anchored = true
 		game:GetService("TweenService"):Create(script.Parent.Btools,TweenInfo.new(1,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0),{CFrame = CFrame.new(script.Parent["Right Arm"].F3XAttachment.CFrame.Position) * CFrame.Angles(math.rad(x),math.rad(y),math.rad(0))}):Play()
 		x,y = x + 3.5,y + 3.5
 	end
