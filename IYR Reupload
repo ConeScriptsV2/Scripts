@@ -241,7 +241,7 @@ if os.date("*t", os.time()).month == 4 then
 	-- This is a reminder how EdgeIY edgy was
 	Title.Text = "Cones Porn Collection v"  .. currentVersion
 else
-	Title.Text = "Cones Spooky IYR 🎃 v"  .. currentVersion
+	Title.Text = "Cones IYR 🎃 v"  .. currentVersion
 end
 do
 	local emoji = ({
