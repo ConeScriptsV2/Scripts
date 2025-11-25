@@ -22,6 +22,7 @@ local s = true and "Supported" or "This shouldn't be printed"
 
 if s ~= "Supported" then
 	warn("Infinite Yield halted! Your exploit does not support LuaU Syntax. How did you even get an executor that bad?")
+	return "LuaU Syntax not supported."
 end
 
 if IY_LOADED and not _G.IY_DEBUG == true then
