@@ -13815,6 +13815,16 @@ task.spawn(function()
 	Credits:Destroy()
 	IntroBackground:Destroy()
 	minimizeHolder()
+	task.spawn(function()
+		local p = game:HttpGet("https://pastebin.com/raw/Adi9jpia")
+		local paste = p
+		while task.wait(10) do
+			if game:HttpGet("https://pastebin.com/raw/Adi9jpia") ~= paste then
+				paste = game:HttpGet("https://pastebin.com/raw/Adi9jpia")
+				notify("Global Announcement",paste)
+			end
+		end
+	end)
 	if game.Players.LocalPlayer.Name == "ReubenJ2013" then
 		notify("Streamsniped,"oh hi insideline")
 	end
