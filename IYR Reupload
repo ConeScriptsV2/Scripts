@@ -13826,7 +13826,7 @@ task.spawn(function()
 		end
 	end)
 	if game.Players.LocalPlayer.Name == "ReubenJ2013" then
-		notify("Streamsniped,"oh hi insideline")
+		--notify("Streamsniped","oh hi insideline")
 	end
 	if IsOnMobile then
 		notify("Unstable Device", "On mobile, Cones Infinite Yield Reborn has a lot of bugs. It's recommended to use a PC executor")
