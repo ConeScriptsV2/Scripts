@@ -1,0 +1,441 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+
+
+
+local Window = Rayfield:CreateWindow({
+	Name = "Cones Psychotic Menu",
+	Icon = 92748817575316, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+	LoadingTitle = "Cones Psychotic Menu Loading!",
+	LoadingSubtitle = "Made by ConeFurry with love <3",
+	ShowText = "Menu", -- for mobile users to unhide Rayfield, change if you'd like
+	Theme = "Ocean", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+	ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+
+	DisableRayfieldPrompts = true,
+	DisableBuildWarnings = false, -- Prevents Rayfield from emitting warnings when the script has a version mismatch with the interface.
+
+	-- ScriptID = "sid_xxxxxxxxxxxx", -- Your Script ID from developer.sirius.menu — enables analytics, managed keys, and script hosting
+
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "PsychoticMenu"
+	},
+
+	Discord = {
+		Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+		Invite = "noinvitelink", -- The Discord invite code, do not include Discord.gg/. E.g. Discord.gg/ABCD would be ABCD
+		RememberJoins = true -- Set this to false to make them join the Discord every time they load it up
+	},
+
+	KeySystem = false, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Untitled",
+		Subtitle = "Key System",
+		Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+		FileName = "Key", -- It is recommended to use something unique, as other scripts using Rayfield may overwrite your key file
+		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = {"Hello"} -- List of keys that the system will accept, can be RAW file links (pastebin, github, etc.) or simple strings ("hello", "key22")
+	}
+})
+
+local function ResolvePlayer(input)
+	local linput = input:lower()
+	if linput == "all" then return game.Players:GetPlayers() elseif linput == "others" then
+		local t = game.Players:GetPlayers()
+		table.remove(t,table.find(t,game.Players.LocalPlayer))
+		return t
+	end
+
+	for i,v in pairs(game.Players:GetPlayers()) do
+		if v.Name:lower():match(linput) or v.DisplayName:lower():match(linput) then
+			return {v}
+		end
+	end
+end
+
+local function DescribeButton(title,desc,icon)
+	Rayfield:Notify({
+		Title = title,
+		Content = desc,
+		Duration = 3,
+		Image = icon,
+	})
+end
+local function DescribeToggle(title,desc,val)
+	Rayfield:Notify({
+		Title = title,
+		Content = desc,
+		Duration = 3,
+		Image = val and "square-check" or "square-x",
+	})
+end
+
+local Tab = Window:CreateTab("Quick Actions", "zap") -- Title, Image
+local CHS = Window:CreateTab("Chairsploit", "armchair") -- Title, Image
+
+local Target = ""
+
+Tab:CreateInput({
+	Name = "Target Player",
+	CurrentValue = "",
+	PlaceholderText = "Enter a display/user.",
+	RemoveTextAfterFocusLost = false,
+	Flag = "TargetPlr",
+	Callback = function(text)
+		Target = text
+	end,
+})
+
+local Target1 = ""
+
+CHS:CreateInput({
+	Name = "Target Player",
+	CurrentValue = "",
+	PlaceholderText = "Enter a display/user.",
+	RemoveTextAfterFocusLost = false,
+	Flag = "TargetPlr",
+	Callback = function(text)
+		Target1 = text
+	end,
+})
+local Spared = ""
+
+CHS:CreateInput({
+	Name = "Spared Users",
+	CurrentValue = "",
+	PlaceholderText = "Enter a display/user like,this",
+	RemoveTextAfterFocusLost = false,
+	Flag = "SparePlrs",
+	Callback = function(text)
+		Spared = text
+	end,
+})
+
+local CollectedChairs = {}
+
+task.spawn(function()
+	while wait() do
+		for i,v in pairs(CollectedChairs) do
+			if v["Chair"] and v["Chair"].Parent and isnetworkowner(v["Chair"]) then else
+				table.remove(CollectedChairs,i)
+			end
+		end
+	end
+end)
+
+local OC
+OC = CHS:CreateButton({
+	Name = "Collect Chairs",
+	Callback = function()
+		DescribeButton("Collect Chairs","Collects all chairs throwed.","archive-restore")
+		local GotAny = false
+		for i,v in pairs(game.Workspace.props:GetChildren()) do
+			if v:IsA("MeshPart") and v.Name == "Chair 2" and isnetworkowner(v) then
+				for i,v1 in pairs(CollectedChairs) do
+					if v1.Chair == v then
+						continue --skip
+					end
+				end
+				GotAny = true
+				local tbl = {
+					Chair = v,
+					InUse = false,
+					TargetCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame - Vector3.new(0,37,0)
+				}
+				table.insert(CollectedChairs,tbl)
+				task.spawn(function()
+					local s = v.Size
+					v.Size = Vector3.new(.5,.5,.5)
+					while task.wait() and table.find(CollectedChairs,tbl) do
+						v.CFrame = tbl.TargetCFrame
+						v.Velocity = Vector3.new(5e5,5e5,5e5)
+					end
+					v.Size = s
+				end)
+			end
+		end
+
+		if GotAny then
+			Rayfield:Notify({
+				Title = "Success!",
+				Content = "Stored your chair(s) in storage.",
+				Duration = 4,
+				Image = "check",
+			})
+		else
+			Rayfield:Notify({
+				Title = "Error",
+				Content = "You dont own any throwed chairs.",
+				Duration = 4,
+				Image = "x",
+			})
+		end
+	end
+})
+
+local CKV = false
+
+local SparedPlayers = {}
+
+task.spawn(function()
+	while wait(.5) do
+		task.spawn(function()
+			local spl = string.split(Spared,",")
+			local resolved = {}
+			for i,v in pairs(spl) do
+				local plr = ResolvePlayer(v)
+				--print(v)
+				if plr then table.insert(resolved,plr[1]) end
+			end
+			SparedPlayers = table.clone(resolved)
+		end)
+	end	
+end)
+
+game.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
+	if not CKV then return end
+	local t = game.Players.LocalPlayer:GetMouse().Target
+	local plr
+	if game.Players:GetPlayerFromCharacter(t.Parent) then
+		plr = game.Players:GetPlayerFromCharacter(t.Parent)
+	elseif game.Players:GetPlayerFromCharacter(t.Parent.Parent) then
+		plr = game.Players:GetPlayerFromCharacter(t.Parent.Parent)
+	end
+	
+	if not plr then
+		return
+	end
+	if #CollectedChairs > 0 then
+		for i,v in pairs({plr}) do
+			if v and v.Character and v.Character.Humanoid.Health > 0 then
+				--while v.Character.Humanoid.Health > 0 and task.wait() do
+				while CollectedChairs[((i-1)%#CollectedChairs)+1].InUse do
+					wait()
+				end
+				--task.spawn(function()
+					--while wait(2) and v.Character.Humanoid.Health > 0 do
+						CollectedChairs[((i-1)%#CollectedChairs)+1].InUse = true
+						CollectedChairs[((i-1)%#CollectedChairs)+1].TargetCFrame = CFrame.new(v.Character.HumanoidRootPart.Position)
+						--end
+						wait() wait() --touchinterest handles it
+						CollectedChairs[((i-1)%#CollectedChairs)+1].TargetCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame - Vector3.new(0,37,0)
+						CollectedChairs[((i-1)%#CollectedChairs)+1].InUse = false
+					--end
+				--end)
+				task.spawn(function()
+					while v.Character.Humanoid.Health > 0 and wait() do end
+					Rayfield:Notify({
+						Title = "Success",
+						Content = "Killed player "..v.DisplayName..".",
+						Duration = 4,
+						Image = "check",
+					})
+				end)
+			end
+		end
+	else
+		Rayfield:Notify({
+			Title = "Error",
+			Content = "You dont have any chairs stored.",
+			Duration = 4,
+			Image = "x",
+		})
+	end
+end)
+
+local CK = CHS:CreateToggle({
+	Name = "Click Kill",
+	Callback = function(val)
+		DescribeToggle("Click Kill","Use collected chairs to click kill the target.",val)
+		CKV = val
+	end,
+})
+
+local KP
+KP = CHS:CreateButton({
+	Name = "Insta-kill Target",
+	Callback = function()
+		DescribeButton("Insta-kill Target","Use collected chairs to instantly kill the target.","zap")
+		local Plr = ResolvePlayer(Target1)
+		if Plr == nil then
+			Rayfield:Notify({
+				Title = "Error",
+				Content = "No player found.",
+				Duration = 4,
+				Image = "x",
+			})
+			return
+		end
+		if #CollectedChairs > 0 then
+			for i,v in pairs(Plr) do
+				if v and v.Character and v.Character.Humanoid.Health > 0 and not table.find(SparedPlayers,v) then
+					--while v.Character.Humanoid.Health > 0 and task.wait() do
+					while CollectedChairs[((i-1)%#CollectedChairs)+1].InUse do
+						wait()
+					end
+					CollectedChairs[((i-1)%#CollectedChairs)+1].InUse = true
+					CollectedChairs[((i-1)%#CollectedChairs)+1].TargetCFrame = CFrame.new(v.Character.HumanoidRootPart.Position)
+					--end
+					wait() wait() wait() --touchinterest handles it
+					CollectedChairs[((i-1)%#CollectedChairs)+1].TargetCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame - Vector3.new(0,37,0)
+					CollectedChairs[((i-1)%#CollectedChairs)+1].InUse = false
+					task.spawn(function()
+						while v.Character.Humanoid.Health > 0 and wait() do end
+						Rayfield:Notify({
+							Title = "Success",
+							Content = "Killed player "..v.DisplayName..".",
+							Duration = 4,
+							Image = "check",
+						})
+					end)
+				end
+			end
+		else
+			Rayfield:Notify({
+				Title = "Error",
+				Content = "You dont have any chairs stored.",
+				Duration = 4,
+				Image = "x",
+			})
+		end
+	end
+})
+
+local Label = CHS:CreateLabel("Chairs Collected: "..#CollectedChairs, "armchair")
+
+task.spawn(function()
+	while task.wait(0.5) do
+		Label:Set("Chairs Collected: "..#CollectedChairs, "armchair")
+	end
+end)
+
+local AS
+AS = Tab:CreateButton({
+	Name = "Airstrike Target",
+	Callback = function()
+		DescribeButton("Airstrike Target","Works by using the IED, Spawn the IED first.","bomb")
+		local Plr = ResolvePlayer(Target)
+		if Plr == nil then
+			Rayfield:Notify({
+				Title = "Error",
+				Content = "No player found.",
+				Duration = 4,
+				Image = "x",
+			})
+			return
+		end
+		local hasit = false
+		for i,v in pairs(game.Workspace.props:GetChildren()) do
+			if v:IsA("MeshPart") and isnetworkowner(v) and v.Name == "IED" then
+				hasit = true
+				task.spawn(function()
+					task.wait(2.5)
+					local t = tick()
+					while tick() - t < 3 do
+						wait()
+						v.CFrame = Plr[1].Character.HumanoidRootPart.CFrame
+					end
+				end)
+			end
+		end
+		
+		if not hasit then
+			Rayfield:Notify({
+				Title = "Warning",
+				Content = "Failsafe Triggered. You dont own any IED's.",
+				Duration = 5,
+				Image = "triangle-alert",
+			})
+			return
+		end
+
+		local args = {
+			"M1",
+			game.Players.LocalPlayer:GetMouse().Hit
+		}
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("IED"):WaitForChild("input"):FireServer(unpack(args))
+		wait(.1)
+		local args = {
+			"M1up",
+			game.Players.LocalPlayer:GetMouse().Hit
+		}
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("IED"):WaitForChild("input"):FireServer(unpack(args))
+		task.wait(5.5)
+		if Plr[1].Character.Humanoid.Health == 0 then
+			Rayfield:Notify({
+				Title = "Success!",
+				Content = "Player died from the airstrike.",
+				Duration = 4,
+				Image = "check",
+			})
+		else
+			Rayfield:Notify({
+				Title = "Fail",
+				Content = "Player did not die from the airstrike.",
+				Duration = 4,
+				Image = "x",
+			})
+		end
+	end
+})
+
+local IRV = false 
+
+local IR
+IR = Tab:CreateToggle({
+	Name = "Insta-respawn",
+	Callback = function(val)
+		DescribeToggle("Insta-respawn","Respawns automatically faster upon dying.",val)
+		IRV = val
+	end
+})
+
+game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+	if IRV then
+		task.wait(1)
+		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Respawn"):FireServer()
+	end
+end)
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+	char:WaitForChild("Humanoid").Died:Connect(function()
+		if IRV then
+			task.wait(1)
+			game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Respawn"):FireServer()
+		end
+	end)
+end)
+
+--local GE
+--GE = Tab:CreateButton({
+--	Name = "Get Escapee",
+--	Callback = function()
+--		DescribeButton(GE.Name,"Automatically gets escapee if qualified.")
+--		local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
+--		local normalizevel = false
+--		task.spawn(function()
+--			while normalizevel do
+--				wait()
+--				hrp.Velocity = Vector3.zero
+--				hrp.RotVelocity = Vector3.zero
+--			end
+--		end)
+
+--		game:GetService("TweenService"):Create(hrp,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0),{CFrame = CFrame.new(-107, 3.5, 51)}):Play()
+--		task.wait(1)
+--		game:GetService("TweenService"):Create(hrp,TweenInfo.new(.25,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0),{CFrame = CFrame.new(-133, 3, 46)}):Play()
+--		task.wait(.25)
+--		game:GetService("TweenService"):Create(hrp,TweenInfo.new(2.2,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0),{CFrame = CFrame.new(-150, 4, -234)}):Play()
+--		task.wait(2.2)
+--		game:GetService("TweenService"):Create(hrp,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0),{CFrame = CFrame.new(-286, 4.5, -267)}):Play()
+--		task.wait(1)
+--		game:GetService("TweenService"):Create(hrp,TweenInfo.new(2.5,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0),{CFrame = CFrame.new(-320.1, 6.4, -493.8)}):Play()
+--	end,
+--})
+
+
+Rayfield:LoadConfiguration()
